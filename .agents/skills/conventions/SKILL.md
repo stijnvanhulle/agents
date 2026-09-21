@@ -29,5 +29,5 @@ Read the file that matches what you are doing:
 - [`rules/user-questions.md`](./rules/user-questions.md) to load the `ask` skill when a task is
   blocked on information only the user can supply.
 
-If a rule conflicts with a project-specific instruction in `AGENTS.md` or
-`CLAUDE.md`, the project instruction wins.
+If a rule conflicts with a project-specific instruction in `AGENTS.md`, the
+project instruction wins.

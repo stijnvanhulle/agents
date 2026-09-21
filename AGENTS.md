@@ -5,7 +5,7 @@ This repository distributes shared AI development workflows for Claude Code, Cur
 ## Architecture
 
 - `.agents/skills/` is the canonical source for skills and convention rules.
-- `tools/claude/` packages Claude commands, a subagent, output styles, and shared skills.
+- `tools/claude/` packages Claude commands, a subagent, output styles, convention rules, and shared skills.
 - `tools/cursor/` packages Cursor commands, rules, a subagent, and shared skills.
 - `tools/codex/` packages Codex prompts and shared skills.
 - Root marketplace manifests expose the provider packages.
@@ -13,8 +13,8 @@ This repository distributes shared AI development workflows for Claude Code, Cur
 - `scripts/syncPluginVersion.mjs` copies Changesets versions into plugin manifests.
 - `scripts/tagRelease.mjs` creates one `agents@X.Y.Z` git tag from those versions.
 
-`AGENT.md` and `CLAUDE.md` symlink to this file. The `.claude/` and `.cursor/` directories
-symlink to the same content for local dogfooding.
+`AGENT.md` symlinks to this file. The `.claude/` and `.cursor/` directories symlink to the
+same content for local dogfooding.
 
 ## Commands
 

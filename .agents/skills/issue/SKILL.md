@@ -10,7 +10,7 @@ description: Create or triage a GitHub or Jira issue with its type, labels, and 
 | Tracker | When | Template |
 | --- | --- | --- |
 | GitHub | The repo has a GitHub remote and the branch carries no project key | `templates/github-bug.md`, `templates/github-feature.md` |
-| Jira | The branch name or `CLAUDE.md` carries a project key such as `KEY-123` | `templates/jira-story.md`, `templates/jira-bug.md`, `templates/jira-epic.md` |
+| Jira | The branch name or `AGENTS.md` carries a project key such as `KEY-123` | `templates/jira-story.md`, `templates/jira-bug.md`, `templates/jira-epic.md` |
 
 When unclear, use `ask`: GitHub or Jira. Do not guess.
 
