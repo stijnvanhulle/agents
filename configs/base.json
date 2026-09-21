@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "display": "Base",
+  "compilerOptions": {
+    /* Base Options: */
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "target": "ES2024",
+    "lib": ["ES2024", "ES2025.Collection", "ES2025.Iterator", "ESNext.Array"],
+    "verbatimModuleSyntax": true,
+    "allowJs": true,
+    "resolveJsonModule": true,
+    "moduleDetection": "force",
+    /* Strictness (strict: true implies the strict-family flags) */
+    "strict": true,
+    "noUncheckedIndexedAccess": true,
+    "exactOptionalPropertyTypes": true,
+    "noImplicitOverride": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "noPropertyAccessFromIndexSignature": true,
+    "noUncheckedSideEffectImports": true,
+    "allowUnreachableCode": false,
+    "allowUnusedLabels": false,
+    /* If transpiling with TypeScript: */
+    "moduleResolution": "NodeNext",
+    "module": "NodeNext",
+    "paths": {
+      "#mocks": ["../internals/utils/src/mocks.ts"],
+      "@internals/utils": ["../internals/utils/src/index.ts"],
+      "@stijnvanhulle/template-core": ["../packages/core/src/index.ts"],
+      "@stijnvanhulle/template-demo": ["../packages/demo/src/index.ts"]
+    },
+    "outDir": "dist",
+    "sourceMap": true,
+    "declaration": true,
+    "declarationMap": true,
+    "noEmit": true,
+    "allowImportingTsExtensions": true,
+    "noErrorTruncation": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "types": ["bun-types"]
+  },
+  "exclude": ["**/node_modules", "**/types/**"]
+}

@@ -1,0 +1,24 @@
+{
+  "$schema": "https://unpkg.com/@changesets/config@4.0.0/schema.json",
+  "changelog": [
+    "@changesets/changelog-github",
+    {
+      "repo": "stijnvanhulle/template"
+    }
+  ],
+  "commit": false,
+  "fixed": [["@stijnvanhulle/template-*"]],
+  "linked": [],
+  "access": "restricted",
+  "baseBranch": "main",
+  "format": "oxfmt",
+  "updateInternalDependencies": "patch",
+  "___experimentalUnsafeOptions_WILL_CHANGE_IN_PATCH": {
+    "onlyUpdatePeerDependentsWhenOutOfRange": true
+  },
+  "ignore": ["@internals/*"],
+  "privatePackages": {
+    "version": true,
+    "tag": false
+  }
+}

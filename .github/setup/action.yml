@@ -1,0 +1,61 @@
+name: Setup
+description: Sets up pnpm, Node, dependencies, and (optionally) a Turbo cache.
+
+# NOTE: local composite actions cannot call other actions that use a `pre:`
+# lifecycle hook (e.g. step-security/harden-runner,
+# rharkor/caching-for-turbo). If you want runner hardening or a network
+# Turbo cache, add those actions directly in your workflow, BEFORE this
+# composite is invoked.
+
+inputs:
+  node-version:
+    description: 'Node.js version to use (e.g., 22, 24, or 22.x)'
+    required: true
+  cache:
+    description: 'Local Turbo cache: "turbo" (default) restores/saves node_modules/.cache/turbo; "false" skips it.'
+    required: false
+    default: 'turbo'
+
+runs:
+  using: composite
+  steps:
+    - name: Setup pnpm
+      uses: pnpm/action-setup@0977fd99725f1db4007ccb2928dbb4e90d06cc86 # v6
+
+    - name: Setup Node.js
+      uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7
+      with:
+        node-version: ${{ inputs.node-version }}
+        registry-url: 'https://registry.npmjs.org'
+        cache: 'pnpm'
+
+    - name: Setup git user
+      shell: bash
+      run: |
+        git config --global user.email "github-actions[bot]@users.noreply.github.com"
+        git config --global user.name "github-actions[bot]"
+
+    - name: Install safe-chain
+      shell: bash
+      run: |
+        curl -fsSL https://github.com/AikidoSec/safe-chain/releases/download/1.5.20/install-safe-chain.sh -o /tmp/install-safe-chain.sh
+        echo "0ad25efe15d1fa56105157a454d647223e78eb0c53d1f85e3d10afcd722e7bfd  /tmp/install-safe-chain.sh" | sha256sum -c -
+        sh /tmp/install-safe-chain.sh --ci
+        rm /tmp/install-safe-chain.sh
+        echo "SAFE_CHAIN_MINIMUM_PACKAGE_AGE_HOURS=48" >> "$GITHUB_ENV"
+        echo "SAFE_CHAIN_MINIMUM_PACKAGE_AGE_EXCLUSIONS=kubb,@kubb/*,unplugin-kubb" >> "$GITHUB_ENV"
+
+    - name: Install dependencies
+      shell: bash
+      run: pnpm install --frozen-lockfile --prefer-offline
+
+    # Cache scope is namespaced by ref so a poisoned PR cache cannot be
+    # restored by a main-branch run. See https://neciudan.dev/github-actions-poisoning
+    - name: Cache Turbo
+      if: ${{ inputs.cache == 'turbo' }}
+      uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6
+      with:
+        path: node_modules/.cache/turbo
+        key: ${{ runner.os }}-turbo-${{ github.event.repository.name }}-${{ github.ref_name }}-${{ github.sha }}
+        restore-keys: |
+          ${{ runner.os }}-turbo-${{ github.event.repository.name }}-${{ github.ref_name }}-
