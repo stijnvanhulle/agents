@@ -21,7 +21,7 @@ only for the current checkout.
 - `/create-changeset`
 - `/create-issue`
 - `/create-pr`
-- Shared skills and convention rules
+- Shared skills and convention rules (always-on `rules/` in this package)
 - `code-reviewer` subagent
 - `house`, `plan`, and `diagrams-first` output styles
 

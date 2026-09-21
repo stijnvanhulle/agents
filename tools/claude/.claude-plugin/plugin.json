@@ -11,5 +11,12 @@
   "homepage": "https://github.com/stijnvanhulle/agents",
   "repository": "https://github.com/stijnvanhulle/agents",
   "license": "MIT",
-  "keywords": ["typescript", "monorepo", "changesets", "skills", "conventions"]
+  "keywords": [
+    "typescript",
+    "monorepo",
+    "changesets",
+    "skills",
+    "conventions"
+  ],
+  "rules": "./rules/"
 }
