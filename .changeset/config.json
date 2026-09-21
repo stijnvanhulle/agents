@@ -7,13 +7,7 @@
     }
   ],
   "commit": false,
-  "fixed": [
-    [
-      "@stijnvanhulle/claude-plugin",
-      "@stijnvanhulle/cursor-plugin",
-      "@stijnvanhulle/codex-plugin"
-    ]
-  ],
+  "fixed": [["@stijnvanhulle/*"]],
   "linked": [],
   "access": "restricted",
   "baseBranch": "main",
