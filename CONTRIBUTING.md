@@ -1,114 +1,34 @@
 # Contributing
 
-Thanks for considering a contribution. A few ways to get involved:
-
-- Found a bug? File it in the [issue tracker](https://github.com/stijnvanhulle/template/issues).
-- Have an idea? [Open an issue](https://github.com/stijnvanhulle/template/issues/new) to share it.
-
-Please read and follow our [Code of Conduct](./CODE_OF_CONDUCT.md). Be respectful and open-minded, search the [issue tracker](https://github.com/stijnvanhulle/template/issues) before opening a PR, and for opinion-driven changes open an issue first.
-
-## Prerequisites
-
-- Node.js 22 or newer
-- pnpm 11 or newer. The repo pins a version in `packageManager`, so the easiest way to match it is `corepack enable` and let Corepack pick the right pnpm
-- Git
-
-## Getting started
-
-Fork the repo, then clone your fork and install:
+## Setup
 
 ```bash
-gh repo fork stijnvanhulle/template --clone   # or: git clone https://github.com/stijnvanhulle/template.git
-cd template
+git clone https://github.com/stijnvanhulle/agents.git
+cd agents
 pnpm install
-pnpm build
+pnpm agent-files
 ```
 
-`pnpm build` compiles every package with tsdown. Run it once after install so local packages resolve each other, and again after you change package source.
+Node.js 22 and pnpm 12 or newer are required.
 
-## What is inside this repo
+## Sources
 
-```
-.
-├── packages/            # Publishable packages (core, demo)
-├── internals/           # Internal, non-published packages (utils)
-├── configs/             # Shared TypeScript bases and Vitest config
-├── tools/claude/        # Claude Code plugin (commands, code-reviewer agent, output styles); skills symlink to .agents/skills
-├── tools/cursor/        # Cursor plugin (rules, commands, agent); skills symlink to .agents/skills
-├── tools/codex/         # Codex plugin (prompts symlink to Claude commands); skills symlink to .agents/skills
-├── .changeset/          # Changeset configuration
-├── .agents/skills/      # Canonical cross-provider agent skills, shared by every plugin
-├── .claude/             # Claude rules, commands, agents, output styles, hooks
-├── .cursor/             # Cursor rules, commands, agents, skills (symlinked into tools/cursor)
-└── .github/             # Issue templates, setup action, CI workflows
-```
+- Add or change shared skills under `.agents/skills/`.
+- Keep Claude commands under `tools/claude/commands/`.
+- Mirror command behavior in `tools/cursor/commands/`.
+- Keep Cursor rule copies under `tools/cursor/rules/` aligned with
+  `.agents/skills/conventions/rules/`.
+- Do not edit plugin manifest versions manually.
 
-Publishable code lives in `packages/`, internal helpers that never ship live in `internals/`, and shared build and test config lives in `configs/`. A Turborepo pipeline orchestrates build, test, lint, and typecheck across the workspace.
+Run `pnpm agent-files` before opening a pull request.
 
-## Tech stack
+## Changesets
 
-| Tool | Purpose |
-|---|---|
-| [TypeScript](https://www.typescriptlang.org/) | Primary language (strict, ESM only) |
-| [pnpm](https://pnpm.io/) | Package manager with workspaces |
-| [Turborepo](https://turbo.build/) | Monorepo task runner |
-| [tsdown](https://github.com/sxzz/tsdown) | Bundler and `.d.ts` generation |
-| [Vitest](https://vitest.dev/) | Testing |
-| [oxlint](https://oxc.rs/docs/guide/usage/linter.html) | Linter |
-| [oxfmt](https://github.com/oxc-project/oxfmt) | Formatter |
-| [Changesets](https://github.com/changesets/changesets) | Versioning and changelogs |
-| [GitHub Actions](https://github.com/features/actions) | CI/CD |
-
-## Commands
-
-```bash
-pnpm build          # Build all packages with tsdown
-pnpm clean          # Remove build artifacts
-pnpm test           # Run tests once
-pnpm test:watch     # Run tests in watch mode
-pnpm test:bench     # Run performance benchmarks
-pnpm typecheck      # Type-check all packages
-pnpm lint           # Lint with oxlint
-pnpm lint:fix       # Lint and auto-fix
-pnpm format         # Format with oxfmt
-pnpm changeset      # Create a changeset
-pnpm upgrade        # Bump dependencies with taze
-```
-
-To run a single package's tests, point Vitest at its folder:
-
-```bash
-pnpm vitest run --config ./configs/vitest.config.ts packages/core
-pnpm vitest run --config ./configs/vitest.config.ts -u packages/core   # update snapshots
-```
-
-## Development workflow
-
-1. Create a branch from `main`, named `<category>/<ISSUE-REF>_<branch-name>`, so `hotfix/501_retry-queue-drops-jobs`. The `branch` skill and the `/create-branch` command do this from the issue.
-2. Make your change, with tests for new behavior.
-3. Build and verify locally with `pnpm build && pnpm typecheck && pnpm test`.
-4. Fix style with `pnpm format && pnpm lint:fix`.
-
-## Opening a pull request
-
-1. Run the full check locally first:
-
-   ```bash
-   pnpm format && pnpm lint:fix
-   pnpm typecheck
-   pnpm test
-   ```
-
-2. Add a changeset for any change that affects a published package (see below).
-3. Commit with [Conventional Commits](https://www.conventionalcommits.org/): `feat:`, `fix:`, `docs:`, `chore:`, `refactor:`, `test:`, `perf:`.
-4. Push your branch and open a PR against `main`, then fill out the template.
-
-### Changesets
-
-Changesets drive versioning and the changelog. When your change affects a published package, run:
+Add a changeset for every user-visible plugin change:
 
 ```bash
 pnpm changeset
 ```
 
-Pick the packages you changed, choose the bump (patch for fixes, minor for features, major for breaking changes), and write a short summary aimed at users. Commit the generated file under `.changeset/`. Docs-only or internal changes that touch no published package do not need one.
+Select the affected plugin packages. They are a fixed group, so Changesets versions them
+together. Releases create GitHub tags and release notes only. No package is published to npm.

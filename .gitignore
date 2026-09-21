@@ -1,30 +1,11 @@
-# See https://git-scm.com/docs/gitignore for more about ignoring files.
-
 # editors
-#.vscode
 .idea/
-.vscode
+.vscode/
 
 # dependencies
-node_modules
-**/node_modules
+node_modules/
 yarn.lock
 package-lock.json
-
-# builds
-build
-*/build
-dist
-**/dist
-*.tsbuildinfo
-.tsbuild
-**/.tsbuild
-lib
-es
-artifacts
-coverage
-*.tgz
-*.js.map
 
 # misc
 .DS_Store
@@ -33,35 +14,12 @@ coverage
 .env.development.local
 .env.test.local
 .env.production.local
-codecov.*
-!codecov.yml
-
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-.history
-size-plugin.json
-stats-hydration.json
-stats.json
-stats.html
-
-## custom ones
-private
-test.json
-.turbo
-.next
-!__snapshots__
-.log
+.history/
+private/
 .mcp.json
-!**/__snapshots__/**/.mcp.json
-.nx
 
-# per-package changelogs (root CHANGELOG.md is the single source of truth)
-packages/*/CHANGELOG.md
-
-## Nitro
-.output
-.nitro
-
-## Agent worktrees (local scratch checkouts for background agent sessions)
+# Agent worktrees
 .claude/worktrees/

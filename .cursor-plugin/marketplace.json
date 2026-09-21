@@ -2,16 +2,16 @@
   "name": "stijnvanhulle",
   "owner": {
     "name": "stijnvanhulle",
-    "url": "https://github.com/stijnvanhulle"
+    "email": "stijn@stijnvanhulle.be"
   },
   "metadata": {
-    "description": "Marketplace for the stijnvanhulle template."
+    "description": "Shared development agents, skills, rules, and commands."
   },
   "plugins": [
     {
-      "name": "toolkit",
+      "name": "agents",
       "source": "./tools/cursor",
-      "description": "Writing-voice skills, code-reviewer agent, and shared TypeScript-monorepo conventions."
+      "description": "Shared skills, rules, commands, and subagents."
     }
   ]
 }

@@ -4,11 +4,14 @@ on:
     branches: [ 'main' ]
     paths:
       - '.changeset/**'
-      - 'packages/**'
+      - '.agents/**'
+      - '.claude-plugin/**'
+      - '.codex-plugin/**'
+      - '.cursor-plugin/**'
+      - 'scripts/syncPluginVersion.mjs'
       - 'tools/claude/**'
       - 'tools/cursor/**'
       - 'tools/codex/**'
-      - '.codex-plugin/**'
 
 permissions: {}
 
@@ -24,40 +27,33 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
-      id-token: write
-      packages: write
       pull-requests: write
-      issues: write
+      issues: read
     steps:
       - name: Check out code
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           fetch-depth: 0
 
-      - name: Setup Tools
-        uses: ./.github/setup
+      - name: Setup pnpm
+        uses: pnpm/action-setup@0977fd99725f1db4007ccb2928dbb4e90d06cc86 # v6
+
+      - name: Setup Node.js
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7
         with:
           node-version: '22'
-          cache: 'false'
+          cache: 'pnpm'
 
-      - name: Build
-        run: pnpm run build
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
 
-      # Opens a "Version Packages" PR when changesets are present. Merging it
-      # re-triggers this workflow, which then publishes to npm.
-      - name: Create Release PR or Publish
+      # This workflow never publishes to npm.
+      - name: Create Release PR or GitHub Releases
         id: changesets
         uses: changesets/action@ae32849d5ba541f9ae29e40e22a623bc13562f51 # v2.1.2
         with:
-          # Keeps the Claude, Cursor, and Codex plugin manifests' version fields in
-          # step with the @stijnvanhulle/template-{claude,cursor,codex}-plugin packages
-          # Changesets bumps.
-          # changesets/action runs this without a shell, so `&&` can't chain
-          # commands here — pnpm run does its own shell chaining instead.
           version-script: pnpm run release:version
           publish-script: pnpm release
           commit-message: 'ci(changesets): version packages'
           pr-title: 'ci(changesets): version packages'
           github-token: ${{ secrets.GITHUB_TOKEN }}
-        env:
-          NPM_CONFIG_PROVENANCE: true

@@ -5,9 +5,8 @@ description: Apply the shared TypeScript, markdown, testing, security, and langu
 
 # Conventions
 
-This skill ships the rules the template repo keeps in
-`.agents/skills/conventions/rules/`. When the plugin is installed in another
-project, the same files load on demand from here instead.
+This skill ships the convention rules under `rules/`. When the plugin is
+installed in another project, those files load on demand from here.
 
 `plain-language`, `security`, `usa-english`, and `user-questions` apply to every request. The
 `user-questions` rule points at the `ask` skill for the picker. The rest carry `paths:`

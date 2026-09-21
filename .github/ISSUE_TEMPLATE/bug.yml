@@ -1,4 +1,4 @@
-name: Bug Report
+name: Bug report
 description: Report an issue that should be fixed
 labels: [bug]
 body:
@@ -6,10 +6,21 @@ body:
     attributes:
       value: |
         Thank you for submitting a bug report.
+  - type: dropdown
+    attributes:
+      label: Which agent has the bug?
+      options:
+        - Claude Code
+        - Cursor
+        - Codex
+    validations:
+      required: true
   - type: input
     attributes:
-      label: What version are you using?
-      description: Copy the relevant version from your `package.json` or lockfile.
+      label: What plugin version are you using?
+      description: Copy the installed version or GitHub release tag.
+    validations:
+      required: true
   - type: dropdown
     attributes:
       label: What kind of platform do you use?
@@ -21,11 +32,8 @@ body:
     attributes:
       label: What steps can reproduce the bug?
       description: |
-        Explain the bug and provide a code snippet that can reproduce it.
-        Please add a link to a minimal reproduction.
-        - To create a shareable code example, use CodeSandbox (https://codesandbox.io/s/new) or Stackblitz (https://stackblitz.com/).
-        - For TypeScript-related issues only, a TypeScript Playground link might be sufficient: https://www.typescriptlang.org/play
-        - Please read these tips for providing a minimal example: https://stackoverflow.com/help/mcve
+        Include the skill, command, rule, or agent involved.
+        Add the smallest relevant configuration or prompt.
     validations:
       required: true
   - type: dropdown

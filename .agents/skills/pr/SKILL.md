@@ -35,11 +35,6 @@ type or rule, or skip a test.
 
 Run the `changeset` skill for versioned package changes. Docs, CI, and tests alone need none.
 
-The Claude, Cursor, and Codex plugin manifests version through Changesets, so a change
-under `tools/claude`, `tools/cursor`, or `tools/codex` needs a changeset. Never hand-edit
-`version` in `.claude-plugin/plugin.json`, `.cursor-plugin/plugin.json`, or
-`.codex-plugin/plugin.json`.
-
 ## 4. Commit
 
 Use one imperative Conventional Commit per logical change, under 72 characters, no period.
