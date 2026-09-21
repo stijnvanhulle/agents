@@ -47,7 +47,8 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
-      # This workflow never publishes to npm.
+      # This workflow never publishes to npm. One GitHub Release titled vX.Y.Z,
+      # tagged agents@X.Y.Z, matching kubb-labs/kubb's combined release-mode.
       - name: Create Release PR or GitHub Releases
         id: changesets
         uses: changesets/action@ae32849d5ba541f9ae29e40e22a623bc13562f51 # v2.1.2
@@ -56,4 +57,7 @@ jobs:
           publish-script: pnpm release
           commit-message: 'ci(changesets): version packages'
           pr-title: 'ci(changesets): version packages'
+          create-github-releases: false
           github-token: ${{ secrets.GITHUB_TOKEN }}
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
