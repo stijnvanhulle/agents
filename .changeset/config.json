@@ -3,22 +3,27 @@
   "changelog": [
     "@changesets/changelog-github",
     {
-      "repo": "stijnvanhulle/template"
+      "repo": "stijnvanhulle/agents"
     }
   ],
   "commit": false,
-  "fixed": [["@stijnvanhulle/template-*"]],
+  "fixed": [
+    [
+      "@stijnvanhulle/claude-plugin",
+      "@stijnvanhulle/cursor-plugin",
+      "@stijnvanhulle/codex-plugin"
+    ]
+  ],
   "linked": [],
   "access": "restricted",
   "baseBranch": "main",
-  "format": "oxfmt",
   "updateInternalDependencies": "patch",
   "___experimentalUnsafeOptions_WILL_CHANGE_IN_PATCH": {
     "onlyUpdatePeerDependentsWhenOutOfRange": true
   },
-  "ignore": ["@internals/*"],
+  "ignore": [],
   "privatePackages": {
     "version": true,
-    "tag": false
+    "tag": true
   }
 }

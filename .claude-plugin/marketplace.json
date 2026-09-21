@@ -6,16 +6,17 @@
     "url": "https://github.com/stijnvanhulle"
   },
   "metadata": {
-    "description": "Marketplace for the stijnvanhulle template."
+    "description": "Shared development agents, skills, rules, and commands."
   },
   "plugins": [
     {
-      "name": "toolkit",
+      "name": "agents",
       "source": "./tools/claude",
-      "description": "Writing-voice skills, code-reviewer agent, and shared TypeScript-monorepo conventions."
+      "description": "Shared skills, rules, commands, subagents, and output styles."
     }
   ],
   "renames": {
-    "template": "toolkit"
+    "template": "agents",
+    "toolkit": "agents"
   }
 }

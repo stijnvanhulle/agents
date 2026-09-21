@@ -1,4 +1,4 @@
-# @stijnvanhulle/template-cursor-plugin
+# @stijnvanhulle/cursor-plugin
 
 ## 1.1.0
 

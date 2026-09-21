@@ -1,4 +1,4 @@
-# @stijnvanhulle/template-codex-plugin
+# @stijnvanhulle/codex-plugin
 
 ## 1.1.0
 

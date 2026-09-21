@@ -1,4 +1,4 @@
-# @stijnvanhulle/template-claude-plugin
+# @stijnvanhulle/claude-plugin
 
 ## 1.1.0
 
