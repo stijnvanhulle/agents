@@ -1,5 +1,16 @@
 # @stijnvanhulle/codex-plugin
 
+## 2.0.0
+
+### Major Changes
+
+- [#1](https://github.com/stijnvanhulle/agents/pull/1) [`d604e5d`](https://github.com/stijnvanhulle/agents/commit/d604e5d61e1a1b4662e318256133058fcf8317b1) Thanks [@stijnvanhulle](https://github.com/stijnvanhulle)! - Install the shared development workflows from `stijnvanhulle/agents` under the new `agents`
+  plugin name.
+  
+  - Move skills, rules, commands, subagents, and output styles out of the monorepo template.
+  - Install with `agents@stijnvanhulle` instead of `toolkit@stijnvanhulle`.
+  - Create versioned GitHub Releases without publishing packages to npm.
+
 ## 1.1.0
 
 ### Minor Changes
