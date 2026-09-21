@@ -51,17 +51,18 @@ Do not edit manifest versions by hand. Changesets updates package versions and
 
 ## Skills
 
-- [ask](.agents/skills/ask/SKILL.md)
-- [backlog](.agents/skills/backlog/SKILL.md)
-- [branch](.agents/skills/branch/SKILL.md)
-- [changelog](.agents/skills/changelog/SKILL.md)
-- [changeset](.agents/skills/changeset/SKILL.md)
-- [conventions](.agents/skills/conventions/SKILL.md)
-- [deslop](.agents/skills/deslop/SKILL.md)
-- [documentation](.agents/skills/documentation/SKILL.md)
-- [humanizer](.agents/skills/humanizer/SKILL.md)
-- [issue](.agents/skills/issue/SKILL.md)
-- [jsdoc](.agents/skills/jsdoc/SKILL.md)
-- [pr](.agents/skills/pr/SKILL.md)
+You have new skills. If any skill might be relevant then you MUST read it.
 
+- [ask](.agents/skills/ask/SKILL.md) - Ask a blocking multiple-choice question with the client's native picker, or a lettered list when none exists.
+- [backlog](.agents/skills/backlog/SKILL.md) - Triage recent GitHub, ClickUp, or Jira issues, then implement confirmed ones in isolated worktrees.
+- [branch](.agents/skills/branch/SKILL.md) - Name and create a Conventional Commit branch from a GitHub, ClickUp, or Jira issue.
+- [changelog](.agents/skills/changelog/SKILL.md) - Turn commit history and changesets into user-facing release notes.
+- [changeset](.agents/skills/changeset/SKILL.md) - Write or review a release-note changeset with the correct bump.
+- [conventions](.agents/skills/conventions/SKILL.md) - Apply the shared TypeScript, markdown, testing, security, and language rules.
+- [deslop](.agents/skills/deslop/SKILL.md) - Audit a diff for over-engineering and AI code/prose tells, then apply only confirmed fixes.
+- [documentation](.agents/skills/documentation/SKILL.md) - Write or review developer documentation using the project style and SEO guidance.
+- [humanizer](.agents/skills/humanizer/SKILL.md) - Find AI writing tells and apply only confirmed rewrites.
+- [issue](.agents/skills/issue/SKILL.md) - Create or triage a GitHub or Jira issue with its type, labels, and fields filled.
+- [jsdoc](.agents/skills/jsdoc/SKILL.md) - Apply the TypeScript JSDoc format, examples, tags, and ordering.
+- [pr](.agents/skills/pr/SKILL.md) - Prepare, open, update, or assess a pull request, including checks, changesets, title, template, and CI.
 </skills>
