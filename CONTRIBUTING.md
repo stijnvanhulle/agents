@@ -31,4 +31,4 @@ pnpm changeset
 ```
 
 Select the affected plugin packages. They are a fixed group, so Changesets versions them
-together. Releases create GitHub tags and release notes only. No package is published to npm.
+together. Releases create one `vX.Y.Z` git tag and GitHub Release. No package is published to npm.

@@ -58,7 +58,8 @@ pnpm changeset
 ## Releases
 
 Changesets versions the three private plugin packages as one fixed group. Merging the generated
-Version Packages PR creates git tags and GitHub Releases. Nothing is published to npm.
+Version Packages PR creates a single `vX.Y.Z` git tag and GitHub Release. Nothing is published to
+npm.
 
 ## License
 

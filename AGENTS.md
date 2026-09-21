@@ -11,6 +11,7 @@ This repository distributes shared AI development workflows for Claude Code, Cur
 - Root marketplace manifests expose the provider packages.
 - `scripts/agentFiles.ts` checks command and rule parity.
 - `scripts/syncPluginVersion.mjs` copies Changesets versions into plugin manifests.
+- `scripts/tagRelease.mjs` creates one `vX.Y.Z` git tag from those versions.
 
 `AGENT.md` and `CLAUDE.md` symlink to this file. The `.claude/` and `.cursor/` directories
 symlink to the same content for local dogfooding.
@@ -25,7 +26,7 @@ pnpm release:version
 pnpm release
 ```
 
-`pnpm release` only creates git tags. It never publishes to npm.
+`pnpm release` creates one `vX.Y.Z` git tag. It never publishes to npm.
 
 ## Changes
 
