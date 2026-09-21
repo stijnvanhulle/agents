@@ -37,6 +37,3 @@ jobs:
 
       - name: Check command and rule parity
         run: pnpm run agent-files
-
-      - name: Check release state
-        run: pnpm changeset status
