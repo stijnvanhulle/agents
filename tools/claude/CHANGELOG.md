@@ -1,5 +1,11 @@
 # @stijnvanhulle/claude-plugin
 
+## 2.1.0
+
+### Minor Changes
+
+- [#5](https://github.com/stijnvanhulle/agents/pull/5) [`efc9b6e`](https://github.com/stijnvanhulle/agents/commit/efc9b6e4b6a0d0dbee5f85df2ede51068c09e31c) Thanks [@stijnvanhulle](https://github.com/stijnvanhulle)! - Ship convention rules with the Claude plugin so consuming repos do not need a local `.claude/rules` copy.
+
 ## 2.0.0
 
 ### Major Changes
