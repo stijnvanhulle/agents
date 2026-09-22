@@ -65,7 +65,7 @@ if (heading) {
 
 const created = spawnSync(
   'gh',
-  ['release', 'create', tag, '--title', title, '--notes', notes],
+  ['release', 'create', tag, '--target', 'HEAD', '--title', title, '--notes', notes],
   { cwd: root, stdio: 'inherit', env: process.env },
 )
 
