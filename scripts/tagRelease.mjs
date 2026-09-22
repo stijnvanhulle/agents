@@ -63,9 +63,14 @@ if (heading) {
   if (block) notes = block
 }
 
+const target = spawnSync('git', ['rev-parse', 'HEAD'], {
+  cwd: root,
+  encoding: 'utf8',
+}).stdout.trim()
+
 const created = spawnSync(
   'gh',
-  ['release', 'create', tag, '--target', 'HEAD', '--title', title, '--notes', notes],
+  ['release', 'create', tag, '--target', target, '--title', title, '--notes', notes],
   { cwd: root, stdio: 'inherit', env: process.env },
 )
 
