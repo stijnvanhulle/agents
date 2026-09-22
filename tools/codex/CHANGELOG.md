@@ -1,5 +1,23 @@
 # @stijnvanhulle/codex-plugin
 
+## 2.2.0
+
+### Minor Changes
+
+- [#7](https://github.com/stijnvanhulle/agents/pull/7) [`2154952`](https://github.com/stijnvanhulle/agents/commit/2154952b90ac6e338984e725600ee37cd014fa81) Thanks [@stijnvanhulle](https://github.com/stijnvanhulle)! - Use Codex's `request_user_input` picker instead of dropping to a lettered list.
+  
+  - Adds `request_user_input` to the `ask` skill's tool table and the `user-questions` rule.
+  - Records the limits Codex enforces: three questions, three options, no multiple selection, and
+    an `Other` option it appends itself.
+  - Notes that Default mode needs the `default_mode_request_user_input` flag and that a subagent
+    cannot call the tool, so those sessions still get the lettered list.
+
+- [#7](https://github.com/stijnvanhulle/agents/pull/7) [`60e7814`](https://github.com/stijnvanhulle/agents/commit/60e78140ff4bc8fb70fde2168f00439a846f5b02) Thanks [@stijnvanhulle](https://github.com/stijnvanhulle)! - Ask one question per independent decision instead of collapsing a list into grouped options.
+  
+  - Limits batching in the `ask` skill to answers that settle a single decision.
+  - Lets a review with seven findings offer a question per finding, so you can accept some and
+    reject others without typing into `Other`.
+
 ## 2.1.0
 
 No changes in this release.
