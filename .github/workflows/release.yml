@@ -12,6 +12,7 @@ on:
       - 'tools/claude/**'
       - 'tools/cursor/**'
       - 'tools/codex/**'
+  workflow_dispatch:
 
 permissions: {}
 
