@@ -1,6 +1,6 @@
 {
   "name": "@stijnvanhulle/claude-plugin",
-  "version": "2.1.0",
+  "version": "2.2.0",
   "private": true,
   "description": "Shared Claude Code agents, commands, skills, rules, and output styles.",
   "license": "MIT"
