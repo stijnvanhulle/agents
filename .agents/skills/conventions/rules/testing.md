@@ -18,6 +18,8 @@ How to write, run, and debug tests in this repo (Vitest).
 - Keep tests isolated and repeatable: no shared mutable state, clean up side effects in `afterEach`
 - Mock external dependencies (network, filesystem, time), not internal modules
 - Spy per test with `using _ = vi.spyOn(...)`, not module-level `vi.mock` + `beforeEach(mockReset)`
+- For behavior changes and refactors, add or update focused tests for observable behavior. This
+  includes logs, errors, authorization decisions, and protocol messages.
 - Use `vi.useFakeTimers()` and `vi.setSystemTime()` for time-dependent logic
 - Assert on public behavior and output, not private implementation details
 - Keep unit tests fast, and reserve `pnpm test:bench` for performance-sensitive code
