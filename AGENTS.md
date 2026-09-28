@@ -54,7 +54,7 @@ Do not edit manifest versions by hand. Changesets updates package versions and
 
 You have new skills. If any skill might be relevant then you MUST read it.
 
-- [ask](.agents/skills/ask/SKILL.md) - Ask a blocking multiple-choice question with the client's native picker, or a lettered list when none exists.
+- [ask](.agents/skills/ask/SKILL.md) - Ask a multiple-choice question with the client's native picker, or a lettered list when none exists.
 - [backlog](.agents/skills/backlog/SKILL.md) - Triage recent GitHub, ClickUp, or Jira issues, then implement confirmed ones in isolated worktrees.
 - [branch](.agents/skills/branch/SKILL.md) - Name and create a Conventional Commit branch from a GitHub, ClickUp, or Jira issue.
 - [changelog](.agents/skills/changelog/SKILL.md) - Turn commit history and changesets into user-facing release notes.
