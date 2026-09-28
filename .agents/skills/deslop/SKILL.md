@@ -37,14 +37,19 @@ Run `humanizer` criteria on changed docs/comments. Skip when no prose changed.
 ## 4. Report, then ask
 
 Before editing, list each finding with path, violated rung/tell, and fix. Use `ask`: apply /
-skip / show more per finding or related group.
+skip / show more per finding or related group. Treat requests to review, assess, or explain a diff
+as audit-only unless the user also asks for fixes or has already approved those fixes.
 
 ## 5. Apply only what is confirmed
 
 - Preserve behavior unless fixing a clear bug. Make surgical edits.
 - Keep trust-boundary checks and real error handling.
 - Fix root causes; never weaken types, rules, or tests.
-- Run format, lint, and relevant tests. Summarize changes and skipped findings.
+- Read and apply the relevant convention rules before editing, including rules for tests you add.
+- Run format, lint, and relevant tests.
+- Re-audit the complete resulting diff against the same rules and code tells. Fix any issues
+  introduced by the edits before reporting completion.
+- Summarize changes and skipped findings.
 
 ## Related skills
 
