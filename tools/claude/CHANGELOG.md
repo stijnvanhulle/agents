@@ -1,5 +1,11 @@
 # @stijnvanhulle/claude-plugin
 
+## 2.3.0
+
+### Minor Changes
+
+- [#12](https://github.com/stijnvanhulle/agents/pull/12) [`4b13439`](https://github.com/stijnvanhulle/agents/commit/4b13439b8b1aa6f0a25f8a7299c487a460d3be52) Thanks [@stijnvanhulle](https://github.com/stijnvanhulle)! - The agents plugin now rechecks accepted edits against project rules and supports Paseo's native question picker.
+
 ## 2.2.0
 
 ### Minor Changes
