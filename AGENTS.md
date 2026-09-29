@@ -60,6 +60,7 @@ You have new skills. If any skill might be relevant then you MUST read it.
 - [changelog](.agents/skills/changelog/SKILL.md) - Turn commit history and changesets into user-facing release notes.
 - [changeset](.agents/skills/changeset/SKILL.md) - Write or review a release-note changeset with the correct bump.
 - [conventions](.agents/skills/conventions/SKILL.md) - Apply the shared TypeScript, markdown, testing, security, and language rules.
+- [create-brain-note](.agents/skills/create-brain-note/SKILL.md) - Save a conversation recap or idea to a chosen GitHub repository.
 - [deslop](.agents/skills/deslop/SKILL.md) - Audit a diff for over-engineering and AI code/prose tells, then apply only confirmed fixes.
 - [documentation](.agents/skills/documentation/SKILL.md) - Write or review developer documentation using the project style and SEO guidance.
 - [humanizer](.agents/skills/humanizer/SKILL.md) - Find AI writing tells and apply only confirmed rewrites.
