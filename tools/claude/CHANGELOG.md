@@ -1,5 +1,17 @@
 # @stijnvanhulle/claude-plugin
 
+## 2.4.0
+
+### Minor Changes
+
+- [#15](https://github.com/stijnvanhulle/agents/pull/15) [`658b42d`](https://github.com/stijnvanhulle/agents/commit/658b42dbd0dd7f12abb91bf260a359f426c1722d) Thanks [@stijnvanhulle](https://github.com/stijnvanhulle)! - Add `/create-brain-note` for Claude Code and Cursor and a matching Codex skill to save a recap or idea to a GitHub repository you choose.
+  
+  ```text
+  /create-brain-note
+  /create-brain-note stijnvanhulle/brain an idea to revisit
+  $agents:create-brain-note stijnvanhulle/brain an idea to revisit
+  ```
+
 ## 2.3.0
 
 ### Minor Changes
