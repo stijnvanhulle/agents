@@ -1,9 +1,9 @@
 ---
-name: brain
+name: create-brain-note
 description: Save a conversation recap or idea to a chosen GitHub repository.
 ---
 
-# Brain
+# Create a brain note
 
 Use the `owner/repo` named in the request. If none is given, ask for it with the `ask` skill. Never infer a destination from the working directory.
 

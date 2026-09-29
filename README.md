@@ -35,8 +35,8 @@ Restart the client or begin a new session after installation.
 - Skills for issue handling, branches, changesets, changelogs, pull requests, daily notes,
   documentation, JSDoc, prose cleanup, and code cleanup.
 - Shared TypeScript, testing, security, markdown, and language conventions.
-- `/brain`, `/create-branch`, `/create-changeset`, `/create-issue`, and `/create-pr` commands for
-  Claude Code and Cursor. Codex uses the shared skills.
+- `/create-brain-note`, `/create-branch`, `/create-changeset`, `/create-issue`, and `/create-pr`
+  commands for Claude Code and Cursor. Codex uses the shared skills.
 - A `code-reviewer` subagent for Claude Code and Cursor.
 - Claude Code output styles: `house`, `plan`, and `diagrams-first`.
 
