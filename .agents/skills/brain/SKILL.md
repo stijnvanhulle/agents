@@ -5,7 +5,7 @@ description: Save a conversation recap or idea to a chosen GitHub repository.
 
 # Brain
 
-Read `/brain [owner/repo] [idea]`. Use the named GitHub repository. If none is given, ask for `owner/repo` with the `ask` skill. Never infer a destination from the working directory.
+Use the `owner/repo` named in the request. If none is given, ask for it with the `ask` skill. Never infer a destination from the working directory.
 
 If an idea follows the repository, summarize that idea. Otherwise recap today's conversation. Use only known facts and omit secrets. Ask what to save if there is no useful content.
 
