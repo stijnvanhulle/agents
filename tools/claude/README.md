@@ -17,6 +17,7 @@ only for the current checkout.
 
 ## Included
 
+- `/brain` saves today's recap or an idea to `stijnvanhulle/brain`.
 - `/create-branch`
 - `/create-changeset`
 - `/create-issue`

@@ -13,6 +13,7 @@ Restart Codex or start a new session after installation.
 
 ## Included
 
+- `/brain` saves today's recap or an idea to `stijnvanhulle/brain`.
 - `/create-branch`
 - `/create-changeset`
 - `/create-issue`

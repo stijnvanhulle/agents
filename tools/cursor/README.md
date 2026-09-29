@@ -14,6 +14,7 @@ Marketplaces in the editor.
 
 ## Included
 
+- `/brain` saves today's recap or an idea to `stijnvanhulle/brain`.
 - `/create-branch`
 - `/create-changeset`
 - `/create-issue`
