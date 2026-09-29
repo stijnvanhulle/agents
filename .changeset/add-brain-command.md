@@ -4,9 +4,9 @@
 '@stijnvanhulle/codex-plugin': minor
 ---
 
-Add `/brain` to save a daily recap or a named idea from the current conversation to `stijnvanhulle/brain`.
+Add `/brain` to save a conversation recap or idea to a GitHub repository you choose.
 
 ```text
 /brain
-/brain an idea to revisit
+/brain stijnvanhulle/brain an idea to revisit
 ```

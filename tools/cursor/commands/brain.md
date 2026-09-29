@@ -1,7 +1,6 @@
 ---
 name: brain
-description: Save today's recap or an idea to stijnvanhulle/brain
+description: Save today's recap or an idea to a chosen GitHub repository
 ---
 
-Follow the `brain` skill to save a note from this conversation to `stijnvanhulle/brain`.
-Use `$1` as the idea or topic when present. Otherwise save today's recap.
+Follow the `brain` skill. Treat the text after `/brain` as an optional repository and idea.

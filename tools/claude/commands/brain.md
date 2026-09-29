@@ -1,7 +1,6 @@
 ---
-argument-hint: [idea or topic]
-description: Save today's recap or an idea to stijnvanhulle/brain
+argument-hint: [owner/repo] [idea]
+description: Save today's recap or an idea to a chosen GitHub repository
 ---
 
-Follow the `brain` skill to save a note from this conversation to `stijnvanhulle/brain`.
-Use `$ARGUMENTS` as the idea or topic when present. Otherwise save today's recap.
+Follow the `brain` skill. Treat `$ARGUMENTS` as an optional repository and idea.

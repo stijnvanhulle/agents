@@ -14,7 +14,7 @@ Marketplaces in the editor.
 
 ## Included
 
-- `/brain` saves today's recap or an idea to `stijnvanhulle/brain`.
+- `/brain [owner/repo] [idea]` saves a recap or idea to a chosen GitHub repository.
 - `/create-branch`
 - `/create-changeset`
 - `/create-issue`
