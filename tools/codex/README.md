@@ -1,6 +1,6 @@
 # Codex plugin
 
-The `agents` plugin provides shared prompts and skills.
+The `agents` plugin provides shared skills.
 
 ## Install
 
@@ -13,13 +13,11 @@ Restart Codex or start a new session after installation.
 
 ## Included
 
-- `/create-branch`
-- `/create-changeset`
-- `/create-issue`
-- `/create-pr`
-- Shared skills and conventions
+- `$agents:create-brain-note owner/repo [idea]` saves a recap or idea to a chosen GitHub repository.
+- Skills for branches, changesets, issues, and pull requests.
+- Shared conventions.
 
 Codex has no subagent concept, so the Claude Code and Cursor `code-reviewer` is not included.
 
-The prompts use Claude Code's command syntax and are symlinked from `tools/claude/commands/` so
-the two sets cannot drift.
+The `prompts` symlink mirrors Claude Code commands in the source tree. Codex loads the skills
+from this plugin, so those prompts do not appear as slash commands after installation.

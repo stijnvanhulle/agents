@@ -14,6 +14,7 @@ Marketplaces in the editor.
 
 ## Included
 
+- `/create-brain-note [owner/repo] [idea]` saves a recap or idea to a chosen GitHub repository.
 - `/create-branch`
 - `/create-changeset`
 - `/create-issue`
