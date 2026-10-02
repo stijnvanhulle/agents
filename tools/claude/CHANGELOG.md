@@ -1,5 +1,15 @@
 # @stijnvanhulle/claude-plugin
 
+## 2.6.0
+
+### Minor Changes
+
+- [#21](https://github.com/stijnvanhulle/agents/pull/21) [`c7fefa4`](https://github.com/stijnvanhulle/agents/commit/c7fefa4ff6d26a2c4e19fa4dfe65722dfd7b39f9) Thanks [@stijnvanhulle](https://github.com/stijnvanhulle)! - Tighten existing skills. `humanizer` gains a structure reference covering history in the deliverable, vague referents, remembered numbers, count anchors, and how to write instructions a person or agent acts on. `deslop` adds a deletion test for new modules, `pr` asks you to match recent PRs, and the `plain-language` rule and the code reviewer name referents and leave out history. The Claude Code package now ships an empty Cursor manifest, so Cursor no longer lists every skill twice when both plugins are installed.
+
+### Patch Changes
+
+- [#21](https://github.com/stijnvanhulle/agents/pull/21) [`c7fefa4`](https://github.com/stijnvanhulle/agents/commit/c7fefa4ff6d26a2c4e19fa4dfe65722dfd7b39f9) Thanks [@stijnvanhulle](https://github.com/stijnvanhulle)! - Cut repeated text from the skills and fix wording. The `user-questions` rule and the `code-reviewer` subagent no longer restate the `ask`, `deslop`, and `jsdoc` content, and the Related skills tables keep only hand-off rows. `documentation` and `changelog` now say their VitePress sections apply only to repos with a VitePress docs site, with neutral examples and no invented percentages. `pr` now runs the scripts a repo defines and works without a pull request template. `AGENTS.md` no longer carries a generated copy of every skill description. `pr` and `backlog` now ask through the `ask` skill before any push, and the `ask` skill covers any question with discrete answers. The `ask` skill now says to ask before the step the answer decides and to stop when a question is skipped, and `changeset` writes no file until the bump is known. `create-brain-note` asks for the repository as free text and never offers a guessed name.
+
 ## 2.5.0
 
 ### Minor Changes
