@@ -8,7 +8,8 @@ description: Save a conversation recap or idea to a chosen GitHub repository. Us
 ## 1. Pick the repository
 
 Use the `owner/repo` named in the request. If none is given, ask for it with the `ask` skill.
-Never infer a destination from the working directory.
+Never infer a destination from the working directory, and never offer a guessed repository
+name as an option. Ask for `owner/repo` as free text.
 
 ## 2. Pick the content
 
