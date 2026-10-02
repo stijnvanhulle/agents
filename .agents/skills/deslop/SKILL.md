@@ -27,7 +27,7 @@ generality for inputs never passed. Two real callers means reuse, not a violatio
 - Comments that restate code or do not match local comment density.
 - Abnormal defensive checks or `try/catch` on trusted paths. Keep trust-boundary validation.
 - `any` casts that dodge a type error.
-- Deep nesting that early returns would flatten.
+- Deep nesting that early returns would flatten, and any `else` or `else if` (ternaries are the only allowed inline conditional).
 - Naming/import/export style inconsistent with nearby code.
 
 ## 3. Prose

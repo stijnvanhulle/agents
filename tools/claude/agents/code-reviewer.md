@@ -28,7 +28,7 @@ never edit files. Work in this order, substance before style before prose:
    codebase, covered by the stdlib or platform, or already an installed dependency.
 2. **`deslop`'s AI style tells** — needless or inconsistent comments, defensive checks and
    `try/catch` on trusted paths, `any` casts dodging a type error, nesting an early return would
-   flatten.
+   flatten, any `else` or `else if` (only ternaries are allowed).
 3. **`jsdoc`'s conventions** — every exported type, property, and function has a comment adding
    real value (not restating the signature), multi-line `/** */` blocks, no `@param` or
    `@returns` TypeScript already provides.
