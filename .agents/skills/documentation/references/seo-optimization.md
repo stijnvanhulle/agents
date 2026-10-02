@@ -10,16 +10,16 @@ Formula: `[Component/Feature] - [What it does] [Context]`
 
 ```yaml
 # Component/API pages
-title: Type Component React - Generate TypeScript Types JSX
+title: Button Component - Props, Variants, and Accessibility
 
-# Plugin pages
-title: fs Plugin - Write Generated Files to Disk
+# Feature pages
+title: Cache Plugin - Store Responses on Disk
 
 # Guide pages
-title: Creating Fabric Plugins - Extend Code Generators
+title: Creating Plugins - Extend the Build Pipeline
 
 # Getting started
-title: Fabric - JSX Code Generator for TypeScript & Files
+title: Acme - Fast Type-Safe Builds for TypeScript
 ```
 
 ### Description (≤155 characters)
@@ -28,11 +28,11 @@ Formula: `[Action verb] [feature]. [Primary benefit]. [Secondary benefit].`
 
 ```yaml
 # Be specific and benefit-focused
-description: Generate TypeScript type declarations using React JSX. Component-based type generation for Fabric code generators.
+description: Generate TypeScript type declarations from a schema. Component-based type generation for build tools.
 
-description: Use the fsPlugin to write generated code files to disk with dry run mode, cleanup, and pre-write hooks in Fabric.
+description: Use the cache plugin to store responses on disk with dry run mode, cleanup, and pre-write hooks.
 
-description: Build custom Fabric plugins to add lifecycle hooks, file transformations, and new capabilities to code generators.
+description: Build custom plugins to add lifecycle hooks, file transformations, and new capabilities to the pipeline.
 ```
 
 ### Template

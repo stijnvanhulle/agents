@@ -78,7 +78,7 @@ Resolve nested plugin paths on Windows, which broke on a backslash separator.
 - Lead with what the user gets. Cut what only a reviewer needs.
 - Name real identifiers. "Various improvements" says nothing.
 - Leave out file paths, PR numbers, and reviewer talk. Changesets adds the commit link.
-- USA English, no emoji. Run the `humanizer` skill over the file.
+- No emoji.
 
 ## Related skills
 
@@ -86,5 +86,3 @@ Resolve nested plugin paths on Windows, which broke on a backslash separator.
 | --- | --- |
 | [pr](../pr/SKILL.md) | The branch and PR the changeset ships in |
 | [changelog](../changelog/SKILL.md) | Turning released changesets into `docs/changelog.md` |
-| [humanizer](../humanizer/SKILL.md) | AI tells in the summary |
-| [ask](../ask/SKILL.md) | Picker vs lettered list when the bump is not obvious |

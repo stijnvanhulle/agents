@@ -1,9 +1,4 @@
 # Asking the user a question
 
-Whenever a task is blocked on information only the user can supply, follow the `ask` skill
-(`.agents/skills/ask/SKILL.md`). That skill picks the tool this session has: `AskUserQuestion`
-in Claude Code, `AskQuestion` in Cursor (IDE and CLI), `request_user_input_async` in Paseo,
-`request_user_input` in Codex Plan mode, or a lettered list when no picker is available.
-
-Do not guess and report later. Do not ask in a plain paragraph when the `ask` skill applies. A
-secret or credential never becomes an option.
+When a task is blocked on information only the user can supply, follow the `ask` skill. Do not
+guess and report later, and never turn a secret or credential into an option.

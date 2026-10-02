@@ -1,6 +1,6 @@
 ---
 name: humanizer
-description: Find AI writing tells and apply only confirmed rewrites.
+description: Find AI writing tells and apply only confirmed rewrites. Use on docs, comments, PR text, and any prose before it ships.
 ---
 
 # Humanizer
@@ -46,4 +46,3 @@ Load the category you need:
 | Skill | Use for |
 | --- | --- |
 | [deslop](../deslop/SKILL.md) | The same confirm step, for code and mixed diffs |
-| [ask](../ask/SKILL.md) | How the confirm step renders per client |

@@ -26,7 +26,7 @@ When describing a feature, option, or example use this short structure:
 
 Documentation prefers short, subject-first sentences that state behavior or intent clearly. Aim for sentences under ~20 to 25 words and favor present tense and active voice.
 
-### Subject-first declarative (60%)
+### Subject-first declarative (most sentences)
 
 Use to describe what the product, module, or plugin does. Keep the subject first and follow with a concise verb phrase.
 
@@ -35,7 +35,7 @@ The plugin generates TypeScript types from a schema.
 The parser validates schema types during build.
 ```
 
-### Imperative instructions (25%)
+### Imperative instructions
 
 Use for step-by-step commands or quick actions. Start with a verb and keep the object direct.
 
@@ -44,7 +44,7 @@ Run `pnpm changeset` to create a changeset.
 Add the plugin to the config file and configure the options.
 ```
 
-### Contextual openers (15%)
+### Contextual openers
 
 Use when you need to signal a prerequisite, conditional, or sequence. Begin with words like `When`, `If`, `During`, or `After`.
 
@@ -55,7 +55,7 @@ After installing the module, restart the server.
 
 ## Voice
 
-### Active voice (85%)
+### Active voice
 
 Subject performs action. Prefer this.
 
@@ -65,7 +65,7 @@ Subject performs action. Prefer this.
 | You can override defaults       | Defaults can be overridden            |
 | The library handles validation  | Validation is handled by the library  |
 
-### When passive is OK (15%)
+### When passive is OK
 
 - Actor unknown: "The file is loaded during startup."
 - Object more important: "Data is cached for 5 minutes."
@@ -79,12 +79,12 @@ changelogs.
 
 ## Modal verbs
 
-| Verb     | Meaning           | Example                          |
-| -------- | ----------------- | -------------------------------- |
-| `can`    | Optional (40%)    | "You can customize colors."      |
-| `should` | Recommended (30%) | "You should validate input."     |
-| `may`    | Possibility (20%) | "This may cause issues."         |
-| `must`   | Required (10%)    | "You must install dependencies." |
+| Verb     | Meaning     | Example                          |
+| -------- | ----------- | -------------------------------- |
+| `can`    | Optional    | "You can customize colors."      |
+| `should` | Recommended | "You should validate input."     |
+| `may`    | Possibility | "This may cause issues."         |
+| `must`   | Required    | "You must install dependencies." |
 
 Avoid weak modals: `might`, `could`, `would`
 

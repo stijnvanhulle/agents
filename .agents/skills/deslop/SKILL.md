@@ -1,6 +1,6 @@
 ---
 name: deslop
-description: Audit a diff for over-engineering and AI code/prose tells, then apply only confirmed fixes.
+description: Audit a diff for over-engineering and AI code/prose tells, then apply only confirmed fixes. Use before opening a PR or when asked to clean up a diff.
 ---
 
 # Deslop
@@ -61,4 +61,3 @@ as audit-only unless the user also asks for fixes or has already approved those 
 | ------------------------------------------------------------- | --------------------------------------------------------------------------- |
 | [humanizer](../humanizer/SKILL.md)                            | The full pattern list step 3 runs, and prose review outside a code diff     |
 | [code-style rule](../conventions/rules/code-style.md)         | The house style this skill enforces on code, dependencies, and abstractions |
-| [ask](../ask/SKILL.md)                                         | How the confirm step renders per client                                     |

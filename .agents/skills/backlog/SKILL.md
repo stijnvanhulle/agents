@@ -57,5 +57,3 @@ One line per issue: PR link, skipped reason, or pending question.
 | [branch](../branch/SKILL.md) | Naming the branch each worktree checks out |
 | [pr](../pr/SKILL.md) | What each subagent runs once its issue is implemented |
 | [issue](../issue/SKILL.md) | Opening a new issue, rather than working an existing one |
-| [conventions](../conventions/SKILL.md) | Plain language, security, USA English |
-| [ask](../ask/SKILL.md) | Picker vs lettered list when a source or issue needs a confirm |

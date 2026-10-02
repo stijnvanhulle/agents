@@ -1,6 +1,6 @@
 ---
 name: conventions
-description: Apply the shared TypeScript, markdown, testing, security, and language rules.
+description: Apply the shared TypeScript, markdown, testing, security, and language rules. Use when writing or reviewing code, tests, or markdown.
 ---
 
 # Conventions

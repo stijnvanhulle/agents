@@ -19,7 +19,7 @@ Never call an unavailable tool or guess the client.
 
 ## Question shape
 
-- Offer 2–4 real options, likely answer first.
+- Offer 2 to 4 real options, likely answer first.
 - Batch into one question only when the answers settle a single decision. When each answer
   stands on its own, such as which review findings to fix, ask one question per decision
   instead of bundling them behind grouped options.

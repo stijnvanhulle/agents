@@ -1,60 +1,32 @@
 ---
 name: documentation
-description: Write or review developer documentation using the project style and SEO guidance.
+description: Write or review developer documentation using the project style and SEO guidance. Use when adding or changing docs pages, options, or API signatures.
 ---
 
-# Documentation skill
+# Documentation
 
-Writing guidelines for AI coding assistants working on documentation.
+Write clear, practical documentation for the developer reading it. Match the words developers
+search for, and structure pages so a reader can skim and still find the answer.
 
-## When to use
-
-- Adding a new plugin, feature, or option
-- Changing plugin behavior or API signatures
-- Fixing bugs that affect code generation
-- Writing or updating functionalities/component/composable documentation
-- Optimizing documentation for search engines
-
-## What it does
-
-- Write clear, practical documentation aimed at the developer reading it
-- Match the words developers search for
-- Structure content so a reader can skim it and still find the answer
+The sections and references marked "VitePress" apply only when the repo has a VitePress `docs/`
+folder. Check for it first and follow the repo's existing pages when it differs.
 
 ## Writing standard
 
-When writing documentation, keep proper grammar and complete sentences. The "sacrifice grammar
-for brevity" rule does not apply here.
+Keep proper grammar and complete sentences, not fragments. Brevity is valued, but never at the
+cost of clarity or correctness.
 
-Documentation must be:
+## References
 
-- Grammatically correct
-- Clear and unambiguous
-- Properly punctuated
-- Complete sentences (not fragments)
+Load the one that matches the task:
 
-Brevity is still valued, but never at the cost of clarity or correctness.
-
-## Available references
-
-| Reference | Purpose |
+| Reference | Load when |
 | --- | --- |
-| [references/writing-style.md](./references/writing-style.md) | Voice, tone, sentence structure |
-| [references/content-patterns.md](./references/content-patterns.md) | Usage patterns, props structure, component patterns |
-| [references/seo-optimization.md](./references/seo-optimization.md) | SEO practices, titles, descriptions, keywords, FAQs |
+| [references/writing-style.md](./references/writing-style.md) | Writing prose: voice, tone, sentence structure |
+| [references/content-patterns.md](./references/content-patterns.md) | Documenting props, options, or usage patterns |
+| [references/seo-optimization.md](./references/seo-optimization.md) | Optimizing titles, descriptions, keywords, FAQs |
 
-To remove AI writing patterns and add voice, use the [humanizer](../humanizer/SKILL.md) skill.
-
-Load based on context:
-
-- Writing prose → [references/writing-style.md](./references/writing-style.md)
-- Props, options, usage patterns → [references/content-patterns.md](./references/content-patterns.md)
-- Optimizing for search → [references/seo-optimization.md](./references/seo-optimization.md)
-- Reviewing or editing finished prose → the [humanizer](../humanizer/SKILL.md) skill
-
-## Language and tone
-
-- Use the US spelling. For example, use license, not licence.
+For finished prose, use the [humanizer](../humanizer/SKILL.md) skill.
 
 ## Naming conventions
 
@@ -65,7 +37,7 @@ File names are kebab-case (`how-to-do-thing.md`) and descriptive: `multipart-for
 
 | Pattern | Example |
 | --- | --- |
-| Subject-first | "The `useApp` composable handles Fabric related logic." |
+| Subject-first | "The `useConfig` composable reads the project configuration." |
 | Imperative | "Add the following to `config.ts`." |
 | Contextual | "When relying on TypeScript, configure..." |
 
@@ -77,7 +49,7 @@ File names are kebab-case (`how-to-do-thing.md`) and descriptive: `multipart-for
 | `should` | Recommended |
 | `must` | Required |
 
-### Component patterns (when to use)
+### Component patterns (VitePress)
 
 | Need | Component |
 | --- | --- |
@@ -93,21 +65,20 @@ Keep backticks out of the H1. From H2 down they are fine.
 
 ## Links and cross-references
 
-Internal links use relative paths (`/plugins/plugin-ts/`), and anchors point at a section
-(`/plugins/plugin-ts/#output-path`). External links carry the full URL and descriptive text.
+Internal links use relative paths (`/guide/getting-started/`), and anchors point at a section
+(`/guide/getting-started/#output-path`). External links carry the full URL and descriptive text.
 Put the links section at the very end of the document.
 
 ## Images and assets
 
-Images live in `docs/public/` and are referenced with relative paths from the markdown file.
-Use `webp`, `png`, or `jpg`, keep the files small, and name them for what they show:
-`plugin-react-query-example.png`.
+Store images where the repo keeps its assets (VitePress: `docs/public/`) and reference them with
+relative paths from the markdown file. Use `webp`, `png`, or `jpg`, keep the files small, and name
+them for what they show: `query-example.png`.
 
 ## Checklist
 
-- [ ] Active voice (85%+)
-- [ ] Present tense
-- [ ] 2-3 sentences per paragraph
+- [ ] Mostly active voice and present tense
+- [ ] 1 to 3 sentences per paragraph
 - [ ] Explanation before code
-- [ ] Validate frontmatter syntax
-- [ ] Run humanizer pass: remove AI patterns, add voice and specific details
+- [ ] Valid frontmatter
+- [ ] Humanizer pass: remove AI patterns, add voice and specific details
