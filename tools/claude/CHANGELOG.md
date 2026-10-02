@@ -1,5 +1,11 @@
 # @stijnvanhulle/claude-plugin
 
+## 2.5.0
+
+### Minor Changes
+
+- [#19](https://github.com/stijnvanhulle/agents/pull/19) [`cdec4e4`](https://github.com/stijnvanhulle/agents/commit/cdec4e4d715ddd73914e644e67c333e9ddcd546b) Thanks [@stijnvanhulle](https://github.com/stijnvanhulle)! - Tighten the code-style rule: never write `else` or `else if`, return early from a guard clause instead. A one-level ternary is the only inline conditional. The `deslop` skill and the code reviewer flag any `else` they find.
+
 ## 2.4.0
 
 ### Minor Changes
