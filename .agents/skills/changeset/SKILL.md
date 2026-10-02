@@ -25,6 +25,8 @@ sure, check whether the package is in the workspace and not listed under `ignore
 Use the bump from the command when it is `patch`, `minor`, or `major`. When none was passed, or
 the table does not pick one on its own, follow the `ask` skill: offer `patch`,
 `minor`, and `major`, likely answer first. Do not default to `patch` and report it as a guess.
+Write no changeset file until the bump is known. When the question goes unanswered, stop and say
+the bump is missing.
 
 List only the packages you changed.
 

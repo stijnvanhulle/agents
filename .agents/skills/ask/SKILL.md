@@ -19,6 +19,14 @@ match:
 
 Never call an unavailable tool or guess the client.
 
+## Before and after the answer
+
+- Ask before the step the answer decides. Do not write the file, commit, or push first and ask
+  afterward.
+- When the question is skipped or unanswered, do not pick an answer yourself. Stop at that
+  decision, say what is missing, and finish only the work that does not depend on it. A push or a
+  version bump always waits.
+
 ## Question shape
 
 - Offer 2 to 4 real options, likely answer first.
