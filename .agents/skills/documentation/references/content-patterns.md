@@ -1,6 +1,6 @@
 # Content patterns
 
-Blog post structure, frontmatter, and component patterns for documentation.
+Frontmatter, component, and blog post patterns for documentation pages (VitePress).
 
 ## Default
 

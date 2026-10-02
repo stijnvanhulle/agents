@@ -41,7 +41,7 @@ Never invent values. Use `gh label list`, `list_issue_types`, and `list_issue_fi
 Set the type first: Bug for something that broke or contradicts its documentation, Feature for
 new behavior somebody asked for, Task for work with no user-visible change, such as CI, releases,
 or agent files. When the type is not obvious, follow the `ask` skill: Bug, Feature,
-Task. Do not guess Medium/Medium and move on.
+Task. Do not default Priority and Effort to Medium.
 
 | Field | Options | Pick |
 | --- | --- | --- |
@@ -80,12 +80,9 @@ Use `method: "update"` when triaging an existing issue. Report URL and values.
 - One issue does one thing; split mixed reports.
 - No tokens, `.env` lines, or internal hostnames in a body. Say where the value lives.
 - Do not raise Priority to jump a queue.
-- Run `humanizer` over title and body.
 
 ## Related skills
 
 | Skill | Use for |
 | --- | --- |
 | [pr](../pr/SKILL.md) | The pull request that closes the issue |
-| [humanizer](../humanizer/SKILL.md) | AI tells in the title and body |
-| [ask](../ask/SKILL.md) | Picker vs lettered list for tracker and type |

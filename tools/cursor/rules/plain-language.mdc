@@ -18,3 +18,5 @@ on the first read, and can act on it. In practice:
 - Lead with the answer or the change, then the reason.
 - One idea per sentence. Everyday words, active voice, exact paths and commands.
 - Say what changed and how to verify it. When blocked, name the blocker and what you need.
+- Name the thing: the PR by number, the file or setting by path, the person by name. Leave out
+  what you tried along the way and give the current state.

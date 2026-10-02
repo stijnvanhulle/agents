@@ -1,6 +1,6 @@
 ---
 name: jsdoc
-description: Apply the TypeScript JSDoc format, examples, tags, and ordering.
+description: Apply the TypeScript JSDoc format, examples, tags, and ordering. Use when writing or reviewing doc comments on exports.
 ---
 
 # JSDoc
@@ -44,21 +44,8 @@ property, enum, nested-property, and function documentation patterns.
 return type, or a `type`/`interface` instead. Skip `@default undefined` too, since an optional
 (`?`) property already implies it.
 
-## Guidelines
-
-Do:
-
-- Document what the property does, not its TypeScript type.
-- Give every exported type, property, and function a JSDoc comment, always multi-line, with
-  concrete, full-sentence descriptions.
-- Include `@default` only when the default is non-obvious.
-- Use multiple `@example` blocks for different variants, with short, descriptive labels.
-
-Do not:
-
-- Write single-line `/** description */` or `@default undefined`.
-- Put code directly on the `@example` line, or use `@param`/`@returns`.
-- Over-document trivial, self-explanatory properties.
+The `jsdoc` rule holds the do and do-not list: describe what a member does, not its type, and
+always use multi-line blocks.
 
 ## Tag order
 

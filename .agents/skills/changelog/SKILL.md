@@ -1,32 +1,32 @@
 ---
 name: changelog
-description: Turn commit history and changesets into user-facing release notes.
+description: Turn commit history and changesets into user-facing release notes. Use when preparing a release or documenting what changed in a version.
 ---
 
-# Changelog and versioning
+# Changelog
 
-Turn technical git commits into user-facing changelog entries. This monorepo uses
-Changesets for versioning and builds the changelog from changeset entries.
+Turn technical git commits into user-facing changelog entries. When the repo uses Changesets, the
+changelog is built from changeset entries. The `docs/changelog.md` format in the reference
+applies to repos with a VitePress docs site. Follow the repo's existing changelog when it differs.
 
-## When to use
+## 1. Collect
 
-- Preparing release notes for a new version
-- Documenting changes for the website or docs pages
-- Keeping a consistent writing style across release notes
+Scan git history for the relevant range, and the changesets released in it.
 
-## How it works
+## 2. Categorize
 
-1. Scan git history for the relevant range.
-2. Categorize commits (features, improvements, bug fixes, breaking changes) and filter noise
-   (refactor, test, chore).
-3. Translate developer commits into customer-facing language.
-4. Format entries per the repo conventions.
+Group commits into features, improvements, bug fixes, and breaking changes. Drop noise: refactor,
+test, and chore commits.
 
-## References
+## 3. Translate
 
-| Reference | Covers |
-| --- | --- |
-| [format.md](references/format.md) | `docs/changelog.md` structure, change-type sections, and examples |
+Write each entry in customer-facing language. Lead with what the user gets, and name the real
+option, export, or command.
+
+## 4. Format
+
+Follow [references/format.md](references/format.md) for the `docs/changelog.md` structure,
+change-type sections, and examples.
 
 ## Related skills
 
@@ -34,14 +34,3 @@ Changesets for versioning and builds the changelog from changeset entries.
 | --- | --- |
 | [changeset](../changeset/SKILL.md) | Writing the changeset a release note comes from |
 | [documentation](../documentation/SKILL.md) | Documentation style for changelog entries |
-
-## Checklist
-
-- [ ] Code changes have matching documentation updates
-- [ ] Changeset added via `pnpm changeset` for code changes
-- [ ] Changelog updated in `docs/changelog.md`
-
-## Resources
-
-- Changesets: https://github.com/changesets/changesets
-- VitePress markdown extensions: https://vitepress.dev/guide/markdown

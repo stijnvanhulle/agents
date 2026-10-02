@@ -21,7 +21,7 @@ Example:
 
 ### ✨ Features
 
-#### `plugin-ts`
+#### `core`
 
 Added support for generating union types with the new `unionType` option.
 

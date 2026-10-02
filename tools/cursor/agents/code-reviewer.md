@@ -22,29 +22,25 @@ code change.
 ## Also apply these skills' criteria, in this order
 
 Fold each skill's checklist into your findings instead of running its apply step, since you
-never edit files. Work in this order, substance before style before prose:
+never edit files. Work in this order, substance before style before prose, and read the skill
+for the criteria:
 
-1. **`deslop`'s reuse-first ladder** — for a new dependency, file, wrapper, or exported symbol,
-   flag anything that stops short of the ladder: doesn't need to exist, already in the
-   codebase, covered by the stdlib or platform, or already an installed dependency.
-2. **`deslop`'s AI style tells** — needless or inconsistent comments, defensive checks and
-   `try/catch` on trusted paths, `any` casts dodging a type error, nesting an early return would
-   flatten, any `else` or `else if` (only ternaries are allowed).
-3. **`jsdoc`'s conventions** — every exported type, property, and function has a comment adding
-   real value (not restating the signature), multi-line `/** */` blocks, no `@param` or
-   `@returns` TypeScript already provides.
-4. **`humanizer`'s pattern list** — for any changed comment block or markdown, AI writing tells:
-   dashes and semicolons as punctuation, title-case headings, emoji, marketing words,
-   rule-of-three lists, inline-header bullets, hedging, filler openers.
-5. **`documentation`'s style guide** — for a changed blog post or docs page specifically, its
-   structure and SEO guidance on top of the humanizer pass.
+1. `deslop`: the reuse-first ladder and the deletion test for any new dependency, file, wrapper,
+   or exported symbol.
+2. `deslop`: the code tells, including any `else` or `else if`.
+3. `jsdoc`: every exported type, property, and function has a comment that adds value.
+4. `humanizer`: changed comment blocks and markdown, including history in a description and vague
+   referents such as "both" or "the config".
+5. `documentation`: a changed blog post or docs page, on top of the humanizer pass.
 
 Skip a pass with nothing in its category in the diff (no exported symbols touched, no prose
 changed) rather than forcing a finding.
 
 ## Report, then ask
 
-Every finding must include a concrete fix and a `path:line` reference. Group findings by
+Every finding must include a concrete fix and a `path:line` reference. Check the author's
+claims in the PR description and commit messages against the diff, and quote the exact line
+that shows each finding. Group findings by
 severity (blocking, should-fix, nit) within each category above, in the order the categories are
 listed.
 

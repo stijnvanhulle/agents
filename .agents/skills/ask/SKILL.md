@@ -5,7 +5,9 @@ description: Ask a multiple-choice question with the client's native picker, or 
 
 # Ask
 
-When a sibling skill says to ask, inspect the available tools and use the first match:
+Use this for any question with discrete answers, such as a push, a bump, or which findings to
+fix, not only when a sibling skill says to ask. Inspect the available tools and use the first
+match:
 
 | Available tool | Use |
 | --- | --- |
@@ -17,9 +19,17 @@ When a sibling skill says to ask, inspect the available tools and use the first 
 
 Never call an unavailable tool or guess the client.
 
+## Before and after the answer
+
+- Ask before the step the answer decides. Do not write the file, commit, or push first and ask
+  afterward.
+- When the question is skipped or unanswered, do not pick an answer yourself. Stop at that
+  decision, say what is missing, and finish only the work that does not depend on it. A push or a
+  version bump always waits.
+
 ## Question shape
 
-- Offer 2–4 real options, likely answer first.
+- Offer 2 to 4 real options, likely answer first.
 - Batch into one question only when the answers settle a single decision. When each answer
   stands on its own, such as which review findings to fix, ask one question per decision
   instead of bundling them behind grouped options.

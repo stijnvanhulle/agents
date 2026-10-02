@@ -1,6 +1,6 @@
 ---
 name: branch
-description: Name and create a Conventional Commit branch from a GitHub, ClickUp, or Jira issue.
+description: Name and create a branch from a GitHub, ClickUp, or Jira issue. Use before starting work on an issue.
 ---
 
 # Branch
@@ -13,7 +13,7 @@ description: Name and create a Conventional Commit branch from a GitHub, ClickUp
 
 - `category`: `hotfix` for bugs, `release` for releases, otherwise `feature`.
 - `ISSUE-REF`: uppercase tracker ID; omit when absent.
-- `branch-name`: 2–5 lowercase kebab-case search terms; no camelCase or snake_case.
+- `branch-name`: 2 to 5 lowercase kebab-case search terms; no camelCase or snake_case.
 - `_` separates the reference from the slug. Keep the full name under 60 characters.
 
 Examples: `hotfix/501_retry-queue-drops-jobs`,
@@ -42,7 +42,7 @@ A requested type wins; otherwise use:
 | Same behavior, different shape | `refactor` | `feature` |
 | Tests only | `test` | `feature` |
 | A measured speed or memory win | `perf` | `feature` |
-| Version bump, tagging, release notes | — | `release` |
+| Version bump, tagging, release notes | none | `release` |
 
 If `feat` vs `fix` is unresolved, use `ask`; offer `fix` first when documented behavior used to
 work. Type drives commits and PR title; category only drives the branch prefix.
@@ -74,5 +74,3 @@ Report branch, linked issue, type and evidence, plus any source you could not fe
 | --- | --- |
 | [pr](../pr/SKILL.md) | The checks, the title, and the PR this branch ends in |
 | [issue](../issue/SKILL.md) | Opening the issue first, when there is none to branch from |
-| [conventions](../conventions/SKILL.md) | Plain language, security, USA English |
-| [ask](../ask/SKILL.md) | Picker vs lettered list when the type is torn or the tree is dirty |

@@ -24,12 +24,15 @@ exists.
 
 ## 2. Checks
 
+Run the format, lint, typecheck, and test scripts the repo defines in `package.json`, for
+example:
+
 ```bash
 pnpm format && pnpm lint:fix && pnpm typecheck && pnpm test
 ```
 
-Also run `pnpm build` after package-source changes. Fix failures at the source; never weaken a
-type or rule, or skip a test.
+Also run the build after package-source changes. Skip a script the repo does not define. Fix
+failures at the source; never weaken a type or rule, or skip a test.
 
 ## 3. Changeset
 
@@ -46,18 +49,28 @@ pnpm.
 Title: imperative Conventional Commit, under 72 characters, no period. Derive the type from the
 change or issue label, not `feature`/`hotfix`. Put `Closes #123` in the body.
 
-Fill `.github/pull_request_template.md` without deleting sections:
+When `.github/pull_request_template.md` exists, fill it without deleting sections. Without one,
+use these sections:
 
-- **Changes:** what changed and why, in 1–3 sentences.
+- **Changes:** what changed and why, in 1 to 3 sentences.
 - **How to test:** three clean-checkout steps ending in the expected result. If the diff cannot
   supply them, use the `ask` skill. Add screenshots for visible changes.
 - **Checklist:** check only what ran; explain unchecked items.
 - **Release impact:** changeset, docs-only, and breaking boxes must match the diff.
 - **Impact:** who is affected and any migration.
 
-Keep the body under 150 words when practical. Run `humanizer` over user-facing prose.
+Read a few recently merged PRs first and match their format. Name each referent, such as a PR
+number or file, and copy every number from its source. Leave out what you tried along the way,
+since the reader wants the current state.
+
+Keep every section short. When the body runs long, cut background, not sections. Run
+`humanizer` over user-facing prose.
 
 ## 6. Push and open
+
+Pushing publishes commits, so confirm first. Follow the `ask` skill: name the branch and offer
+push and open the PR, push only, or stop. Wait for the answer. A yes covers that branch only.
+Never push to `main`. On stop, leave the commits local and say so.
 
 ```bash
 git fetch origin main
@@ -81,18 +94,12 @@ with what changed and how to verify it; propose before making a large requested 
 ## Guardrails
 
 - Keep the diff scoped. No drive-by refactors or force-pushes.
-- Run `humanizer` on prose and `deslop` on generated code before push.
-- Use USA English in the title, body, commits, and changeset.
+- Run `deslop` on generated code before push.
 
 ## Related skills
 
-| Skill                                  | Use for                                                           |
-| -------------------------------------- | ----------------------------------------------------------------- |
-| [branch](../branch/SKILL.md)           | Naming and cutting the branch this PR comes from                  |
-| [changeset](../changeset/SKILL.md)     | The changeset layout, bump, and wording                           |
-| [changelog](../changelog/SKILL.md)     | Release-note wording                                              |
-| [issue](../issue/SKILL.md)             | Opening the issue this PR closes                                  |
-| [deslop](../deslop/SKILL.md)           | Stripping AI tells and over-engineering from the code in the diff |
-| [humanizer](../humanizer/SKILL.md)     | Stripping AI tells from the prose in the diff                     |
-| [conventions](../conventions/SKILL.md) | Code style, markdown, security, plain language                    |
-| [ask](../ask/SKILL.md)                 | Picker vs lettered list when test steps cannot be derived         |
+| Skill | Use for |
+| --- | --- |
+| [branch](../branch/SKILL.md) | Naming and cutting the branch this PR comes from |
+| [changeset](../changeset/SKILL.md) | The changeset layout, bump, and wording |
+| [issue](../issue/SKILL.md) | Opening the issue this PR closes |

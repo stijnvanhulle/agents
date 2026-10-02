@@ -8,7 +8,7 @@ paths:
 
 # Testing
 
-How to write, run, and debug tests in this repo (Vitest).
+How to write, run, and debug tests in Vitest projects.
 
 ## Authoring
 

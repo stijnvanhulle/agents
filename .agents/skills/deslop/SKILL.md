@@ -1,6 +1,6 @@
 ---
 name: deslop
-description: Audit a diff for over-engineering and AI code/prose tells, then apply only confirmed fixes.
+description: Audit a diff for over-engineering and AI code/prose tells, then apply only confirmed fixes. Use before opening a PR or when asked to clean up a diff.
 ---
 
 # Deslop
@@ -21,6 +21,10 @@ For each new dependency, file, wrapper, or export, stop at the first fit:
 
 Flag dependencies covered by an earlier rung, one-caller wrappers, unrequested flags, and
 generality for inputs never passed. Two real callers means reuse, not a violation.
+
+Apply the deletion test to a new module or layer. Imagine it gone. If the complexity vanishes,
+it was a pass-through. If it reappears across several callers, it earns its place. One
+implementation behind an interface is a hypothetical seam, not a real one.
 
 ## 2. Code tells
 
@@ -57,4 +61,3 @@ as audit-only unless the user also asks for fixes or has already approved those 
 | ------------------------------------------------------------- | --------------------------------------------------------------------------- |
 | [humanizer](../humanizer/SKILL.md)                            | The full pattern list step 3 runs, and prose review outside a code diff     |
 | [code-style rule](../conventions/rules/code-style.md)         | The house style this skill enforces on code, dependencies, and abstractions |
-| [ask](../ask/SKILL.md)                                         | How the confirm step renders per client                                     |
