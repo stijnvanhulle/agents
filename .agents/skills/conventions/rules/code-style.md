@@ -15,8 +15,8 @@ rule.
 
 - Single quotes, no semicolons
 - Prefer functional patterns
-- Keep ternaries one level deep. For nested conditions use if/else or extract a helper
-- Avoid `else if` chains. Use an early-return guard or a lookup/switch instead
+- Never write `else` or `else if`, not even a short one. Return early from a guard clause, or use a lookup/switch
+- A ternary is the only inline conditional. Keep it one level deep, and extract a helper for anything nested
 
 ## Comments
 
