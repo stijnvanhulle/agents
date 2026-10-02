@@ -38,11 +38,13 @@ Use the `branch` skill for naming. One issue, branch, and worktree; never share.
 ## 4. Delegate
 
 Run one worktree-isolated subagent per issue. Pass issue data, branch/worktree, and require the
-`pr` skill with checks and changeset. Parallelize independent issues; serialize dependencies.
+`pr` skill with checks and changeset, stopping before its push step. Parallelize independent
+issues; serialize dependencies. Once the subagents finish, ask once with the `ask` skill which
+branches to push, then push only those.
 
 ## 5. Report
 
-One line per issue: PR link, skipped reason, or pending question.
+One line per issue: PR link, skipped reason, or pending question. A branch not pushed says so.
 
 ## Guardrails
 

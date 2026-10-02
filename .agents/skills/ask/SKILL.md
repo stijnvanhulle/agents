@@ -5,7 +5,9 @@ description: Ask a multiple-choice question with the client's native picker, or 
 
 # Ask
 
-When a sibling skill says to ask, inspect the available tools and use the first match:
+Use this for any question with discrete answers, such as a push, a bump, or which findings to
+fix, not only when a sibling skill says to ask. Inspect the available tools and use the first
+match:
 
 | Available tool | Use |
 | --- | --- |

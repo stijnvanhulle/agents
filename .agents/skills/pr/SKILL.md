@@ -68,6 +68,10 @@ Keep every section short. When the body runs long, cut background, not sections.
 
 ## 6. Push and open
 
+Pushing publishes commits, so confirm first. Follow the `ask` skill: name the branch and offer
+push and open the PR, push only, or stop. Wait for the answer. A yes covers that branch only.
+Never push to `main`. On stop, leave the commits local and say so.
+
 ```bash
 git fetch origin main
 git pull --ff-only
