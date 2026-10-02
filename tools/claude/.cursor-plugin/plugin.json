@@ -1,0 +1,5 @@
+{
+  "name": "agents",
+  "description": "Claude Code's copy of the agents plugin. Cursor installs its own package from tools/cursor, so this copy gives it nothing.",
+  "skills": []
+}

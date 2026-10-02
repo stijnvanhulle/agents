@@ -63,8 +63,12 @@ You have new skills. If any skill might be relevant then you MUST read it.
 - [create-brain-note](.agents/skills/create-brain-note/SKILL.md) - Save a conversation recap or idea to a chosen GitHub repository.
 - [deslop](.agents/skills/deslop/SKILL.md) - Audit a diff for over-engineering and AI code/prose tells, then apply only confirmed fixes.
 - [documentation](.agents/skills/documentation/SKILL.md) - Write or review developer documentation using the project style and SEO guidance.
+- [grill-me](.agents/skills/grill-me/SKILL.md) - Pressure-test a plan, decision, or idea with one question per turn, a recommended answer for each, and the code as the source of facts.
 - [humanizer](.agents/skills/humanizer/SKILL.md) - Find AI writing tells and apply only confirmed rewrites.
 - [issue](.agents/skills/issue/SKILL.md) - Create or triage a GitHub or Jira issue with its type, labels, and fields filled.
 - [jsdoc](.agents/skills/jsdoc/SKILL.md) - Apply the TypeScript JSDoc format, examples, tags, and ordering.
 - [pr](.agents/skills/pr/SKILL.md) - Prepare, open, update, or assess a pull request, including checks, changesets, title, template, and CI.
+- [prompting](.agents/skills/prompting/SKILL.md) - Write or revise text a model reads, such as a skill, rule, agent prompt, tool description, or LLM judge, and decide when wording is the wrong lever.
+- [thinking](.agents/skills/thinking/SKILL.md) - Think before building. Pressure-test a plan, map unfamiliar code, or find where code that resists change should be reshaped.
+- [writing](.agents/skills/writing/SKILL.md) - Write or tighten prose a person reads and acts on, such as a PR description, ticket, review reply, runbook step, error message, or instruction for an agent.
 </skills>
