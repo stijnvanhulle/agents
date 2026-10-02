@@ -1,13 +1,12 @@
 ---
 name: thinking
-description: Think before building. Pressure-test a plan, map unfamiliar code, or find where code that resists change should be reshaped.
+description: Think before building. Map unfamiliar code, or find where code that resists change should be reshaped.
 ---
 
 # Thinking
 
 Pick by what is unsettled:
 
-- The plan or decision: use the `grill-me` skill.
 - An area of code you do not know: zoom out.
 - Code that works but resists change: run the architecture loop.
 - A finished diff that reads badly: use the `deslop` skill.
@@ -33,7 +32,7 @@ Use these words for structure, and the codebase's own words for the things thems
 
 Read the docs and decision records for the area first. Then present numbered candidates, each
 with the files involved, the friction, what would change, and what it buys. Ask which one to
-explore before designing any interface. Then grill that one with `grill-me`.
+explore before designing any interface. Then work through that one with the person, one question at a time.
 
 Judge whether a module earns its place:
 
