@@ -67,7 +67,4 @@ You have new skills. If any skill might be relevant then you MUST read it.
 - [issue](.agents/skills/issue/SKILL.md) - Create or triage a GitHub or Jira issue with its type, labels, and fields filled.
 - [jsdoc](.agents/skills/jsdoc/SKILL.md) - Apply the TypeScript JSDoc format, examples, tags, and ordering.
 - [pr](.agents/skills/pr/SKILL.md) - Prepare, open, update, or assess a pull request, including checks, changesets, title, template, and CI.
-- [prompting](.agents/skills/prompting/SKILL.md) - Write or revise text a model reads, such as a skill, rule, agent prompt, tool description, or LLM judge, and decide when wording is the wrong lever.
-- [thinking](.agents/skills/thinking/SKILL.md) - Think before building. Map unfamiliar code, or find where code that resists change should be reshaped.
-- [writing](.agents/skills/writing/SKILL.md) - Write or tighten prose a person reads and acts on, such as a PR description, ticket, review reply, runbook step, error message, or instruction for an agent.
 </skills>

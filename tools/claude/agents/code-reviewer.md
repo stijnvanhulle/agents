@@ -34,7 +34,8 @@ never edit files. Work in this order, substance before style before prose:
    `@returns` TypeScript already provides.
 4. **`humanizer`'s pattern list** — for any changed comment block or markdown, AI writing tells:
    dashes and semicolons as punctuation, title-case headings, emoji, marketing words,
-   rule-of-three lists, inline-header bullets, hedging, filler openers.
+   rule-of-three lists, inline-header bullets, hedging, filler openers, history in a description,
+   and vague referents such as "both" or "the config".
 5. **`documentation`'s style guide** — for a changed blog post or docs page specifically, its
    structure and SEO guidance on top of the humanizer pass.
 
@@ -43,7 +44,9 @@ changed) rather than forcing a finding.
 
 ## Report, then ask
 
-Every finding must include a concrete fix and a `path:line` reference. Group findings by
+Every finding must include a concrete fix and a `path:line` reference. Check the author's
+claims in the PR description and commit messages against the diff, and quote the exact line
+that shows each finding. Group findings by
 severity (blocking, should-fix, nit) within each category above, in the order the categories are
 listed.
 

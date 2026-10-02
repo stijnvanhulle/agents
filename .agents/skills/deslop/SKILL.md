@@ -22,6 +22,10 @@ For each new dependency, file, wrapper, or export, stop at the first fit:
 Flag dependencies covered by an earlier rung, one-caller wrappers, unrequested flags, and
 generality for inputs never passed. Two real callers means reuse, not a violation.
 
+Apply the deletion test to a new module or layer. Imagine it gone. If the complexity vanishes,
+it was a pass-through. If it reappears across several callers, it earns its place. One
+implementation behind an interface is a hypothetical seam, not a real one.
+
 ## 2. Code tells
 
 - Comments that restate code or do not match local comment density.

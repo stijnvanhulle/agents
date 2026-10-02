@@ -55,6 +55,10 @@ Fill `.github/pull_request_template.md` without deleting sections:
 - **Release impact:** changeset, docs-only, and breaking boxes must match the diff.
 - **Impact:** who is affected and any migration.
 
+Read a few recently merged PRs first and match their format. Name each referent, such as a PR
+number or file, and copy every number from its source. Leave out what you tried along the way,
+since the reader wants the current state.
+
 Keep the body under 150 words when practical. Run `humanizer` over user-facing prose.
 
 ## 6. Push and open

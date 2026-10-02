@@ -39,6 +39,7 @@ Load the category you need:
 | [language-patterns.md](references/language-patterns.md) | AI vocabulary, copula avoidance, negative parallelisms, rule-of-three, elegant variation, false ranges, filler and hedging, words to cut |
 | [style-patterns.md](references/style-patterns.md) | Dashes and semicolons as punctuation, unnecessary bold, inline-header lists, title-case headings, emojis |
 | [communication-patterns.md](references/communication-patterns.md) | Chatbot artifacts, sycophantic openers |
+| [structure-patterns.md](references/structure-patterns.md) | History in the deliverable, vague referents, remembered numbers, count anchors, unmatched house format, instructions a person or agent acts on |
 
 ## Related skills
 
