@@ -1,5 +1,16 @@
 # @stijnvanhulle/codex-plugin
 
+## 2.6.1
+
+### Patch Changes
+
+- [#24](https://github.com/stijnvanhulle/agents/pull/24) [`99c7fe6`](https://github.com/stijnvanhulle/agents/commit/99c7fe61622a46d3089aea8046236048401d7a99) Thanks [@stijnvanhulle](https://github.com/stijnvanhulle)! - `pr` stops before pushing when an earlier step did not run, instead of leaving it to the PR body.
+  
+  - Asks to load the skill before the first commit when you open a PR.
+  - Renames an unpushed branch whose name does not match the `branch` shape.
+  - Splits an existing commit that mixes changes before the first push.
+  - Runs the check scripts from the repo root so they cover the whole workspace.
+
 ## 2.6.0
 
 ### Minor Changes

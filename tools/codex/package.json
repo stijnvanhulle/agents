@@ -1,6 +1,6 @@
 {
   "name": "@stijnvanhulle/codex-plugin",
-  "version": "2.6.0",
+  "version": "2.6.1",
   "private": true,
   "description": "Shared Codex prompts and skills.",
   "license": "MIT"
