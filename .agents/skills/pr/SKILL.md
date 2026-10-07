@@ -1,11 +1,12 @@
 ---
 name: pr
-description: Prepare, open, update, or assess a pull request, including checks, changesets, title, template, and CI.
+description: Prepare, open, update, or assess a pull request, including checks, changesets, title, template, and CI. Load it before the first commit when asked to open a PR.
 ---
 
 # PR
 
-Take a branch to merge-ready. Work in order; disclose any unfinished step in the PR body.
+Take a branch to merge-ready. Load this skill before the first commit, since steps 1 and 4 are
+hard to undo after a push. Work in order. Step 6 stops the push when an earlier step did not run.
 
 ## 1. Branch
 
@@ -22,6 +23,16 @@ git switch -c <category>/<ISSUE-REF>_<branch-name> origin/main
 Use the `branch` skill's `<category>/<ISSUE-REF>_<slug>` shape. Omit the reference when none
 exists.
 
+A branch that already exists, such as a `claude/…` branch a desktop app made for a worktree,
+follows the same shape. When its name does not match and it has no remote yet, rename it before
+the first push:
+
+```bash
+git branch -m <category>/<ISSUE-REF>_<branch-name>
+```
+
+Keep the name of a branch that is already pushed.
+
 ## 2. Checks
 
 Run the format, lint, typecheck, and test scripts the repo defines in `package.json`, for
@@ -31,8 +42,10 @@ example:
 pnpm format && pnpm lint:fix && pnpm typecheck && pnpm test
 ```
 
-Also run the build after package-source changes. Skip a script the repo does not define. Fix
-failures at the source; never weaken a type or rule, or skip a test.
+Run them from the repo root so they cover the whole workspace. Tests for one package, or a
+linter over the changed files, do not replace them. Also run the build after package-source
+changes. Skip a script the repo does not define. Fix failures at the source; never weaken a type
+or rule, or skip a test.
 
 ## 3. Changeset
 
@@ -43,6 +56,16 @@ Run the `changeset` skill for versioned package changes. Docs, CI, and tests alo
 Use one imperative Conventional Commit per logical change, under 72 characters, no period.
 Review `git diff --cached`. Never commit secrets or generated output; generate lockfiles with
 pnpm.
+
+When the work is already committed, check that each commit holds one logical change. Before the
+first push, split a commit that mixes changes:
+
+```bash
+git reset "$(git merge-base HEAD origin/main)"
+```
+
+The changes stay in the working tree. Stage and commit each one on its own. After the push, add
+new commits instead.
 
 ## 5. Title and body
 
@@ -67,6 +90,17 @@ Keep every section short. When the body runs long, cut background, not sections.
 `humanizer` over user-facing prose.
 
 ## 6. Push and open
+
+Check steps 1 to 5 before you ask to push:
+
+- the branch name matches the shape, or the branch was already pushed
+- the full check scripts ran and passed
+- the `changeset` skill ran, or the diff needs no changeset
+- each commit holds one logical change
+- `humanizer` ran on the PR body and `deslop` on the code
+
+When one did not run, run it now. When you cannot, stop and name the skipped steps to the user
+instead of pushing.
 
 Pushing publishes commits, so confirm first. Follow the `ask` skill: name the branch and offer
 push and open the PR, push only, or stop. Wait for the answer. A yes covers that branch only.
