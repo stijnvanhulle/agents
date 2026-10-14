@@ -25,7 +25,7 @@ Example:
 
 Added support for generating union types with the new `unionType` option.
 
-::: code-group
+::code-group
 
 ```typescript [Before]
 // Generated separate types
@@ -37,4 +37,4 @@ export type PetCat = { type: 'cat'; meow: string }
 export type Pet = PetDog | PetCat
 ```
 
-:::
+::

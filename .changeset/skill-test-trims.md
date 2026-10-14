@@ -9,7 +9,7 @@ Every skill shares one layout and states what it produces, so a run loads less t
 - Follow numbered steps, an `Output` section, and a `References` table in every skill.
 - Trigger skills from the requests their descriptions now name.
 - Load one `humanizer` pattern file instead of five.
-- Load VitePress and blog guidance in `documentation` only for that kind of page.
+- Load Nuxt Content and blog guidance in `documentation` only for that kind of page.
 - Prefer `const` with a ternary or a returning function over a reassigned `let` in `code-style`.
 
 ```diff
