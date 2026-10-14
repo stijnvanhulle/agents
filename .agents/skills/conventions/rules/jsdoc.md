@@ -1,22 +1,30 @@
+---
+paths:
+  - "**/*.ts"
+  - "**/*.tsx"
+---
+
 # JSDoc conventions
 
-Minimal, high-quality JSDoc. For the full format guide and examples, use the `jsdoc` skill.
+Minimal, high-quality JSDoc. For `@example` formats and tag order, use the `jsdoc` skill.
 
 - Document what a member does, not its TypeScript type
-- Always use multi-line `/** ... */` blocks, never single-line, even for a one-sentence type
-  property:
+- Always use multi-line `/** ... */` blocks, never single-line. Put the description on its own
+  line between the opening `/**` and the closing `*/`:
 
   ```ts
   /**
-   * The header, query parameter, or cookie name of an `apiKey`.
+   * A server the API document declares, with its `{variable}` placeholders filled from their defaults.
    */
-  parameterName?: string
+  export type InputServer = {
+    url: string
+    description?: string
+  }
   ```
-
-- Give every exported type, property, and function a comment that adds value beyond the signature
+- Comment an exported type, property, or function only when the comment adds something the
+  name and signature do not
 - Use concrete, full-sentence descriptions, not fragments like "Boolean value."
 - Include `@default` only when the default is non-obvious (never `@default undefined` or `false`)
 - Use `@example` for complex or multi-variant APIs, one concern per example, code on its own line
 - Do not use `@param`, `@returns`, `@type`, or `@typedef`, since TypeScript already provides these
-- Do not over-document trivial, self-explanatory members
 
