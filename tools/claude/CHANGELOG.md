@@ -1,5 +1,11 @@
 # @stijnvanhulle/claude-plugin
 
+## 2.7.1
+
+### Patch Changes
+
+- [#30](https://github.com/stijnvanhulle/agents/pull/30) [`b995cff`](https://github.com/stijnvanhulle/agents/commit/b995cff6202c1c4f285b1b6014753fba57f11343) Thanks [@stijnvanhulle](https://github.com/stijnvanhulle)! - The JSDoc rule and skill now show that the description goes on its own line inside a multi-line block.
+
 ## 2.7.0
 
 ### Minor Changes
