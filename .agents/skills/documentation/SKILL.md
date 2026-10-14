@@ -22,8 +22,8 @@ H2 down they are fine.
 
 Load [references/writing-style.md](references/writing-style.md) for prose: proper grammar and
 complete sentences, 1 to 3 sentences per paragraph, mostly active voice and present tense. Load
-[references/nuxt-content.md](references/nuxt-content.md) for frontmatter, MDC components, code
-groups, and option tables, and [references/blog.md](references/blog.md) for a post.
+[references/nuxt-content.md](references/nuxt-content.md) for frontmatter, the MDC components the
+site uses, code groups, and option tables, and [references/blog.md](references/blog.md) for a post.
 
 ## 4. Link and illustrate
 
@@ -48,6 +48,7 @@ The page file. For a review: one line per finding, `path:line`, the rule, the ch
 | File | Load when |
 | --- | --- |
 | [references/writing-style.md](references/writing-style.md) | Writing or reviewing prose |
-| [references/nuxt-content.md](references/nuxt-content.md) | A docs page: frontmatter, MDC components, code groups, option tables, includes |
+| [references/nuxt-content.md](references/nuxt-content.md) | A docs page: frontmatter, which MDC components the site uses, code groups, option tables, includes |
+| `comark` skill | The `::component` syntax itself: props, slots, nesting. Install with `npx skills add https://comark.dev` |
 | [references/blog.md](references/blog.md) | A blog post or release announcement |
 | [references/seo-optimization.md](references/seo-optimization.md) | Titles, descriptions, FAQ, internal links |

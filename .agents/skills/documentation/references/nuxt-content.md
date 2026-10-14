@@ -2,7 +2,10 @@
 
 Frontmatter, callouts, code groups, and option tables for a docs site built on Nuxt Content with
 Nuxt UI's Markdown components (MDC), as kubb.dev is. The site's own `docs/README.md` wins when it
-differs.
+differs. This file says which components the site uses; the `comark` skill
+(`npx skills add https://comark.dev`, syntax guide at
+[comark.dev/.well-known/skills/comark/references/markdown-syntax.md](https://comark.dev/.well-known/skills/comark/references/markdown-syntax.md))
+covers the `::component` syntax, props, slots, and nesting, so it is not repeated here.
 
 ## Frontmatter
 
