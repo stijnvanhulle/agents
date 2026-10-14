@@ -1,5 +1,41 @@
 # @stijnvanhulle/codex-plugin
 
+## 2.7.0
+
+### Minor Changes
+
+- [#28](https://github.com/stijnvanhulle/agents/pull/28) [`0630614`](https://github.com/stijnvanhulle/agents/commit/0630614be5359749624c9c577c93ea82b5561ac8) Thanks [@stijnvanhulle](https://github.com/stijnvanhulle)! - Every skill shares one layout and states what it produces, so a run loads less text and returns a shorter result.
+  
+  - Follow numbered steps, an `Output` section, and a `References` table in every skill.
+  - Trigger skills from the requests their descriptions now name.
+  - Load one `humanizer` pattern file instead of five.
+  - Load Nuxt Content and blog guidance in `documentation` only for that kind of page.
+  - Prefer `const` with a ternary or a returning function over a reassigned `let` in `code-style`.
+  
+  ```diff
+  - let test = true
+  - if (allowed) {
+  -   test = false
+  - }
+  + const test = !allowed
+  ```
+
+### Patch Changes
+
+- [#28](https://github.com/stijnvanhulle/agents/pull/28) [`9e743d1`](https://github.com/stijnvanhulle/agents/commit/9e743d1c4d8539a1c09d8ff287615a1fa0ded861) Thanks [@stijnvanhulle](https://github.com/stijnvanhulle)! - Questions from `ask` and `deslop` now read on their own, including on mobile where the picker hides the chat.
+  
+  - Summarize each decision in chat before the picker opens.
+  - Name the subject in every question instead of a number.
+  - Ask one question per finding with `Apply` and `Skip` options.
+  - Mark the best option `(Recommended)` in every client.
+  
+  ```diff
+  - All (1-7) (Recommended)
+  - Real fixes only (1-3)
+  + Unused `enabled` flag in Studio?    Apply (Recommended) / Skip
+  + Duplicated 402 logic in billing.ts? Apply (Recommended) / Skip
+  ```
+
 ## 2.6.1
 
 ### Patch Changes
