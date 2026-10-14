@@ -1,5 +1,11 @@
 # @stijnvanhulle/claude-plugin
 
+## 2.7.2
+
+### Patch Changes
+
+- [#32](https://github.com/stijnvanhulle/agents/pull/32) [`c070ab4`](https://github.com/stijnvanhulle/agents/commit/c070ab4a121f130bb9f6c88b9e1656bb21e8bb30) Thanks [@stijnvanhulle](https://github.com/stijnvanhulle)! - The `jsdoc` skill loads on its own in Claude Code when you work on `.ts` or `.tsx` files, including in projects that install the plugin.
+
 ## 2.7.1
 
 ### Patch Changes
