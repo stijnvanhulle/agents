@@ -29,6 +29,9 @@ Never call an unavailable tool or guess the client.
 
 ## Question shape
 
+- Make the question and options readable alone. Mobile and some clients hide the chat text above
+  the picker, so never refer to numbers, letters, or names that only the chat text defines. Name
+  the thing in the option label itself, such as `Fix duplicated 402 logic`, not `Fix 3`.
 - Offer 2 to 4 real options, likely answer first.
 - Batch into one question only when the answers settle a single decision. When each answer
   stands on its own, such as which review findings to fix, ask one question per decision
