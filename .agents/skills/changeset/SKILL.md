@@ -36,9 +36,10 @@ is missing. List only the packages you changed.
 1. One sentence saying what a user gets. It becomes the changelog headline, so it has to stand
    on its own.
 2. Bullets, one per user-visible change, verb first, naming the real option, export, or command.
-   Five at most, and none for a one-line change.
-3. A code example whenever a user writes something differently, with before and after when you
-   changed existing behavior.
+   One line each, what the user gets and not how it works. Five at most, and none for a one-line
+   change.
+3. A code example whenever a user writes something differently: a `diff` fence with `-` and `+`
+   lines when the change fits in a few lines, otherwise before and after blocks.
 4. For a `major`, a closing line saying what to change to upgrade.
 
 Leave out file paths, PR numbers, reviewer talk, and emoji. Changesets adds the commit link.
