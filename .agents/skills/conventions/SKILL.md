@@ -8,7 +8,8 @@ description: Apply the shared TypeScript, markdown, testing, security, and langu
 This skill ships the convention rules under `rules/`. When the plugin is
 installed in another project, those files load on demand from here.
 
-`plain-language`, `security`, `usa-english`, and `user-questions` apply to every request. The
+`jsdoc`, `plain-language`, `security`, `usa-english`, and `user-questions` apply to every request,
+so they also reach projects where the plugin is installed. The
 `user-questions` rule points at the `ask` skill for the picker. The rest carry `paths:`
 frontmatter and load when you open a matching file.
 

@@ -1,15 +1,18 @@
----
-paths:
-  - "**/*.ts"
-  - "**/*.tsx"
----
-
 # JSDoc conventions
 
 Minimal, high-quality JSDoc. For the full format guide and examples, use the `jsdoc` skill.
 
 - Document what a member does, not its TypeScript type
-- Always use multi-line `/** ... */` blocks, never single-line
+- Always use multi-line `/** ... */` blocks, never single-line, even for a one-sentence type
+  property:
+
+  ```ts
+  /**
+   * The header, query parameter, or cookie name of an `apiKey`.
+   */
+  parameterName?: string
+  ```
+
 - Give every exported type, property, and function a comment that adds value beyond the signature
 - Use concrete, full-sentence descriptions, not fragments like "Boolean value."
 - Include `@default` only when the default is non-obvious (never `@default undefined` or `false`)
