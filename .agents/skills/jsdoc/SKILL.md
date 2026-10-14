@@ -1,5 +1,8 @@
 ---
 name: jsdoc
+paths:
+  - "**/*.ts"
+  - "**/*.tsx"
 description: Writes or reviews TypeScript JSDoc comments with the house format, tags, ordering, and @example styles. Use when adding or checking doc comments on exports, options, or public APIs, or when asked to document a TypeScript file.
 ---
 
