@@ -29,16 +29,22 @@ Never call an unavailable tool or guess the client.
 
 ## Question shape
 
-- Make the question and options readable alone. Mobile and some clients hide the chat text above
-  the picker, so never refer to numbers, letters, or names that only the chat text defines. Name
-  the thing in the option label itself, such as `Fix duplicated 402 logic`, not `Fix 3`.
+- Write a short summary in chat before the picker fires. Give each decision a line with what
+  it changes and why, so the user can scroll up for details the picker has no room for.
+- Still make the question and options readable alone. Mobile and some clients hide the chat text
+  behind the picker, so never refer to numbers, letters, or names that only the chat text
+  defines. Name the thing in the question itself, such as `Duplicated 402 logic in
+  billing.ts?`, not `Fix 3?`.
 - Offer 2 to 4 real options, likely answer first.
 - Batch into one question only when the answers settle a single decision. When each answer
   stands on its own, such as which review findings to fix, ask one question per decision
-  instead of bundling them behind grouped options.
+  instead of bundling them behind grouped options. Each question gets its own options, such as
+  `Apply`, `Skip`, or a concrete alternative fix. `AskUserQuestion` takes four questions per
+  call, so send more in follow-up calls.
 - For an open question, offer likely answers and allow custom input.
 - Enable multiple selection only when several answers can be true.
-- Cursor and Codex mark the likely label `(Recommended)`.
+- Mark the option you think is best with `(Recommended)` in every client, and say why in its
+  description.
 - A lettered fallback uses the same options and order, plus `Other`.
 - Never put a secret or credential in an option. Ask for it in prose and never echo it.
 - With Paseo's async picker, ask at most three questions per call and keep titles and options

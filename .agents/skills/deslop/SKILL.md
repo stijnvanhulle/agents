@@ -40,11 +40,13 @@ Run `humanizer` criteria on changed docs/comments. Skip when no prose changed.
 
 ## 4. Report, then ask
 
-Before editing, list each finding with path, violated rung/tell, and fix. Use `ask`: apply /
-skip / show more per finding or related group. Name each finding in the question or option text
-(`Remove unused enabled flag in Studio`), never by a bare number, because the list above the
-picker may not be visible. Treat requests to review, assess, or explain a diff
-as audit-only unless the user also asks for fixes or has already approved those fixes.
+Before editing, write the findings list in chat: path, violated rung or tell, the fix, and
+your recommendation for each. Then use `ask` with one question per finding, or per group that
+shares one fix. Each question names the finding (`Unused enabled flag in Studio?`) and offers
+its own options, such as `Apply`, `Skip`, or an alternative fix, with `(Recommended)` on the one
+you would pick. Never offer bundles such as `All (1-7)`. Treat requests to review, assess, or
+explain a diff as audit-only unless the user also asks for fixes or has already approved
+those fixes.
 
 ## 5. Apply only what is confirmed
 
