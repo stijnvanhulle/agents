@@ -17,6 +17,26 @@ test authoring and CI, see the `testing` rule.
 - Prefer functional patterns
 - Never write `else` or `else if`, not even a short one. Return early from a guard clause, or use a lookup/switch
 - A ternary is the only inline conditional. Keep it one level deep, and extract a helper for anything nested
+- Prefer `const` over a `let` that a branch reassigns. Compute the value once with a ternary, or
+  with a function that returns from each branch:
+
+  ```ts
+  // Avoid
+  let test = true
+  if (allowed) {
+    test = false
+  }
+
+  // Prefer
+  const test = !allowed
+
+  // Prefer, when there are several branches
+  const test = (() => {
+    if (allowed) return false
+    if (pending) return true
+    return false
+  })()
+  ```
 
 ## Comments
 
