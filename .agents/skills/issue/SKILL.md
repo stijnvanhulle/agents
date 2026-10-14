@@ -35,8 +35,9 @@ a body; say where the value lives.
 
 ## 4. Read valid values
 
-Never invent values. Use `gh label list`, `list_issue_types`, and `list_issue_fields`. A personal
-repo has no issue types or project fields: record Priority and Effort in the body or skip them.
+Never invent values. Use `gh label list`, `list_issue_types`, and `list_issue_fields`. When a
+repo has no issue types or project fields (the calls return none), record Priority and Effort
+in the body and leave `issue_fields` out of the payload.
 
 ## 5. Classify
 

@@ -5,9 +5,8 @@ description: Turns commit history and changesets into user-facing release notes.
 
 # Changelog
 
-Turn technical git commits and changesets into entries a user of the package can act on. The
-`docs/changelog.md` format in the reference applies to repos with a VitePress docs site; follow
-the repo's existing changelog when it differs.
+Turn technical git commits and changesets into entries a user of the package can act on. Follow
+the repo's own `docs/changelog.md` when it has one; otherwise use the format in the reference.
 
 ## 1. Collect
 
@@ -17,7 +16,7 @@ include the pending `.changeset/*.md` files. Fetch remote tags when none exist l
 ## 2. Categorize
 
 Group into features, improvements, bug fixes, and breaking changes. Drop refactor, test, and
-chore commits. Dependency bumps go under Dependencies, or are dropped when users see no change;
+chore commits unless a changeset carries them. Dependency bumps go under Dependencies, or are dropped when users see no change;
 say which.
 
 ## 3. Translate
@@ -27,9 +26,10 @@ export, or command.
 
 ## Output
 
-One `## <version>` section with a `###` block per change type that has entries, one line per
-entry, laid out as in [references/format.md](references/format.md). End with one line naming
-what was dropped as noise.
+One `## <version>` section, the version being the last tag plus the highest pending bump, with a
+`###` block per change type that has entries and one line per entry, laid out as in
+[references/format.md](references/format.md). Skip the per-package `####` level when the
+packages share one version. End with one line naming what was dropped as noise.
 
 ## References
 

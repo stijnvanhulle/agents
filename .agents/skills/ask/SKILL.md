@@ -35,11 +35,13 @@ and why. The picker has no room for detail, so this is where the user scrolls fo
   billing.ts?`, not `Fix 3?`.
 - Offer 2 to 4 real options, likely answer first. Mark the one you think is best
   `(Recommended)` in every client, and say why in its description.
-- One question per decision. Batch into one question only when the answers settle a single
-  decision. When each answer stands on its own, such as which review findings to fix, each
-  question gets its own options: `Apply`, `Skip`, or a concrete alternative. `AskUserQuestion`
-  takes four questions per call, so send more in follow-up calls.
-- For an open question, offer likely answers and allow custom input.
+- One question per decision, and independent decisions go as separate questions in the same
+  call. Batch into one question only when the answers settle a single decision. When each answer
+  stands on its own, such as which review findings to fix, each question gets its own options:
+  `Apply`, `Skip`, or a concrete alternative. `AskUserQuestion` takes four questions per call, so
+  send more in follow-up calls.
+- For an open question, offer likely answers and allow custom input, unless the calling skill
+  forbids guessed options.
 - Enable multiple selection only when several answers can be true.
 - A lettered fallback uses the same options and order, plus `Other`.
 - Never put a secret or credential in an option. Ask for it in prose and never echo it.

@@ -38,7 +38,8 @@ Phrase lists per group, with one before/after per group. The groups match the ta
   such as `spec-driven` are fine.
 - Semicolons joining two clauses.
 - Bold on product names, common nouns, or ordinary words mid-sentence.
-- Inline-header lists: bullets that start with a bolded label and a colon.
+- Inline-header lists: bullets that start with a bolded label and a colon. Labels that mirror a
+  template's section names are fine.
 - Title-case headings. Use sentence case.
 - Emoji in documentation.
 

@@ -103,14 +103,16 @@ labels. One PR does one thing.
 
 ## 7. CI and review
 
-Fix red CI before handoff. Re-run only infrastructure failures. Reply to every review comment
+Fix red CI before handoff. Re-run only infrastructure failures. A `blocked` merge state with
+green CI means a required review is missing; say so, since a review is not yours to supply. Reply to every review comment
 with what changed and how to verify it; propose before making a large requested change.
 
 ## Output
 
 After opening: the PR URL and one line per step 6 item that was skipped, or "nothing skipped".
-For an assessment: one row per step, pass or fail with the reason, then one line with the
-verdict (ready, or what blocks it).
+For an assessment: one row per step, pass or fail with the reason; a miss that cannot change
+after the push is a fail marked "left as is". Then one line with the verdict (ready, or what
+blocks it).
 
 ## Related skills
 

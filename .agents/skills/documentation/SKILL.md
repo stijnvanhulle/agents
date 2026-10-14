@@ -10,7 +10,8 @@ Write a page a developer can skim and still find the answer.
 ## 1. Find the target
 
 Check for a VitePress `docs/` folder and read two existing pages near the new one; follow them
-when they differ from this skill. File names are kebab-case and descriptive
+when they differ from this skill. Without a `docs/` folder, use the VitePress reference as the
+default. File names are kebab-case and descriptive
 (`multipart-form-data.md`, not `form.md`), since the name becomes the URL.
 
 ## 2. Outline
@@ -27,7 +28,7 @@ option tables, and [references/blog.md](references/blog.md) for a post.
 
 ## 4. Link and illustrate
 
-Internal links use relative paths (`/guide/getting-started/`), and anchors point at a section
+Internal links are root-relative (`/guide/getting-started/`), and anchors point at a section
 (`/guide/getting-started/#output-path`). External links carry the full URL and descriptive text.
 Put the links section at the very end. Store images where the repo keeps its assets (VitePress:
 `docs/public/`), reference them relative to the markdown file, use `webp`, `png`, or `jpg`, keep
@@ -36,7 +37,8 @@ them small, and name them for what they show: `query-example.png`.
 ## 5. Finish
 
 Set the title and description per [references/seo-optimization.md](references/seo-optimization.md),
-with a FAQ and See also when the page is a guide. Run `humanizer` on the finished prose.
+with a FAQ and See also when the page is a guide. Run the `humanizer` tells over the finished prose and fix them in place; a page you wrote
+yourself needs no per-rewrite question.
 
 ## Output
 

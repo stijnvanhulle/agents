@@ -43,8 +43,9 @@ appear.
 
 ## Output
 
-One line per tell: `path:line`, the tell, the rewrite. After applying: what changed and what
-was skipped, one line each.
+One line per tell: `path:line`, the tell, the rewrite; a rewrite longer than a line goes in a
+block under it. A file with no tells gets one line saying so. After applying: what changed and
+what was skipped, one line each.
 
 ## References
 

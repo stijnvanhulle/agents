@@ -15,7 +15,7 @@ and signature do not. Skip the ones whose name says it all.
 ## 2. Write the description
 
 Say what the member does, not its type, in full sentences, always in a multi-line `/** ... */`
-block. For a non-obvious default, options, nested properties, or a function, follow the matching
+block; a `/** ... */` on one line is single-line, so expand it. For a non-obvious default, options, nested properties, or a function, follow the matching
 pattern in [references/examples.md](references/examples.md).
 
 ## 3. Add tags
@@ -44,7 +44,7 @@ an optional (`?`) property already implies it.
 
 ## Output
 
-The doc comments in the file. For a review: one line per member, its name and what is missing or
+The doc comments in the file, or one line saying nothing needed one. For a review: one line per member, its name and what is missing or
 wrong.
 
 ## References

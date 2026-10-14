@@ -33,4 +33,5 @@ retry after a conflict.
 
 ## Output
 
-One line: the note URL, or why the write failed.
+One line: the note URL, or why the write failed. When the run stops before the write, the
+question, the target path, and the prepared entry instead.

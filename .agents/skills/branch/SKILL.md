@@ -58,15 +58,17 @@ git fetch origin main
 git switch -c hotfix/501_retry-queue-drops-jobs origin/main
 ```
 
-Branch from `origin/main`, unless building on an open PR. If the tree is dirty and ownership is
+Branch from `origin/main`. When an open PR already targets the issue, say so and use `ask`:
+build on that PR's branch, or start fresh. If the tree is dirty and ownership is
 unclear, use `ask`: carry or `git stash -u`. Reuse an existing branch only when it holds this
 work; otherwise choose a clearer slug, not a numeric suffix. One branch per issue. Leave it
 local, since `pr` pushes it. Never commit to `main` or rename or delete a shared branch.
 
 ## Output
 
-Four lines: the branch name, the linked issue, the type with its evidence, and any source you
-could not fetch.
+Four lines: the branch name, the linked issue as `owner/repo#n` with its title, the type with
+its evidence, and any source you could not fetch. Then the create command when you did not run
+it.
 
 ## Related skills
 

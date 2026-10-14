@@ -58,7 +58,8 @@ offer bundles such as `All (1-7)`.
 
 ## Output
 
-One line per finding: `path:line`, the rung or tell, the fix, your recommendation. One line for
+One line per finding: `path:line`, the rung or tell, the fix, and `Apply` or `Skip` as your
+recommendation. One line for
 what you checked and found fine. After applying: what changed and what was skipped, one line each.
 
 ## Related skills
