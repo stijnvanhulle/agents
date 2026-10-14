@@ -1,14 +1,14 @@
 ---
 name: changeset
-description: Write or review a release-note changeset with the correct bump.
+description: Writes or reviews a Changesets release note with the correct semver bump. Use when a change reaches a versioned package, when asked to add, write, or check a changeset, or before a PR that needs one.
 ---
 
-# Changeset skill
+# Changeset
 
 A changeset is the release note for a change. Whoever reads it is upgrading a package, not
 reviewing the diff.
 
-## 1. Does the change need one
+## 1. Decide whether the change needs one
 
 A change that reaches a versioned package does. Docs, CI, and tests do not. When you are not
 sure, check whether the package is in the workspace and not listed under `ignore` in
@@ -18,22 +18,31 @@ sure, check whether the package is in the workspace and not listed under `ignore
 
 | Bump | For | Example |
 | --- | --- | --- |
-| `patch` | A fix | The resolver no longer caches a miss |
+| `patch` | A fix, including a behavior fix in a skill or prompt | The resolver no longer caches a miss |
 | `minor` | New behavior existing code survives | A new `unionType` option |
 | `major` | A rename, a removal, or a changed default | `enumType` now defaults to `asConst` |
 
 Use the bump from the command when it is `patch`, `minor`, or `major`. When none was passed, or
-the table does not pick one on its own, follow the `ask` skill: offer `patch`,
-`minor`, and `major`, likely answer first. Do not default to `patch` and report it as a guess.
-Write no changeset file until the bump is known. When the question goes unanswered, stop and say
-the bump is missing.
-
-List only the packages you changed.
+the table does not pick one on its own, follow the `ask` skill: offer `patch`, `minor`, and
+`major`, likely answer first. Do not default to `patch` and report it as a guess. Write no
+changeset file until the bump is known. When the question goes unanswered, stop and say the bump
+is missing. List only the packages you changed.
 
 ## 3. Write the file
 
 `.changeset/<slug>.md`, named for whoever reads `git log`, so `plugin-resolver-cache.md` beats
-`fix.md`.
+`fix.md`. In order:
+
+1. One sentence saying what a user gets. It becomes the changelog headline, so it has to stand
+   on its own.
+2. Bullets, one per user-visible change, verb first, naming the real option, export, or command.
+   One line each, what the user gets and not how it works. Five at most, and none for a one-line
+   change.
+3. A code example whenever a user writes something differently: a `diff` fence with `-` and `+`
+   lines when the change fits in a few lines, otherwise before and after blocks.
+4. For a `major`, a closing line saying what to change to upgrade.
+
+Leave out file paths, PR numbers, reviewer talk, and emoji. Changesets adds the commit link.
 
 ````md
 ---
@@ -55,16 +64,6 @@ export type Pet = PetDog | PetCat
 ```
 ````
 
-In order:
-
-1. One sentence saying what a user gets. It becomes the changelog headline, so it has to stand
-   on its own.
-2. Bullets, one per user-visible change, verb first, naming the real option, export, or command.
-   Five at most, and none for a one-line change.
-3. A code example whenever a user writes something differently, with before and after when you
-   changed existing behavior.
-4. For a `major`, a closing line saying what to change to upgrade.
-
 A patch is usually one line and no example:
 
 ```md
@@ -75,12 +74,11 @@ A patch is usually one line and no example:
 Resolve nested plugin paths on Windows, which broke on a backslash separator.
 ```
 
-## Wording
+## Output
 
-- Lead with what the user gets. Cut what only a reviewer needs.
-- Name real identifiers. "Various improvements" says nothing.
-- Leave out file paths, PR numbers, and reviewer talk. Changesets adds the commit link.
-- No emoji.
+The file at `.changeset/<slug>.md`. For a review: first the bump verdict, then one line per problem
+(what to change and why), then the rewritten file when anything changes, or "bump and text are
+right" when nothing does.
 
 ## Related skills
 

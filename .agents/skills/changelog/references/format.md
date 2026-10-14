@@ -25,7 +25,7 @@ Example:
 
 Added support for generating union types with the new `unionType` option.
 
-::: code-group
+::code-group
 
 ```typescript [Before]
 // Generated separate types
@@ -37,30 +37,4 @@ export type PetCat = { type: 'cat'; meow: string }
 export type Pet = PetDog | PetCat
 ```
 
-:::
-
-## Documenting bug fixes
-
-When fixing bugs that affect user-facing behavior:
-
-1. Update relevant documentation (fix incorrect examples, clarify ambiguous descriptions, update
-   the troubleshooting guide).
-2. Add to the changelog via `pnpm changeset` (explain what was broken, show correct usage, link
-   to the docs).
-3. Consider migration notes when the fix changes expected behavior (add before and after examples
-   to the migration guide).
-
-Example:
-
-## Fixed incorrect enum type output
-
-**Issue**: `enumType: 'asConst'` generated invalid TypeScript
-
-**Fixed**: Now correctly generates:
-
-```typescript
-const petType = {
-  Dog: 'dog',
-  Cat: 'cat',
-} as const
-```
+::

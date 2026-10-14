@@ -1,58 +1,55 @@
 ---
 name: jsdoc
-description: Apply the TypeScript JSDoc format, examples, tags, and ordering. Use when writing or reviewing doc comments on exports.
+description: Writes or reviews TypeScript JSDoc comments with the house format, tags, ordering, and @example styles. Use when adding or checking doc comments on exports, options, or public APIs, or when asked to document a TypeScript file.
 ---
 
 # JSDoc
 
-The detailed JSDoc format guide. The essentials live in the `jsdoc` rule; reach here for the
-full reference, including every `@example` format and documentation pattern in
+Write doc comments that say what a member does, in a shape TypeScript does not already give.
+
+## 1. Decide whether a member needs one
+
+Comment an exported type, property, or function only when the comment adds something the name
+and signature do not. Skip the ones whose name says it all.
+
+## 2. Write the description
+
+Say what the member does, not its type, in full sentences, always in a multi-line `/** ... */`
+block; a `/** ... */` on one line is single-line, so expand it. For a non-obvious default, options,
+nested properties, or a function, follow the matching pattern in
 [references/examples.md](references/examples.md).
 
-## `@example` format, in brief
+## 3. Add tags
 
-- Short value: label on the `@example` line, code as inline backtick on the next line.
-- Multi-line code: a fenced ` ```ts ``` ` block immediately after `@example`, never bare lines.
-- Multiple variants: separate `@example` blocks, one concern each, never one example for every
-  case.
+| Tag | Use for | Notes |
+| --- | --- | --- |
+| `@default` | Default value | Only when non-obvious; never `undefined` or `false` |
+| `@example` | Usage | For complex or multi-variant APIs, one concern per example |
+| `@note` | Important caveat | Version info, breaking changes |
+| `@deprecated` | Retired API | Include a migration path |
+| `@see`, `@internal`, `@beta` | References, internal API, experimental | Sparingly |
 
-See [references/examples.md](references/examples.md) for a worked example of each, plus the
-property, enum, nested-property, and function documentation patterns.
+Never `@param`, `@returns`, `@type`, or `@typedef`: they duplicate the TypeScript signature, so
+use the type, return type, or a `type`/`interface` instead. Skip `@default undefined` too, since
+an optional (`?`) property already implies it.
 
-## Tags
+## 4. Order the block
 
-### Use frequently
+1. Description
+2. Bullet list of variants or behaviors, if any
+3. `@default`
+4. `@example`, one or more
+5. `@note`
+6. `@deprecated`
+7. `@see`
 
-| Tag           | Purpose            | Notes                                                       |
-| ------------- | ------------------ | ----------------------------------------------------------- |
-| `@default`    | Default value      | Only when the default is non-obvious (omit for `undefined`) |
-| `@example`    | Usage example      | Prefer for complex or multi-variant APIs                    |
-| `@note`       | Important caveat   | Version info, breaking changes                              |
-| `@deprecated` | Mark as deprecated | Include a migration path                                    |
+## Output
 
-### Use sparingly
+The doc comments in the file, or one line saying nothing needed one. For a review: one line per
+member, its name and what is missing or wrong.
 
-| Tag         | Purpose                 |
-| ----------- | ----------------------- |
-| `@see`      | Reference external docs |
-| `@internal` | Internal API            |
-| `@beta`     | Experimental            |
+## References
 
-### Avoid (TypeScript already provides these)
-
-`@param`, `@returns`, `@type`, and `@typedef` duplicate the TypeScript signature; use the type,
-return type, or a `type`/`interface` instead. Skip `@default undefined` too, since an optional
-(`?`) property already implies it.
-
-The `jsdoc` rule holds the do and do-not list: describe what a member does, not its type, and
-always use multi-line blocks.
-
-## Tag order
-
-1. Description (required)
-2. Bullet list of variants or behaviors (if applicable)
-3. `@default` (if non-obvious)
-4. `@example` (one or more)
-5. `@note` (if needed)
-6. `@deprecated` (if applicable)
-7. `@see` (if providing references)
+| File | Load when |
+| --- | --- |
+| [references/examples.md](references/examples.md) | Writing an `@example`, or documenting a default, enum, nested property, or function |

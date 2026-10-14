@@ -3,6 +3,11 @@
 Full examples for the `@example` formats and the documentation patterns the `jsdoc` skill
 summarizes.
 
+## Contents
+
+- [`@example` format](#example-format)
+- [Documentation patterns](#documentation-patterns)
+
 ## `@example` format
 
 ### Short one-liner: label on the `@example` line, code as inline backtick on the next line
@@ -61,8 +66,6 @@ summarizes.
  */
 outDir?: string
 ```
-
-Never use single-line `/** description */`. Always expand to multi-line.
 
 ### Property with a non-obvious default
 

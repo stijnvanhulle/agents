@@ -1,37 +1,23 @@
 ---
 name: pr
-description: Prepare, open, update, or assess a pull request, including checks, changesets, title, template, and CI. Load it before the first commit when asked to open a PR.
+description: Prepares, opens, updates, or assesses a pull request, including branch name, checks, changeset, commits, title, body, and CI. Load it before the first commit when asked to open or ship a PR, and use it to judge whether an open PR is ready.
 ---
 
 # PR
 
-Take a branch to merge-ready. Load this skill before the first commit, since steps 1 and 4 are
-hard to undo after a push. Work in order. Step 6 stops the push when an earlier step did not run.
+Take a branch to merge-ready, in order. Load this skill before the first commit, since steps 1
+and 4 are hard to undo after a push. Step 6 stops the push when an earlier step did not run.
+To assess an open PR, run steps 1 to 7 as checks and report what fails (see Output).
 
 ## 1. Branch
 
-Never commit to `main`. Check where you are, and branch from an up-to-date `main` when still on
-it:
-
-```bash
-git status
-git branch --show-current
-git fetch origin main
-git switch -c <category>/<ISSUE-REF>_<branch-name> origin/main
-```
-
-Use the `branch` skill's `<category>/<ISSUE-REF>_<slug>` shape. Omit the reference when none
-exists.
+Never commit to `main`. Check `git branch --show-current`, and branch from an up-to-date `main`
+when still on it. Use the `branch` skill's `<category>/<ISSUE-REF>_<slug>` shape. Omit the
+reference when none exists.
 
 A branch that already exists, such as a `claude/…` branch a desktop app made for a worktree,
-follows the same shape. When its name does not match and it has no remote yet, rename it before
-the first push:
-
-```bash
-git branch -m <category>/<ISSUE-REF>_<branch-name>
-```
-
-Keep the name of a branch that is already pushed.
+follows the same shape. When its name does not match and it has no remote yet, rename it with
+`git branch -m` before the first push. Keep the name of a branch that is already pushed.
 
 ## 2. Checks
 
@@ -58,14 +44,9 @@ Review `git diff --cached`. Never commit secrets or generated output; generate l
 pnpm.
 
 When the work is already committed, check that each commit holds one logical change. Before the
-first push, split a commit that mixes changes:
-
-```bash
-git reset "$(git merge-base HEAD origin/main)"
-```
-
-The changes stay in the working tree. Stage and commit each one on its own. After the push, add
-new commits instead.
+first push, split a commit that mixes changes with `git reset` to the merge base with
+`origin/main`. The changes stay in the working tree. Stage and commit each one on its own. After
+the push, add new commits instead.
 
 ## 5. Title and body
 
@@ -82,12 +63,10 @@ use these sections:
 - **Release impact:** changeset, docs-only, and breaking boxes must match the diff.
 - **Impact:** who is affected and any migration.
 
-Read a few recently merged PRs first and match their format. Name each referent, such as a PR
+Match the format of recently merged PRs, when any exist. Name each referent, such as a PR
 number or file, and copy every number from its source. Leave out what you tried along the way,
-since the reader wants the current state.
-
-Keep every section short. When the body runs long, cut background, not sections. Run
-`humanizer` over user-facing prose.
+since the reader wants the current state. Keep every section short; when the body runs long, cut
+background, not sections. Run `humanizer` over user-facing prose.
 
 ## 6. Push and open
 
@@ -98,6 +77,7 @@ Check steps 1 to 5 before you ask to push:
 - the `changeset` skill ran, or the diff needs no changeset
 - each commit holds one logical change
 - `humanizer` ran on the PR body and `deslop` on the code
+- the diff is scoped: no drive-by refactors or force-pushes
 
 When one did not run, run it now. When you cannot, stop and name the skipped steps to the user
 instead of pushing.
@@ -118,17 +98,22 @@ gh pr create \
   --assignee @me
 ```
 
-Use `gh`, open ready for review, and use only existing labels. One PR does one thing.
+Use `gh` or the GitHub MCP `create_pull_request`, open ready for review, and use only existing
+labels. One PR does one thing.
 
 ## 7. CI and review
 
-Fix red CI before handoff. Re-run only infrastructure failures. Reply to every review comment
-with what changed and how to verify it; propose before making a large requested change.
+Fix red CI before handoff. Re-run only infrastructure failures. A `blocked` merge state with
+green CI means a required review is missing; say so, since a review is not yours to supply. Reply
+to every review comment with what changed and how to verify it; propose before making a large
+requested change.
 
-## Guardrails
+## Output
 
-- Keep the diff scoped. No drive-by refactors or force-pushes.
-- Run `deslop` on generated code before push.
+After opening: the PR URL and one line per step 6 item that was skipped, or "nothing skipped".
+For an assessment: one row per step, pass or fail with the reason; a miss that cannot change
+after the push is a fail marked "left as is". Then one line with the verdict (ready, or what
+blocks it).
 
 ## Related skills
 
