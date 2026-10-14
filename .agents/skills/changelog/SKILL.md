@@ -1,6 +1,7 @@
 ---
 name: changelog
-description: Turn commit history and changesets into user-facing release notes. Use when preparing a release or documenting what changed in a version.
+description: Turn commit history and changesets into user-facing release notes. Use when preparing
+a release or documenting what changed in a version.
 ---
 
 # Changelog
@@ -11,7 +12,10 @@ applies to repos with a VitePress docs site. Follow the repo's existing changelo
 
 ## 1. Collect
 
-Scan git history for the relevant range, and the changesets released in it.
+Scan git history for the relevant range, and the changesets released in it. For a release
+not yet cut, include the pending `.changeset/*.md` files. Fetch remote tags when none exist
+locally. Dependency bumps go under Dependencies, or are dropped when users see no change; say
+which.
 
 ## 2. Categorize
 

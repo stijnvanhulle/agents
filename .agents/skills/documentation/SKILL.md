@@ -1,6 +1,7 @@
 ---
 name: documentation
-description: Write or review developer documentation using the project style and SEO guidance. Use when adding or changing docs pages, options, or API signatures.
+description: Write or review developer documentation using the project style and SEO guidance. Use
+when adding or changing docs pages, options, or API signatures.
 ---
 
 # Documentation
@@ -33,22 +34,6 @@ For finished prose, use the [humanizer](../humanizer/SKILL.md) skill.
 File names are kebab-case (`how-to-do-thing.md`) and descriptive: `multipart-form-data.md`, not
 `form.md`. The file name becomes the URL path, so pick it with that in mind.
 
-### Writing patterns
-
-| Pattern | Example |
-| --- | --- |
-| Subject-first | "The `useConfig` composable reads the project configuration." |
-| Imperative | "Add the following to `config.ts`." |
-| Contextual | "When relying on TypeScript, configure..." |
-
-### Modal verbs
-
-| Verb | Meaning |
-| --- | --- |
-| `can` | Optional |
-| `should` | Recommended |
-| `must` | Required |
-
 ### Component patterns (VitePress)
 
 | Need | Component |
@@ -80,5 +65,5 @@ them for what they show: `query-example.png`.
 - [ ] Mostly active voice and present tense
 - [ ] 1 to 3 sentences per paragraph
 - [ ] Explanation before code
-- [ ] Valid frontmatter
-- [ ] Humanizer pass: remove AI patterns, add voice and specific details
+- [ ] Frontmatter matches the default block in `content-patterns.md`
+- [ ] Humanizer pass on the finished prose

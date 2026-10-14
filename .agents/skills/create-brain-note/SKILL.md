@@ -1,13 +1,15 @@
 ---
 name: create-brain-note
-description: Save a conversation recap or idea to a chosen GitHub repository. Use when asked to note, save, or recap something for later.
+description: Save a conversation recap or idea to a chosen GitHub repository. Use when asked to
+note, save, or recap something for later.
 ---
 
 # Create a brain note
 
 ## 1. Pick the repository
 
-Use the `owner/repo` named in the request. If none is given, ask for it with the `ask` skill.
+Use the `owner/repo` named in the request as the destination. A repository mentioned as the
+subject of the note is not the destination. If none is given, ask for it with the `ask` skill.
 Never infer a destination from the working directory, and never offer a guessed repository
 name as an option. Ask for `owner/repo` as free text.
 
@@ -26,4 +28,4 @@ content.
 ## 4. Save
 
 Write through an authenticated GitHub tool or `gh`. For API updates, use the current file SHA and
-retry after a conflict. Return the note URL, or explain why the write failed.
+retry after a conflict.

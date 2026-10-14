@@ -1,6 +1,7 @@
 ---
 name: ask
-description: Ask a multiple-choice question with the client's native picker, or a lettered list when none exists.
+description: Ask a multiple-choice question with the client's native picker, or a lettered list
+when none exists.
 ---
 
 # Ask
@@ -16,8 +17,6 @@ match:
 | `request_user_input_async` | Paseo, or Codex when exposed in the current mode |
 | `request_user_input` | Codex Plan mode |
 | Neither | Lettered options in chat; ask for the letter |
-
-Never call an unavailable tool or guess the client.
 
 ## Before and after the answer
 
@@ -47,24 +46,8 @@ Never call an unavailable tool or guess the client.
   description.
 - A lettered fallback uses the same options and order, plus `Other`.
 - Never put a secret or credential in an option. Ask for it in prose and never echo it.
-- With Paseo's async picker, ask at most three questions per call and keep titles and options
-  short. The user can enter a free-text answer, so do not add a redundant `Other` option. Put the
-  recommended option first.
 
-## Codex
+## Other clients
 
-`request_user_input` is available in Plan mode and is tighter than the other pickers:
-
-- Three questions at most, three options each, and no multiple selection. Ask the decisions
-  that block you and take the rest next turn.
-- Codex appends `Other` on its own, so leave it out. Send no options at all for a question with
-  no likely answers to offer.
-- Every option needs a label of a few words plus one sentence on what picking it means.
-
-### Paseo's async picker
-
-When `request_user_input_async` is available, use it instead of the lettered fallback. It returns
-before the user answers. Continue independent work, but pause every action that depends on the
-answer until the user's reply arrives. Do not treat elapsed time or an empty response as an answer.
-
-With a blocking picker, stop until the answer arrives. Do not guess now and report the guess later.
+Codex's `request_user_input` and Paseo's async picker have their own limits. Read
+[references/clients.md](references/clients.md) when one of those is the tool available.

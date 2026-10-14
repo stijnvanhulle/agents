@@ -62,8 +62,6 @@ summarizes.
 outDir?: string
 ```
 
-Never use single-line `/** description */`. Always expand to multi-line.
-
 ### Property with a non-obvious default
 
 ```typescript

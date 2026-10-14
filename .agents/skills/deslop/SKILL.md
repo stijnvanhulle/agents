@@ -1,6 +1,7 @@
 ---
 name: deslop
-description: Audit a diff for over-engineering and AI code/prose tells, then apply only confirmed fixes. Use before opening a PR or when asked to clean up a diff.
+description: Audit a diff for over-engineering and AI code/prose tells, then apply only confirmed
+fixes. Use before opening a PR or when asked to clean up a diff.
 ---
 
 # Deslop
@@ -13,8 +14,7 @@ For each new dependency, file, wrapper, or export, stop at the first fit:
    nobody asked for.
 2. **Already in this codebase?** Search before writing a new helper or component.
 3. **Stdlib or the language?** A native method beats a utility function.
-4. **A platform or framework feature?** A browser `<input type="date">` beats a hand-rolled date
-   picker.
+4. **A platform or framework feature?**
 5. **An installed dependency?** Reuse before adding a package.
 6. **One line?** Inline it instead of extracting a function or component.
 7. **Otherwise:** write only what the task needs.
@@ -33,22 +33,18 @@ implementation behind an interface is a hypothetical seam, not a real one.
 - `any` casts that dodge a type error.
 - Deep nesting that early returns would flatten, and any `else` or `else if` (ternaries are the only allowed inline conditional).
 - Naming/import/export style inconsistent with nearby code.
+- Changed docs and comments: the `humanizer` tells. Skip when no prose changed.
 
-## 3. Prose
+## 3. Report, then ask
 
-Run `humanizer` criteria on changed docs/comments. Skip when no prose changed.
+A request to review, assess, or explain a diff is audit-only: report and stop, unless the user
+also asks for fixes or has already approved them. Before editing, write the findings list in chat:
+path, violated rung or tell, the fix, and your recommendation for each. Then use `ask` with one
+question per finding, or per group that shares one fix. Each question names the finding (`Unused
+enabled flag in Studio?`) and offers its own options, such as `Apply`, `Skip`, or an alternative
+fix, with `(Recommended)` on the one you would pick. Never offer bundles such as `All (1-7)`.
 
-## 4. Report, then ask
-
-Before editing, write the findings list in chat: path, violated rung or tell, the fix, and
-your recommendation for each. Then use `ask` with one question per finding, or per group that
-shares one fix. Each question names the finding (`Unused enabled flag in Studio?`) and offers
-its own options, such as `Apply`, `Skip`, or an alternative fix, with `(Recommended)` on the one
-you would pick. Never offer bundles such as `All (1-7)`. Treat requests to review, assess, or
-explain a diff as audit-only unless the user also asks for fixes or has already approved
-those fixes.
-
-## 5. Apply only what is confirmed
+## 4. Apply only what is confirmed
 
 - Preserve behavior unless fixing a clear bug. Make surgical edits.
 - Keep trust-boundary checks and real error handling.
@@ -63,5 +59,5 @@ those fixes.
 
 | Skill                                                         | Use for                                                                     |
 | ------------------------------------------------------------- | --------------------------------------------------------------------------- |
-| [humanizer](../humanizer/SKILL.md)                            | The full pattern list step 3 runs, and prose review outside a code diff     |
+| [humanizer](../humanizer/SKILL.md)                            | The full pattern list the code tells point at, and prose review outside a code diff     |
 | [code-style rule](../conventions/rules/code-style.md)         | The house style this skill enforces on code, dependencies, and abstractions |

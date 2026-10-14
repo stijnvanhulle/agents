@@ -6,12 +6,14 @@ Frontmatter, component, and blog post patterns for documentation pages (VitePres
 
 ### Default frontmatter
 
-Every documentation file must include YAML frontmatter:
+Every documentation file must include this YAML frontmatter. `seo-optimization.md` says how to
+word the title and description.
 
 ```yaml
 ---
 layout: doc          # Always use 'doc' for documentation pages
 title: Page Title     # Displayed in browser tab and page header
+description: One sentence for search results and link previews
 outline: deep        # Enables deep table of contents
 ---
 ```

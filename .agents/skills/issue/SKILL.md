@@ -10,7 +10,7 @@ description: Create or triage a GitHub or Jira issue with its type, labels, and 
 | Tracker | When | Template |
 | --- | --- | --- |
 | GitHub | The repo has a GitHub remote and the branch carries no project key | `templates/github-bug.md`, `templates/github-feature.md` |
-| Jira | The branch name or `AGENTS.md` carries a project key such as `KEY-123` | `templates/jira-story.md`, `templates/jira-bug.md`, `templates/jira-epic.md` |
+| Jira | The branch name or `AGENTS.md` carries a project key such as `KEY-123` | `templates/jira-*.md`; read [references/jira.md](references/jira.md) |
 
 When unclear, use `ask`: GitHub or Jira. Do not guess.
 
@@ -20,7 +20,9 @@ When unclear, use `ask`: GitHub or Jira. Do not guess.
 gh issue list --search "<keywords>" --state all --limit 10
 ```
 
-Search Jira with JQL. Comment on a match rather than duplicating it.
+When that fails because GraphQL is blocked, use `gh api repos/<owner>/<repo>/issues?state=all`
+or the GitHub MCP `search_issues`. Search Jira with JQL. Comment on a match rather than
+duplicating it.
 
 ## 2. Write
 
@@ -34,7 +36,8 @@ results. Features lead with the problem.
 
 ## 3. Read valid values
 
-Never invent values. Use `gh label list`, `list_issue_types`, and `list_issue_fields`.
+Never invent values. Use `gh label list`, `list_issue_types`, and `list_issue_fields`. A personal
+repo has no issue types or project fields: record Priority and Effort in the body or skip them.
 
 ## 4. Classify
 
@@ -45,14 +48,14 @@ Task. Do not default Priority and Effort to Medium.
 
 | Field | Options | Pick |
 | --- | --- | --- |
-| Priority | Urgent, High, Medium, Low | Urgent blocks a release or breaks the published package for everyone. High hits users today with no workaround. Medium is the default. Low is a nice-to-have |
+| Priority | Urgent, High, Medium, Low | Urgent blocks a release or breaks the published package for everyone. High hits users today with no workaround. Medium hits users but has a workaround. Low is a nice-to-have |
 | Effort | High, Medium, Low | Low is one file a reviewer reads in one sitting. Medium spans a few files or needs a test. High needs a design decision or touches a public API |
 
 Use `ask` when Priority or Effort remains ambiguous.
 
 ## 5. Create
 
-Use `gh issue create` for the body and the GitHub MCP `issue_write` for type and fields:
+Use the GitHub MCP `issue_write`, which takes body, type, labels, and fields in one call:
 
 ```json
 {
@@ -66,14 +69,6 @@ Use `gh issue create` for the body and the GitHub MCP `issue_write` for type and
 ```
 
 Use `method: "update"` when triaging an existing issue. Report URL and values.
-
-## Jira
-
-- Story: persona and independently testable acceptance criteria, one behavior per bullet.
-- Bug: steps and actual behavior. Epic: goal and related stories.
-- Split work that cannot fit a sprint. Do not make a one-off fix an epic.
-- Use `createJiraIssue` / `editJiraIssue`; link ticket references.
-- Put payloads in fences. Type inline backticks in Jira's editor and verify the result.
 
 ## Guardrails
 

@@ -1,6 +1,7 @@
 ---
 name: humanizer
-description: Find AI writing tells and apply only confirmed rewrites. Use on docs, comments, PR text, and any prose before it ships.
+description: Find AI writing tells and apply only confirmed rewrites. Use on docs, comments, PR
+text, and any prose before it ships.
 ---
 
 # Humanizer
@@ -19,19 +20,18 @@ instead of generic and hollow.
 5. Apply only what is confirmed. Then do a final anti-AI pass on the accepted rewrites: ask
    "what makes this obviously AI generated?", name remaining tells, and fix those too.
 
-Ensure the result sounds natural read aloud, varies sentence structure, uses specific details,
-and keeps the right tone.
+## Adding voice (blog and marketing prose only)
 
-## Adding voice
-
-Removing patterns is only half the job. Sterile, voiceless writing is just as obvious. Have
-opinions and react to facts instead of only reporting them. Vary sentence rhythm: short punchy
-sentences, then longer ones that take their time. Acknowledge complexity ("it works, but it
-also feels like a workaround"), use specific details, and let natural asides appear.
+Docs, comments, skill files, and PR text stay neutral; skip this section for them. For a blog
+post or marketing page, removing patterns is only half the job. Sterile, voiceless writing is just
+as obvious. Have opinions and react to facts instead of only reporting them. Vary sentence rhythm:
+short punchy sentences, then longer ones that take their time. Acknowledge complexity ("it works,
+but it also feels like a workaround"), use specific details, and let natural asides appear.
 
 ## Pattern references
 
-Load the category you need:
+Load the category you need. Docs, comments, and PR text need language, style, and structure.
+Blog and marketing prose adds content. Chat output adds communication.
 
 | Reference | Covers |
 | --- | --- |

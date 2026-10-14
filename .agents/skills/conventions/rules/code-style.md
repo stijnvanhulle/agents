@@ -51,5 +51,4 @@ test authoring and CI, see the `testing` rule.
 
 ## Tests
 
-- Add or update tests for every code change and keep the suite green
-- See the `testing` rule for authoring conventions, assertions, and how to run the suite
+- Add or update tests for every code change; the `testing` rule says how

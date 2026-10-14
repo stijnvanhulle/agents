@@ -18,7 +18,7 @@ sure, check whether the package is in the workspace and not listed under `ignore
 
 | Bump | For | Example |
 | --- | --- | --- |
-| `patch` | A fix | The resolver no longer caches a miss |
+| `patch` | A fix, including a behavior fix in a skill or prompt | The resolver no longer caches a miss |
 | `minor` | New behavior existing code survives | A new `unionType` option |
 | `major` | A rename, a removal, or a changed default | `enumType` now defaults to `asConst` |
 
@@ -65,6 +65,8 @@ In order:
    changed existing behavior.
 4. For a `major`, a closing line saying what to change to upgrade.
 
+Leave out file paths, PR numbers, reviewer talk, and emoji. Changesets adds the commit link.
+
 A patch is usually one line and no example:
 
 ```md
@@ -74,13 +76,6 @@ A patch is usually one line and no example:
 
 Resolve nested plugin paths on Windows, which broke on a backslash separator.
 ```
-
-## Wording
-
-- Lead with what the user gets. Cut what only a reviewer needs.
-- Name real identifiers. "Various improvements" says nothing.
-- Leave out file paths, PR numbers, and reviewer talk. Changesets adds the commit link.
-- No emoji.
 
 ## Related skills
 
