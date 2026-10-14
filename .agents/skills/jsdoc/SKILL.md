@@ -1,46 +1,54 @@
 ---
 name: jsdoc
-description: Apply the TypeScript JSDoc format, examples, tags, and ordering. Use when writing or
-reviewing doc comments on exports.
+description: Writes or reviews TypeScript JSDoc comments with the house format, tags, ordering, and @example styles. Use when adding or checking doc comments on exports, options, or public APIs, or when asked to document a TypeScript file.
 ---
 
 # JSDoc
 
-Tags, tag order, and `@example` formats for TypeScript doc comments.
-[references/examples.md](references/examples.md) holds every `@example` format and the property,
-enum, nested-property, and function patterns.
+Write doc comments that say what a member does, in a shape TypeScript does not already give.
 
-## Tags
+## 1. Decide whether a member needs one
 
-### Use frequently
+Comment an exported type, property, or function only when the comment adds something the name
+and signature do not. Skip the ones whose name says it all.
 
-| Tag           | Purpose            | Notes                                                       |
-| ------------- | ------------------ | ----------------------------------------------------------- |
-| `@default`    | Default value      | Only when the default is non-obvious (omit for `undefined`) |
-| `@example`    | Usage example      | Prefer for complex or multi-variant APIs                    |
-| `@note`       | Important caveat   | Version info, breaking changes                              |
-| `@deprecated` | Mark as deprecated | Include a migration path                                    |
+## 2. Write the description
 
-### Use sparingly
+Say what the member does, not its type, in full sentences, always in a multi-line `/** ... */`
+block. For a non-obvious default, options, nested properties, or a function, follow the matching
+pattern in [references/examples.md](references/examples.md).
 
-| Tag         | Purpose                 |
-| ----------- | ----------------------- |
-| `@see`      | Reference external docs |
-| `@internal` | Internal API            |
-| `@beta`     | Experimental            |
+## 3. Add tags
 
-### Avoid (TypeScript already provides these)
+| Tag | Use for | Notes |
+| --- | --- | --- |
+| `@default` | Default value | Only when non-obvious; never `undefined` or `false` |
+| `@example` | Usage | For complex or multi-variant APIs, one concern per example |
+| `@note` | Important caveat | Version info, breaking changes |
+| `@deprecated` | Retired API | Include a migration path |
+| `@see`, `@internal`, `@beta` | References, internal API, experimental | Sparingly |
 
-`@param`, `@returns`, `@type`, and `@typedef` duplicate the TypeScript signature; use the type,
-return type, or a `type`/`interface` instead. Skip `@default undefined` too, since an optional
-(`?`) property already implies it.
+Never `@param`, `@returns`, `@type`, or `@typedef`: they duplicate the TypeScript signature, so
+use the type, return type, or a `type`/`interface` instead. Skip `@default undefined` too, since
+an optional (`?`) property already implies it.
 
-## Tag order
+## 4. Order the block
 
-1. Description (required)
-2. Bullet list of variants or behaviors (if applicable)
-3. `@default` (if non-obvious)
-4. `@example` (one or more)
-5. `@note` (if needed)
-6. `@deprecated` (if applicable)
-7. `@see` (if providing references)
+1. Description
+2. Bullet list of variants or behaviors, if any
+3. `@default`
+4. `@example`, one or more
+5. `@note`
+6. `@deprecated`
+7. `@see`
+
+## Output
+
+The doc comments in the file. For a review: one line per member, its name and what is missing or
+wrong.
+
+## References
+
+| File | Load when |
+| --- | --- |
+| [references/examples.md](references/examples.md) | Writing an `@example`, or documenting a default, enum, nested property, or function |

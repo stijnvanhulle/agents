@@ -1,11 +1,13 @@
 ---
 name: issue
-description: Create or triage a GitHub or Jira issue with its type, labels, and fields filled.
+description: Creates or triages a GitHub or Jira issue with its type, labels, priority, and fields filled from real values. Use when asked to open, file, report, or triage an issue or bug, or to turn a finding into a ticket.
 ---
 
 # Issue
 
-## Pick the tracker
+File one issue that does one thing, with every field set from values the tracker actually has.
+
+## 1. Pick the tracker
 
 | Tracker | When | Template |
 | --- | --- | --- |
@@ -14,7 +16,7 @@ description: Create or triage a GitHub or Jira issue with its type, labels, and 
 
 When unclear, use `ask`: GitHub or Jira. Do not guess.
 
-## 1. Deduplicate
+## 2. Deduplicate
 
 ```bash
 gh issue list --search "<keywords>" --state all --limit 10
@@ -24,36 +26,33 @@ When that fails because GraphQL is blocked, use `gh api repos/<owner>/<repo>/iss
 or the GitHub MCP `search_issues`. Search Jira with JQL. Comment on a match rather than
 duplicating it.
 
-## 2. Write
+## 3. Write
 
-Use the matching template and fill every placeholder:
+Use the matching template and fill every placeholder. Title: imperative, under 72 characters, no
+period. Bugs need version, steps, expected and actual results. Features lead with the problem.
+Split a mixed report into one issue per thing. No tokens, `.env` lines, or internal hostnames in
+a body; say where the value lives.
 
-- GitHub: `github-bug.md` or `github-feature.md`.
-- Jira: story, bug, or epic template.
-
-Title: imperative, under 72 characters, no period. Bugs need version, steps, expected and actual
-results. Features lead with the problem.
-
-## 3. Read valid values
+## 4. Read valid values
 
 Never invent values. Use `gh label list`, `list_issue_types`, and `list_issue_fields`. A personal
 repo has no issue types or project fields: record Priority and Effort in the body or skip them.
 
-## 4. Classify
+## 5. Classify
 
 Set the type first: Bug for something that broke or contradicts its documentation, Feature for
 new behavior somebody asked for, Task for work with no user-visible change, such as CI, releases,
-or agent files. When the type is not obvious, follow the `ask` skill: Bug, Feature,
-Task. Do not default Priority and Effort to Medium.
+or agent files. When the type is not obvious, follow the `ask` skill: Bug, Feature, Task.
 
 | Field | Options | Pick |
 | --- | --- | --- |
 | Priority | Urgent, High, Medium, Low | Urgent blocks a release or breaks the published package for everyone. High hits users today with no workaround. Medium hits users but has a workaround. Low is a nice-to-have |
 | Effort | High, Medium, Low | Low is one file a reviewer reads in one sitting. Medium spans a few files or needs a test. High needs a design decision or touches a public API |
 
-Use `ask` when Priority or Effort remains ambiguous.
+Do not default Priority and Effort to Medium, and do not raise Priority to jump a queue. Use
+`ask` when either remains ambiguous.
 
-## 5. Create
+## 6. Create
 
 Use the GitHub MCP `issue_write`, which takes body, type, labels, and fields in one call:
 
@@ -68,13 +67,19 @@ Use the GitHub MCP `issue_write`, which takes body, type, labels, and fields in 
 }
 ```
 
-Use `method: "update"` when triaging an existing issue. Report URL and values.
+Use `method: "update"` when triaging an existing issue.
 
-## Guardrails
+## Output
 
-- One issue does one thing; split mixed reports.
-- No tokens, `.env` lines, or internal hostnames in a body. Say where the value lives.
-- Do not raise Priority to jump a queue.
+One line: the issue URL, then type, labels, priority, and effort. For a draft or a triage that
+creates nothing: the full title and body, then the `issue_write` payload.
+
+## References
+
+| File | Load when |
+| --- | --- |
+| `templates/github-*.md` | Writing a GitHub bug or feature body |
+| [references/jira.md](references/jira.md) and `templates/jira-*.md` | The tracker is Jira |
 
 ## Related skills
 

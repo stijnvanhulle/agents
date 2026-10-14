@@ -1,14 +1,13 @@
 ---
 name: pr
-description: Prepare, open, update, or assess a pull request, including checks, changesets, title,
-template, and CI. Load it before the first commit when asked to open a PR.
+description: Prepares, opens, updates, or assesses a pull request, including branch name, checks, changeset, commits, title, body, and CI. Load it before the first commit when asked to open or ship a PR, and use it to judge whether an open PR is ready.
 ---
 
 # PR
 
-Take a branch to merge-ready. Load this skill before the first commit, since steps 1 and 4 are
-hard to undo after a push. Work in order. Step 6 stops the push when an earlier step did not run.
-To assess an open PR, run steps 2 to 7 as checks and report what fails.
+Take a branch to merge-ready, in order. Load this skill before the first commit, since steps 1
+and 4 are hard to undo after a push. Step 6 stops the push when an earlier step did not run.
+To assess an open PR, run steps 1 to 7 as checks and report what fails (see Output).
 
 ## 1. Branch
 
@@ -66,10 +65,8 @@ use these sections:
 
 Match the format of recently merged PRs, when any exist. Name each referent, such as a PR
 number or file, and copy every number from its source. Leave out what you tried along the way,
-since the reader wants the current state.
-
-Keep every section short. When the body runs long, cut background, not sections. Run
-`humanizer` over user-facing prose.
+since the reader wants the current state. Keep every section short; when the body runs long, cut
+background, not sections. Run `humanizer` over user-facing prose.
 
 ## 6. Push and open
 
@@ -101,12 +98,19 @@ gh pr create \
   --assignee @me
 ```
 
-Use `gh`, open ready for review, and use only existing labels. One PR does one thing.
+Use `gh` or the GitHub MCP `create_pull_request`, open ready for review, and use only existing
+labels. One PR does one thing.
 
 ## 7. CI and review
 
 Fix red CI before handoff. Re-run only infrastructure failures. Reply to every review comment
 with what changed and how to verify it; propose before making a large requested change.
+
+## Output
+
+After opening: the PR URL and one line per step 6 item that was skipped, or "nothing skipped".
+For an assessment: one row per step, pass or fail with the reason, then one line with the
+verdict (ready, or what blocks it).
 
 ## Related skills
 

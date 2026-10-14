@@ -1,15 +1,16 @@
 ---
-"@stijnvanhulle/claude-plugin": patch
-"@stijnvanhulle/codex-plugin": patch
-"@stijnvanhulle/cursor-plugin": patch
+"@stijnvanhulle/claude-plugin": minor
+"@stijnvanhulle/codex-plugin": minor
+"@stijnvanhulle/cursor-plugin": minor
 ---
 
-Every skill now loads less text per run and no longer makes the agent guess at a contradiction.
+Every skill now follows one layout: numbered steps, an Output section with the exact shape of the deliverable, a References table saying when to load each file, and Related skills. Each run loads less text and produces a shorter, comparable result.
 
-- `ask` and `issue` move Codex, Paseo, and Jira guidance into reference files that load only when that client or tracker is in use.
-- `backlog` reads issue comments before triage, and `branch` falls back to the title when no issue carries the requested label.
+- Descriptions are third person and name the requests that should trigger the skill.
+- `deslop`, `humanizer`, `conventions`, `pr`, `changeset`, `jsdoc`, and `documentation` define their report shape, such as one line per finding or a pass/fail row per step.
+- `humanizer` merges five reference files into one `patterns.md`; `SKILL.md` lists the tell groups so short texts need no reference.
+- `documentation` splits `content-patterns.md` into `vitepress.md` and `blog.md`, loaded only for that kind of page.
+- `ask` and `issue` move Codex, Paseo, and Jira guidance into reference files loaded only when that client or tracker is in use.
+- `backlog` reads issue comments before triage; `branch` falls back to the title when no issue carries the requested label.
 - `changelog` includes pending changesets and remote tags; `changeset` treats a behavior fix in a skill as `patch`.
-- `deslop` and `pr` state their audit-only and assess paths up front.
-- `humanizer` limits "Adding voice" to blog and marketing prose and says which references apply to docs.
-- `jsdoc`, `conventions`, and `documentation` drop the sections that repeated a sibling file.
 - `code-style` prefers `const` with a ternary or a returning function over a `let` a branch reassigns.

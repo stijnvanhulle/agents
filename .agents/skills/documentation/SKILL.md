@@ -1,69 +1,52 @@
 ---
 name: documentation
-description: Write or review developer documentation using the project style and SEO guidance. Use
-when adding or changing docs pages, options, or API signatures.
+description: Writes or reviews developer documentation in the project style with SEO guidance. Use when adding or changing a docs page, a README, an option or API description, a guide, or a blog post, even when the request only says "document this".
 ---
 
 # Documentation
 
-Write clear, practical documentation for the developer reading it. Match the words developers
-search for, and structure pages so a reader can skim and still find the answer.
+Write a page a developer can skim and still find the answer.
 
-The sections and references marked "VitePress" apply only when the repo has a VitePress `docs/`
-folder. Check for it first and follow the repo's existing pages when it differs.
+## 1. Find the target
 
-## Writing standard
+Check for a VitePress `docs/` folder and read two existing pages near the new one; follow them
+when they differ from this skill. File names are kebab-case and descriptive
+(`multipart-form-data.md`, not `form.md`), since the name becomes the URL.
 
-Keep proper grammar and complete sentences, not fragments. Brevity is valued, but never at the
-cost of clarity or correctness.
+## 2. Outline
 
-## References
+What, why, when, how, in that order. Explanation before code. Keep backticks out of the H1; from
+H2 down they are fine.
 
-Load the one that matches the task:
+## 3. Write
 
-| Reference | Load when |
-| --- | --- |
-| [references/writing-style.md](./references/writing-style.md) | Writing prose: voice, tone, sentence structure |
-| [references/content-patterns.md](./references/content-patterns.md) | Documenting props, options, or usage patterns |
-| [references/seo-optimization.md](./references/seo-optimization.md) | Optimizing titles, descriptions, keywords, FAQs |
+Load [references/writing-style.md](references/writing-style.md) for prose: proper grammar and
+complete sentences, 1 to 3 sentences per paragraph, mostly active voice and present tense. Load
+[references/vitepress.md](references/vitepress.md) for frontmatter, callouts, code groups, and
+option tables, and [references/blog.md](references/blog.md) for a post.
 
-For finished prose, use the [humanizer](../humanizer/SKILL.md) skill.
-
-## Naming conventions
-
-File names are kebab-case (`how-to-do-thing.md`) and descriptive: `multipart-form-data.md`, not
-`form.md`. The file name becomes the URL path, so pick it with that in mind.
-
-### Component patterns (VitePress)
-
-| Need | Component |
-| --- | --- |
-| Info aside | `> [!NOTE]` |
-| Suggestion | `> [!TIP]` |
-| Caution | `> [!WARNING]` |
-| Required | `> [!IMPORTANT]` |
-| Multi-source code | `::: code-group` and ends with `:::` |
-
-## Headings
-
-Keep backticks out of the H1. From H2 down they are fine.
-
-## Links and cross-references
+## 4. Link and illustrate
 
 Internal links use relative paths (`/guide/getting-started/`), and anchors point at a section
 (`/guide/getting-started/#output-path`). External links carry the full URL and descriptive text.
-Put the links section at the very end of the document.
+Put the links section at the very end. Store images where the repo keeps its assets (VitePress:
+`docs/public/`), reference them relative to the markdown file, use `webp`, `png`, or `jpg`, keep
+them small, and name them for what they show: `query-example.png`.
 
-## Images and assets
+## 5. Finish
 
-Store images where the repo keeps its assets (VitePress: `docs/public/`) and reference them with
-relative paths from the markdown file. Use `webp`, `png`, or `jpg`, keep the files small, and name
-them for what they show: `query-example.png`.
+Set the title and description per [references/seo-optimization.md](references/seo-optimization.md),
+with a FAQ and See also when the page is a guide. Run `humanizer` on the finished prose.
 
-## Checklist
+## Output
 
-- [ ] Mostly active voice and present tense
-- [ ] 1 to 3 sentences per paragraph
-- [ ] Explanation before code
-- [ ] Frontmatter matches the default block in `content-patterns.md`
-- [ ] Humanizer pass on the finished prose
+The page file. For a review: one line per finding, `path:line`, the rule, the change.
+
+## References
+
+| File | Load when |
+| --- | --- |
+| [references/writing-style.md](references/writing-style.md) | Writing or reviewing prose |
+| [references/vitepress.md](references/vitepress.md) | The repo has a VitePress `docs/` folder: frontmatter, callouts, code groups, option tables, includes |
+| [references/blog.md](references/blog.md) | A blog post or release announcement |
+| [references/seo-optimization.md](references/seo-optimization.md) | Titles, descriptions, FAQ, internal links |

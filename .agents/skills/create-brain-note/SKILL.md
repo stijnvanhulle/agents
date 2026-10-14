@@ -1,10 +1,11 @@
 ---
 name: create-brain-note
-description: Save a conversation recap or idea to a chosen GitHub repository. Use when asked to
-note, save, or recap something for later.
+description: Saves a conversation recap or an idea as a dated note in a chosen GitHub repository. Use when asked to note, save, remember, jot down, or recap something for later.
 ---
 
 # Create a brain note
+
+Append a dated entry to a notes repository on GitHub.
 
 ## 1. Pick the repository
 
@@ -29,3 +30,7 @@ content.
 
 Write through an authenticated GitHub tool or `gh`. For API updates, use the current file SHA and
 retry after a conflict.
+
+## Output
+
+One line: the note URL, or why the write failed.

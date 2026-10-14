@@ -2,6 +2,18 @@
 
 SEO guidelines for documentation: titles, descriptions, structure, and FAQs.
 
+## Contents
+
+- [Frontmatter requirements](#frontmatter-requirements)
+- [Content structure](#content-structure)
+- [What is [Topic]?](#what-is-topic)
+- [Why use [Topic]?](#why-use-topic)
+- [How to use](#how-to-use)
+- [FAQ](#faq)
+- [See also](#see-also)
+- [Next steps](#next-steps)
+- [Checklist](#checklist)
+
 ## Frontmatter requirements
 
 ### Title (≤60 characters)

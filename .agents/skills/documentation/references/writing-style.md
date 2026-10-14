@@ -2,6 +2,23 @@
 
 Sentence structure, voice, tone, and paragraph patterns for documentation.
 
+## Contents
+
+- [Guiding principle: clarity over marketing](#guiding-principle-clarity-over-marketing)
+- [Structure: What → Why → When → How](#structure-what--why--when--how)
+- [Sentence patterns](#sentence-patterns)
+- [Voice](#voice)
+- [Tense](#tense)
+- [Modal verbs](#modal-verbs)
+- [Direct address](#direct-address)
+- [Paragraphs](#paragraphs)
+- [Opening sentences](#opening-sentences)
+- [Configuration](#configuration)
+- [Tone by content type](#tone-by-content-type)
+- [Word choice](#word-choice)
+- [Common mistakes](#common-mistakes)
+- [Examples](#examples)
+
 ## Guiding principle: clarity over marketing
 
 Prefer direct, concrete, technical language over marketing phrasing. Be specific about what the code does and how to use it.
