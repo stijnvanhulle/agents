@@ -9,7 +9,18 @@ paths:
 Minimal, high-quality JSDoc. For `@example` formats and tag order, use the `jsdoc` skill.
 
 - Document what a member does, not its TypeScript type
-- Always use multi-line `/** ... */` blocks, never single-line
+- Always use multi-line `/** ... */` blocks, never single-line. Put the description on its own
+  line between the opening `/**` and the closing `*/`:
+
+  ```ts
+  /**
+   * A server the API document declares, with its `{variable}` placeholders filled from their defaults.
+   */
+  export type InputServer = {
+    url: string
+    description?: string
+  }
+  ```
 - Comment an exported type, property, or function only when the comment adds something the
   name and signature do not
 - Use concrete, full-sentence descriptions, not fragments like "Boolean value."

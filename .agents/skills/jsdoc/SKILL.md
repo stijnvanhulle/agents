@@ -15,7 +15,8 @@ and signature do not. Skip the ones whose name says it all.
 ## 2. Write the description
 
 Say what the member does, not its type, in full sentences, always in a multi-line `/** ... */`
-block; a `/** ... */` on one line is single-line, so expand it. For a non-obvious default, options,
+block with the description on its own line; a `/** ... */` on one line is single-line, so expand
+it. For a non-obvious default, options,
 nested properties, or a function, follow the matching pattern in
 [references/examples.md](references/examples.md).
 

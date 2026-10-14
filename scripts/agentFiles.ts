@@ -45,7 +45,9 @@ const scopeOf = (source: string) => {
   return [...listed, ...inline].map((glob) => glob.trim()).filter(Boolean).sort()
 }
 
-/** Every agent has to expose the same commands, each carrying a real body. */
+/**
+ * Every agent has to expose the same commands, each carrying a real body.
+ */
 const checkCommands = () => {
   const [canonical, ...rest] = commandDirs
   const expected = namesIn(canonical, '.md')
@@ -62,7 +64,9 @@ const checkCommands = () => {
   return parity
 }
 
-/** Cursor keeps copies of the rules, so both the body and the scope have to match. */
+/**
+ * Cursor keeps copies of the rules, so both the body and the scope have to match.
+ */
 const checkRules = () => {
   const expected = namesIn(rules, '.md')
   const actual = namesIn(mirrors, '.mdc')
