@@ -104,8 +104,9 @@ labels. One PR does one thing.
 ## 7. CI and review
 
 Fix red CI before handoff. Re-run only infrastructure failures. A `blocked` merge state with
-green CI means a required review is missing; say so, since a review is not yours to supply. Reply to every review comment
-with what changed and how to verify it; propose before making a large requested change.
+green CI means a required review is missing; say so, since a review is not yours to supply. Reply
+to every review comment with what changed and how to verify it; propose before making a large
+requested change.
 
 ## Output
 

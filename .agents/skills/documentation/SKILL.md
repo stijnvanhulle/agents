@@ -37,8 +37,8 @@ them small, and name them for what they show: `query-example.png`.
 ## 5. Finish
 
 Set the title and description per [references/seo-optimization.md](references/seo-optimization.md),
-with a FAQ and See also when the page is a guide. Run the `humanizer` tells over the finished prose and fix them in place; a page you wrote
-yourself needs no per-rewrite question.
+with a FAQ and See also when the page is a guide. Run the `humanizer` tells over the finished prose
+and fix them in place; a page you wrote yourself needs no per-rewrite question.
 
 ## Output
 

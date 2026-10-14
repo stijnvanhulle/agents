@@ -16,8 +16,8 @@ include the pending `.changeset/*.md` files. Fetch remote tags when none exist l
 ## 2. Categorize
 
 Group into features, improvements, bug fixes, and breaking changes. Drop refactor, test, and
-chore commits unless a changeset carries them. Dependency bumps go under Dependencies, or are dropped when users see no change;
-say which.
+chore commits unless a changeset carries them. Dependency bumps go under Dependencies, or are
+dropped when users see no change; say which.
 
 ## 3. Translate
 

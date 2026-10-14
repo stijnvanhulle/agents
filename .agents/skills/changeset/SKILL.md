@@ -75,8 +75,9 @@ Resolve nested plugin paths on Windows, which broke on a backslash separator.
 
 ## Output
 
-The file at `.changeset/<slug>.md`. For a review: first the bump verdict, then one line per problem (what to change and why),
-then the rewritten file when anything changes, or "bump and text are right" when nothing does.
+The file at `.changeset/<slug>.md`. For a review: first the bump verdict, then one line per problem
+(what to change and why), then the rewritten file when anything changes, or "bump and text are
+right" when nothing does.
 
 ## Related skills
 
