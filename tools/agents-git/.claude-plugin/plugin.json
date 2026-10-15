@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-plugin-manifest.json",
+  "name": "agents-git",
+  "version": "2.7.4",
+  "description": "Shows the branch, changeset, and pull request state above the prompt, in a pane, and in the status line.",
+  "author": {
+    "name": "stijnvanhulle",
+    "url": "https://github.com/stijnvanhulle"
+  },
+  "homepage": "https://github.com/stijnvanhulle/agents",
+  "repository": "https://github.com/stijnvanhulle/agents",
+  "license": "MIT",
+  "types": "./types/index.d.ts"
+}

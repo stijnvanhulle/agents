@@ -13,6 +13,11 @@
       "name": "agents",
       "source": "./tools/claude",
       "description": "Shared skills, rules, commands, subagents, and output styles."
+    },
+    {
+      "name": "agents-git",
+      "source": "./tools/agents-git",
+      "description": "Shows branch, changeset, and pull request state above the prompt, in a pane, and in the status line."
     }
   ],
   "renames": {

@@ -1,0 +1,7 @@
+{
+  "name": "@stijnvanhulle/agents-git",
+  "version": "2.7.4",
+  "private": true,
+  "description": "Claude Code mod that shows branch, changeset, and pull request state.",
+  "license": "MIT"
+}

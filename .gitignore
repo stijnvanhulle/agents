@@ -23,3 +23,6 @@ private/
 
 # Agent worktrees
 .claude/worktrees/
+
+# Claude Code mod types, written by the engine when it loads a mod
+tools/*/.claude-plugin/types/

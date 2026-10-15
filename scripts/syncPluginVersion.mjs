@@ -8,6 +8,7 @@ const manifests = [
   { packageJson: 'tools/claude/package.json', manifest: 'tools/claude/.claude-plugin/plugin.json' },
   { packageJson: 'tools/cursor/package.json', manifest: 'tools/cursor/.cursor-plugin/plugin.json' },
   { packageJson: 'tools/codex/package.json', manifest: '.codex-plugin/plugin.json' },
+  { packageJson: 'tools/agents-git/package.json', manifest: 'tools/agents-git/.claude-plugin/plugin.json' },
 ]
 
 for (const { packageJson, manifest } of manifests) {
