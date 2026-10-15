@@ -11,16 +11,15 @@ Put a decision to the user and wait for the answer before the step it decides.
 
 Use the first one the session has. Never call a tool that is not available.
 
-| Tool | Client |
-| --- | --- |
-| `AskUserQuestion` | Claude Code, Claude Desktop |
-| `AskQuestion` | Cursor |
-| `request_user_input_async` | Paseo, or Codex when the mode exposes it |
-| `request_user_input` | Codex Plan mode |
-| None | Lettered options in chat, same order plus `Other`. Ask for the letter |
+| Tool | Client | Read first |
+| --- | --- | --- |
+| `AskUserQuestion` | Claude Code, Claude Desktop | |
+| `AskQuestion` | Cursor | |
+| `request_user_input_async` | Paseo, or Codex when the mode exposes it | [references/paseo.md](references/paseo.md) |
+| `request_user_input` | Codex Plan mode | [references/codex.md](references/codex.md) |
+| None | Lettered options in chat, same order plus `Other`. Ask for the letter | |
 
-Codex and Paseo pickers have their own limits. Read
-[references/clients.md](references/clients.md) when one of them is the tool.
+Read only the file for the tool you use: those pickers have their own limits.
 
 ## 2. Summarize in bullets
 
