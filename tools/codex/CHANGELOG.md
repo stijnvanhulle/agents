@@ -1,5 +1,11 @@
 # @stijnvanhulle/codex-plugin
 
+## 2.7.3
+
+### Patch Changes
+
+- [#34](https://github.com/stijnvanhulle/agents/pull/34) [`6b115e1`](https://github.com/stijnvanhulle/agents/commit/6b115e17c02b6eeec416f4461e4489e1322b6e70) Thanks [@stijnvanhulle](https://github.com/stijnvanhulle)! - `deslop` now lists its findings as bullet points, one per finding, instead of a prose summary.
+
 ## 2.7.2
 
 ### Patch Changes
