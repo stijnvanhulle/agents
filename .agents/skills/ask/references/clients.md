@@ -1,19 +1,17 @@
 # Client-specific pickers
 
-## Codex
+## Codex `request_user_input`
 
-`request_user_input` is available in Plan mode and is tighter than the other pickers:
+Available in Plan mode, and tighter than the other pickers:
 
-- Three questions at most, three options each, and no multiple selection. Ask the decisions
-  that block you and take the rest next turn.
-- Codex appends `Other` on its own, so leave it out. Send no options at all for a question with
-  no likely answers to offer.
-- Every option needs a label of a few words plus one sentence on what picking it means.
+- At most three questions with three options each, and no multiple selection. Ask what blocks
+  you now and the rest next turn.
+- Codex adds `Other` itself, so leave it out. Send no options for a question with no likely
+  answers.
+- Each option needs a label of a few words and one sentence on what picking it means.
 
-### Paseo's async picker
+## Paseo `request_user_input_async`
 
-When `request_user_input_async` is available, use it instead of the lettered fallback. It returns
-before the user answers. Continue independent work, but pause every action that depends on the
-answer until the user's reply arrives. Do not treat elapsed time or an empty response as an answer.
-
-With a blocking picker, stop until the answer arrives. Do not guess now and report the guess later.
+Use it instead of the lettered fallback. It returns before the user answers, so keep doing
+independent work but pause every action that depends on the answer until the reply arrives.
+Elapsed time or an empty response is not an answer.

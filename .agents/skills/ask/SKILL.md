@@ -5,63 +5,54 @@ description: Puts a decision to the user through the client's native picker, or 
 
 # Ask
 
-Put a decision to the user and wait for the answer.
+Put a decision to the user and wait for the answer before the step it decides.
 
 ## 1. Pick the tool
 
-Use the first match. Never call a tool that is not available.
+Use the first one the session has. Never call a tool that is not available.
 
-| Available tool | Use |
+| Tool | Client |
 | --- | --- |
-| `AskUserQuestion` | Claude Code / Desktop |
-| `AskQuestion` | Cursor IDE / CLI |
-| `request_user_input_async` | Paseo, or Codex when exposed in the current mode |
+| `AskUserQuestion` | Claude Code, Claude Desktop |
+| `AskQuestion` | Cursor |
+| `request_user_input_async` | Paseo, or Codex when the mode exposes it |
 | `request_user_input` | Codex Plan mode |
-| Neither | Lettered options in chat; ask for the letter |
+| None | Lettered options in chat, same order plus `Other`. Ask for the letter |
 
-Codex's `request_user_input` and Paseo's async picker have their own limits; read
-[references/clients.md](references/clients.md) when one of those is the tool available.
+Codex and Paseo pickers have their own limits. Read
+[references/clients.md](references/clients.md) when one of them is the tool.
 
-## 2. Summarize first
+## 2. Summarize in bullets
 
-Before the picker fires, write a bulleted list in chat, one bullet per decision: what it changes
-and why. Never fold the decisions into a prose paragraph. The picker has no room for detail, so
-this list is where the user scrolls for it.
+Before the picker, write one bullet per decision in chat: what it changes and why. The picker has
+no room for detail, so the bullets are where the user reads it. Never fold decisions into a prose
+paragraph.
 
-## 3. Shape the question
+## 3. Shape the questions
 
-- Make the question and options readable alone. Mobile and some clients hide the chat text
-  behind the picker, so never refer to numbers, letters, or names that only the chat text
-  defines. Name the thing in the question itself, such as `Duplicated 402 logic in
-  billing.ts?`, not `Fix 3?`.
-- Offer 2 to 4 real options, likely answer first. Mark the one you think is best
-  `(Recommended)` in every client, and say why in its description.
-- One question per decision, and independent decisions go as separate questions in the same
-  call. Batch into one question only when the answers settle a single decision. When each answer
-  stands on its own, such as which review findings to fix, each question gets its own options:
-  `Apply`, `Skip`, or a concrete alternative. `AskUserQuestion` takes four questions per call, so
-  send more in follow-up calls.
+- Each question stands alone. Mobile clients hide the chat behind the picker, so name the thing
+  (`Duplicated 402 logic in billing.ts?`) and never point at a number or letter only the chat
+  defines (`Fix 3?`).
+- Offer 2 to 4 real options, best first. Mark it `(Recommended)` and give the reason in its
+  description.
+- One question per independent decision, sent together. `AskUserQuestion` takes four per call,
+  so send the rest in a follow-up call. Merge questions only when their answers settle one
+  decision.
+- Per-item decisions, such as review findings, offer `Apply`, `Skip`, or a concrete
+  alternative. Never a bundle such as `All (1-7)`.
+- Allow multiple selection only when several answers can be true.
 - For an open question, offer likely answers and allow custom input, unless the calling skill
   forbids guessed options.
-- Enable multiple selection only when several answers can be true.
-- A lettered fallback uses the same options and order, plus `Other`.
 - Never put a secret or credential in an option. Ask for it in prose and never echo it.
 
-## 4. Wait for the answer
+## 4. Wait
 
-- Ask before the step the answer decides. Do not write the file, commit, or push first and ask
-  afterward.
-- When the question is skipped or unanswered, do not pick an answer yourself. Stop at that
-  decision, say what is missing, and finish only the work that does not depend on it. A push or a
-  version bump always waits.
+Ask before the step, not after: no file write, commit, or push until the answer arrives. When the
+question is skipped or unanswered, do not choose for the user. Stop at that decision, say what is
+missing, and finish only the work that does not depend on it. A push or a version bump always
+waits.
 
 ## Output
 
-The bulleted summary, then the picker. After the answer, one bullet per decision naming what was
-chosen, then the work that depended on it.
-
-## References
-
-| File | Load when |
-| --- | --- |
-| [references/clients.md](references/clients.md) | Codex or Paseo's picker is the tool available |
+The bullets, then the picker. After the answer, one bullet per decision naming the choice, then
+the work it unlocked.

@@ -1,5 +1,5 @@
-# Asking the user a question
+# Asking the user
 
-When a task is blocked on information only the user can supply, or needs a choice or
-confirmation, follow the `ask` skill. Do not ask in a plain paragraph when it applies, do not
-guess and report later, and never turn a secret or credential into an option.
+When a task needs a choice, a confirmation, or information only the user has, follow the `ask`
+skill instead of asking in a paragraph or guessing and reporting later. Ask for a secret or
+credential in prose, never as an option.

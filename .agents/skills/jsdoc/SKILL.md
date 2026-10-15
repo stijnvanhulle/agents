@@ -12,48 +12,31 @@ Write doc comments that say what a member does, in a shape TypeScript does not a
 
 ## 1. Decide whether a member needs one
 
-Comment an exported type, property, or function only when the comment adds something the name
-and signature do not. Skip the ones whose name says it all.
+Comment an exported type, property, or function only when the comment adds what the name and
+signature do not. Skip the ones whose name says it all.
 
 ## 2. Write the description
 
-Say what the member does, not its type, in full sentences, always in a multi-line `/** ... */`
-block with the description on its own line; a `/** ... */` on one line is single-line, so expand
-it. For a non-obvious default, options,
-nested properties, or a function, follow the matching pattern in
+Say what the member does, not its type, in full sentences. Always use a multi-line `/** ... */`
+block with the description on its own line, and expand any one-line block. For a default, an enum,
+nested properties, or a function, follow the pattern in
 [references/examples.md](references/examples.md).
 
-## 3. Add tags
-
-| Tag | Use for | Notes |
-| --- | --- | --- |
-| `@default` | Default value | Only when non-obvious; never `undefined` or `false` |
-| `@example` | Usage | For complex or multi-variant APIs, one concern per example |
-| `@note` | Important caveat | Version info, breaking changes |
-| `@deprecated` | Retired API | Include a migration path |
-| `@see`, `@internal`, `@beta` | References, internal API, experimental | Sparingly |
-
-Never `@param`, `@returns`, `@type`, or `@typedef`: they duplicate the TypeScript signature, so
-use the type, return type, or a `type`/`interface` instead. Skip `@default undefined` too, since
-an optional (`?`) property already implies it.
-
-## 4. Order the block
+## 3. Add tags, in this order
 
 1. Description
-2. Bullet list of variants or behaviors, if any
-3. `@default`
-4. `@example`, one or more
-5. `@note`
-6. `@deprecated`
-7. `@see`
+2. A bullet list of variants or behaviors, if any
+3. `@default`, only for a non-obvious default. Never `undefined` or `false`, since `?` already
+   implies them
+4. `@example`, one concern per example, for complex or multi-variant APIs
+5. `@note`, for a caveat such as version info or a breaking change
+6. `@deprecated`, with the migration path
+7. `@see`, and sparingly `@internal` or `@beta`
+
+Never `@param`, `@returns`, `@type`, or `@typedef`: they repeat the signature. Put that
+information in the type itself.
 
 ## Output
 
-The doc comments in the file, or one line saying nothing needed one. For a review: one line per
+The doc comments in the file, or one line saying nothing needed one. For a review: one bullet per
 member, its name and what is missing or wrong.
-
-## References
-
-| File | Load when |
-| --- | --- |
-| [references/examples.md](references/examples.md) | Writing an `@example`, or documenting a default, enum, nested property, or function |

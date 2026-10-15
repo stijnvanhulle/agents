@@ -6,35 +6,33 @@ alwaysApply: false
 
 # Testing
 
-How to write, run, and debug tests in Vitest projects.
+Vitest, colocated as `*.test.ts` or `*.test.tsx` next to the source. Rename any `.spec.*` file
+you find.
 
-## Authoring
+## Writing
 
-- Colocate tests next to the source file as `*.test.ts` or `*.test.tsx`. This repo does not
-  use `.spec.*`, so rename any you find
-- Test one behavior per case and name it for the expected outcome ("returns X when Y")
-- Keep tests isolated and repeatable: no shared mutable state, clean up side effects in `afterEach`
-- Mock external dependencies (network, filesystem, time), not internal modules
-- Spy per test with `using _ = vi.spyOn(...)`, not module-level `vi.mock` + `beforeEach(mockReset)`
-- For behavior changes and refactors, add or update focused tests for observable behavior. This
-  includes logs, errors, authorization decisions, and protocol messages.
-- Use `vi.useFakeTimers()` and `vi.setSystemTime()` for time-dependent logic
-- Assert on public behavior and output, not private implementation details
-- Keep unit tests fast, and reserve `pnpm test:bench` for performance-sensitive code
+- One behavior per case, named for the outcome: "returns X when Y".
+- Isolated and repeatable: no shared mutable state, and clean up side effects in `afterEach`.
+- Mock external dependencies (network, filesystem, time), not internal modules.
+- Spy per test with `using _ = vi.spyOn(...)`, not a module-level `vi.mock` plus
+  `beforeEach(mockReset)`.
+- Control time with `vi.useFakeTimers()` and `vi.setSystemTime()`.
+- Test observable behavior, including logs, errors, authorization decisions, and protocol
+  messages, not private details.
+- Keep unit tests fast. Performance checks go in `pnpm test:bench`.
 
 ## Assertions
 
-- Primitives (number, string, boolean, `null`, `undefined`): use `toBe()`
-- Whole object/array/complex value: prefer `toStrictEqual(literal)` (or `toEqual`) with an explicit
-  literal. It states the expected result inline and catches extra or undefined keys
-- Specific behavior: use focused matchers (`toBe`, `toHaveLength`, `toContain`, single-field
-  `toEqual`) or `toMatchObject({ ... })` for a partial shape. Don't snapshot these
-- Large generated output only (e.g. generated source files): reserve `toMatchInlineSnapshot()` /
-  `toMatchFileSnapshot()`, where a hand-maintained literal is impractical
+| Value | Matcher |
+| --- | --- |
+| A primitive | `toBe()` |
+| A whole object or array | `toStrictEqual(literal)` or `toEqual`, which also catches extra keys |
+| One aspect | `toHaveLength`, `toContain`, a single-field `toEqual`, or `toMatchObject` for a partial shape. No snapshots |
+| Large generated output only | `toMatchInlineSnapshot()` or `toMatchFileSnapshot()` |
 
-## Running and CI
+## Running
 
-- Run all with `pnpm test`, a single test with `pnpm test "<name>"`, benchmarks with `pnpm test:bench`
-- Before merging: tests pass, `pnpm typecheck` succeeds across packages, `pnpm lint` is clean
-- After moving files or changing imports, run `pnpm lint && pnpm typecheck`
-- For flaky tests, re-run CI and check logs for environment-specific failures
+- `pnpm test`, `pnpm test "<name>"` for one test, `pnpm test:bench` for benchmarks.
+- Before merging, tests pass and `pnpm typecheck` and `pnpm lint` are clean. Run both after
+  moving files or changing imports.
+- For a flaky test, read the CI logs for an environment-specific cause before re-running.

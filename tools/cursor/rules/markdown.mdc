@@ -4,23 +4,15 @@ globs: **/*.md,**/*.mdx
 alwaysApply: false
 ---
 
-# Markdown structure
+# Markdown
 
-The writing voice (no dashes or clause-joining semicolons, sentence-case headings, no emoji, no
-marketing words, cut filler) comes from the `humanizer` skill, which is the full reference. For
-the complete writing guide (voice, content patterns, SEO) use the `documentation` skill. This
-rule adds only the markdown-structure specifics:
+Voice comes from the `humanizer` skill: no dashes or semicolons joining clauses, sentence-case
+headings, no emoji, no marketing words, no filler. Docs pages follow the `documentation` skill.
+On top of that:
 
-- No inline-header bullet lists (`- **Speed**: faster load times`). Write a sentence instead
-- Do not bold product names or ordinary words mid-sentence
+- No inline-header bullets such as `- **Speed**: faster loads`. Write a sentence instead.
+- No bold on product names or ordinary words mid-sentence.
+- Exception: `docs/changelog.md` keeps the `changelog` skill's emoji section headings.
 
-## Exception
-
-`docs/changelog.md` follows the `changelog` skill's emoji-prefixed section format
-(`### ✨ Features`, `🐛 Bug Fixes`, `🚀 Breaking Changes`, `📦 Dependencies`).
-
-## Before committing
-
-Run the `humanizer` skill over any user-facing markdown you write or edit (READMEs, docs,
-changesets) and fix the tells it surfaces in that same pass. Do this by default as
-part of writing the file, not only when asked.
+Before you commit user-facing markdown (READMEs, docs, changesets), run the `humanizer` tells
+over it and fix them in the same pass, even when nobody asked.

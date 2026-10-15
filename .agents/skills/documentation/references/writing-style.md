@@ -1,175 +1,62 @@
 # Writing style
 
-Sentence structure, voice, tone, and paragraph patterns for documentation.
+House choices for documentation prose. The `humanizer` skill covers the AI tells.
 
-## Contents
+## Principles
 
-- [Guiding principle: clarity over marketing](#guiding-principle-clarity-over-marketing)
-- [Structure: What → Why → When → How](#structure-what--why--when--how)
-- [Sentence patterns](#sentence-patterns)
-- [Voice](#voice)
-- [Tense](#tense)
-- [Modal verbs](#modal-verbs)
-- [Direct address](#direct-address)
-- [Paragraphs](#paragraphs)
-- [Opening sentences](#opening-sentences)
-- [Configuration](#configuration)
-- [Tone by content type](#tone-by-content-type)
-- [Word choice](#word-choice)
-- [Common mistakes](#common-mistakes)
-- [Examples](#examples)
+- Direct and technical, no marketing adjectives: "Generates TypeScript types from OpenAPI
+  schemas", not "Transforms your API into typed code".
+- Paragraphs of 1 to 3 sentences, topic sentence first.
+- Sentences under about 25 words, subject first: "The plugin generates types from a schema."
+- Imperative for steps: "Run `pnpm changeset` to create a changeset."
+- A condition opens with When, If, or After: "After installing the module, restart the server."
+- Verbs, not nominalizations: "creates", not "the creation of".
+- One term per concept across pages: `plugin`, `schema`, `endpoint`.
+- Backticks for commands, config keys, file names, and identifiers.
 
-## Guiding principle: clarity over marketing
+## Voice and tense
 
-Prefer direct, concrete, technical language over marketing phrasing. Be specific about what the code does and how to use it.
+Use the active voice: "You can override defaults", not "Defaults can be overridden". Passive is
+fine when the actor is unknown or unimportant: "The file is loaded during startup."
 
-- Direct and technical: avoid marketing adjectives such as "powerful", "amazing", or "seamless".
-- Concrete over abstract: prefer "Generates TypeScript types from OpenAPI schemas" over "Transforms your API into typed code".
-- Short paragraphs: 1 to 3 sentences per paragraph.
-- Avoid nominalizations (turning verbs into nouns like "the creation of").
-- Use consistent terminology across pages: choose `plugin`, `schema`, `endpoint`, etc., and stick to it.
-- Use backticks for commands, config keys, filenames, and API identifiers.
+Use the present tense for behavior and instructions, future only for a consequence ("This will
+create an endpoint"), and past only in changelogs.
 
-## Structure: What → Why → When → How
+| Modal | Means |
+| --- | --- |
+| `can` | Optional |
+| `should` | Recommended |
+| `may` | Possible |
+| `must` | Required |
 
-When describing a feature, option, or example use this short structure:
+Avoid the weak modals `might`, `could`, and `would`.
 
-1. What: short description of the feature or option.
-2. Why: the problem it solves or the primary use case (optional if obvious).
-3. When: when to use it versus alternatives (optional).
-4. How: a minimal, working example demonstrating usage.
+## Address and tone
 
-## Sentence patterns
+Guides and tutorials speak to "you". API references stay neutral, without "you". Stay
+consistent within a section.
 
-Documentation prefers short, subject-first sentences that state behavior or intent clearly. Aim for sentences under ~20 to 25 words and favor present tense and active voice.
+| Type | Tone |
+| --- | --- |
+| Getting started | Welcoming |
+| Guides | Instructional |
+| API reference | Precise, neutral |
+| Troubleshooting | Solution-focused |
 
-### Subject-first declarative (most sentences)
+## Openings
 
-Use to describe what the product, module, or plugin does. Keep the subject first and follow with a concise verb phrase.
-
-```
-The plugin generates TypeScript types from a schema.
-The parser validates schema types during build.
-```
-
-### Imperative instructions
-
-Use for step-by-step commands or quick actions. Start with a verb and keep the object direct.
-
-```
-Run `pnpm changeset` to create a changeset.
-Add the plugin to the config file and configure the options.
-```
-
-### Contextual openers
-
-Use when you need to signal a prerequisite, conditional, or sequence. Begin with words like `When`, `If`, `During`, or `After`.
-
-```
-When using authentication, configure the session handler.
-After installing the module, restart the server.
-```
-
-## Voice
-
-### Active voice
-
-Subject performs action. Prefer this.
-
-| Active (use)                    | Passive (avoid)                       |
-|---------------------------------|---------------------------------------|
-| The module creates a connection | A connection is created by the module |
-| You can override defaults       | Defaults can be overridden            |
-| The library handles validation  | Validation is handled by the library  |
-
-### When passive is OK
-
-- Actor unknown: "The file is loaded during startup."
-- Object more important: "Data is cached for 5 minutes."
-- System behavior: "Types are generated based on the OpenAPI spec file."
-
-## Tense
-
-Write instructions and behavior in the present tense, which covers about 90 percent of the text.
-Future tense is for consequences ("This will create an endpoint"), and past tense belongs in
-changelogs.
-
-## Modal verbs
-
-| Verb     | Meaning     | Example                          |
-| -------- | ----------- | -------------------------------- |
-| `can`    | Optional    | "You can customize colors."      |
-| `should` | Recommended | "You should validate input."     |
-| `may`    | Possibility | "This may cause issues."         |
-| `must`   | Required    | "You must install dependencies." |
-
-Avoid weak modals: `might`, `could`, `would`
-
-## Direct address
-
-Guides and tutorials address the reader as "you", roughly 70 percent of the content. API
-references stay neutral and drop the "you".
-
-Stay consistent within sections.
-
-## Paragraphs
-
-Keep paragraphs to 1 to 3 sentences, topic sentence first, supporting detail after.
-
-## Opening sentences
-
-### Page openings
-
-Define what it is, its purpose, key benefits:
-
-```
-The CLI offers an easy way to monitor generation progress by invoking the core `build` command and showcasing its events in real time.
-```
-
-Avoid: "This page describes...", "In this guide...", "Let's explore..."
-
-### Section openings
-
-Introduce topic and why it matters:
-
-```
-## Configuration
-
-The plugin accepts several options that control its behavior.
-```
-
-## Tone by content type
-
-| Type            | Tone                         |
-| --------------- | ---------------------------- |
-| Getting Started | Welcoming, encouraging       |
-| Guides          | Instructional, supportive    |
-| API Reference   | Precise, neutral             |
-| Troubleshooting | Empathetic, solution-focused |
-
-## Word choice
-
-| Avoid           | Use         |
-| --------------- | ----------- |
-| utilize         | use         |
-| implement       | add, create |
-| leverage        | use         |
-| in order to     | to          |
-| due to the fact | because     |
-| —               | (rewrite the sentence to avoid it) |
+A page opens with what the thing is and does, not "This page describes", "In this guide", or
+"Let's explore". A section opens with the topic and why it matters:
+"The plugin accepts several options that control its behavior."
 
 ## Common mistakes
 
-- Starting with "It" or "This" (unclear antecedent)
-- Stacking prepositions ("the value of the property of the config")
-- Overusing "Note that" (just state the fact)
-- Burying important info at end of long sentences
+- A sentence that opens with an unclear "It" or "This".
+- Stacked prepositions: "the value of the property of the config".
+- "Note that" before a fact. State the fact.
+- The key point buried at the end of a long sentence.
 
 ## Examples
 
-Examples must be practical and usable:
-
-- Realistic: use actual OpenAPI or code snippets, not placeholders.
-- Complete: include all required configuration so the example is runnable.
-- Tested: verify examples work before committing them.
-- Minimal: show only what's necessary to understand the feature.
+Examples are realistic (real OpenAPI or code, no placeholders), complete enough to run, tested
+before committing, and minimal.

@@ -4,13 +4,13 @@ globs: **/*.ts,**/*.tsx
 alwaysApply: false
 ---
 
-# JSDoc conventions
+# JSDoc
 
-Minimal, high-quality JSDoc. For `@example` formats and tag order, use the `jsdoc` skill.
+The `jsdoc` skill has the tag order and `@example` formats. The essentials:
 
-- Document what a member does, not its TypeScript type
-- Always use multi-line `/** ... */` blocks, never single-line. Put the description on its own
-  line between the opening `/**` and the closing `*/`:
+- Comment an export only when it adds what the name and signature do not. Say what it does, not
+  its type, in full sentences.
+- Always a multi-line block, with the description on its own line:
 
   ```ts
   /**
@@ -21,10 +21,7 @@ Minimal, high-quality JSDoc. For `@example` formats and tag order, use the `jsdo
     description?: string
   }
   ```
-- Comment an exported type, property, or function only when the comment adds something the
-  name and signature do not
-- Use concrete, full-sentence descriptions, not fragments like "Boolean value."
-- Include `@default` only when the default is non-obvious (never `@default undefined` or `false`)
-- Use `@example` for complex or multi-variant APIs, one concern per example, code on its own line
-- Do not use `@param`, `@returns`, `@type`, or `@typedef`, since TypeScript already provides these
 
+- `@default` only for a non-obvious default, never `undefined` or `false`.
+- `@example` for complex or multi-variant APIs, one concern per example, code on its own line.
+- No `@param`, `@returns`, `@type`, or `@typedef`, since TypeScript already says it.

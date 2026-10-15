@@ -4,32 +4,28 @@ globs: **/*.ts,**/*.tsx,**/*.vue
 alwaysApply: false
 ---
 
-# Coding style
+# Code style
 
-Conventions for ESM TypeScript projects built with tsdown and tested with Vitest. Repo setup
-and tooling are in AGENTS.md. For release workflows, see the `changelog` and `pr` skills. For
-test authoring and CI, see the `testing` rule.
+ESM TypeScript built with tsdown and tested with Vitest. Repo setup lives in `AGENTS.md`.
 
 ## Style
 
-- Single quotes, no semicolons
-- Prefer functional patterns
-- Never write `else` or `else if`, not even a short one. Return early from a guard clause, or use a lookup/switch
-- A ternary is the only inline conditional. Keep it one level deep, and extract a helper for anything nested
-- Prefer `const` over a `let` that a branch reassigns. Compute the value once with a ternary, or
-  with a function that returns from each branch:
+- Single quotes, no semicolons, functional patterns.
+- No `else` or `else if`, however short. Return early from a guard clause, or use a lookup or
+  `switch`.
+- A ternary is the only inline conditional. Keep it one level deep and extract a helper for
+  anything nested.
+- Prefer a `const` computed once over a `let` that a branch reassigns:
 
   ```ts
   // Avoid
   let test = true
-  if (allowed) {
-    test = false
-  }
+  if (allowed) test = false
 
   // Prefer
   const test = !allowed
 
-  // Prefer, when there are several branches
+  // Prefer, with several branches
   const test = (() => {
     if (allowed) return false
     if (pending) return true
@@ -39,35 +35,27 @@ test authoring and CI, see the `testing` rule.
 
 ## Comments
 
-- Default to no comments
-- Add one only when the WHY is non-obvious
-- Follow the house voice (`humanizer` skill)
+No comments by default. Add one only when the why is not obvious, in the `humanizer` voice.
 
 ## Naming
 
-| Context                | Convention  |
-| ---------------------- | ----------- |
-| File / directory names | `camelCase` |
-| Variables / functions  | `camelCase` |
-| Types / interfaces     | `PascalCase`|
-| React components        | `PascalCase`|
+`camelCase` for files, directories, variables, and functions. `PascalCase` for types and
+components.
 
 ## TypeScript
 
-- Module resolution `"bundler"`, ESM only
-- Never use `any` or `as any`. Use proper types, generics, or `unknown`/`never`
-- `.ts` for libraries, `.tsx` for React, `.vue` for Vue components
-- DTS output is managed by tsdown
-- Use module-level import statements, not inline type imports
-- Use `null` for a value the code deliberately sets or clears, and let `undefined` mean absent or
-  machine-provided (an unset field, a missing key, no return). `null` is a chosen empty,
-  `undefined` is an unfilled slot
-- Expose the public API through the `"exports"` map and `typesVersions`. Keep it stable
-- Define types at the file root, not inside functions
-- Use function syntax (not arrow functions) for object methods so `this` works
-- Use `type`, not `interface` (reserve `interface` for declaration merging in `.d.ts`)
-- Functions with two or more parameters take a single object
+- ESM only, with `"bundler"` module resolution. `.ts` for libraries, `.tsx` for React, `.vue`
+  for Vue. tsdown emits the declaration files.
+- Never `any` or `as any`. Use a real type, a generic, `unknown`, or `never`.
+- Use `type`. Keep `interface` for declaration merging in `.d.ts` files.
+- Define types at the file root, not inside functions.
+- Import at module level, not through inline type imports.
+- A function with two or more parameters takes one object.
+- Object methods use function syntax, not arrows, so `this` works.
+- `null` is an empty value the code sets on purpose. `undefined` is an unfilled slot: an unset
+  field, a missing key, no return value.
+- Expose the public API through the `"exports"` map and `typesVersions`, and keep it stable.
 
 ## Tests
 
-- Add or update tests for every code change; the `testing` rule says how
+Every code change adds or updates tests, as the `testing` rule describes.
