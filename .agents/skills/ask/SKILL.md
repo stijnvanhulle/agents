@@ -24,8 +24,9 @@ Codex's `request_user_input` and Paseo's async picker have their own limits; rea
 
 ## 2. Summarize first
 
-Write a short summary in chat before the picker fires: one line per decision with what it changes
-and why. The picker has no room for detail, so this is where the user scrolls for it.
+Before the picker fires, write a bulleted list in chat, one bullet per decision: what it changes
+and why. Never fold the decisions into a prose paragraph. The picker has no room for detail, so
+this list is where the user scrolls for it.
 
 ## 3. Shape the question
 
@@ -56,8 +57,8 @@ and why. The picker has no room for detail, so this is where the user scrolls fo
 
 ## Output
 
-The summary, then the picker. After the answer, one line per decision naming what was chosen,
-then the work that depended on it.
+The bulleted summary, then the picker. After the answer, one bullet per decision naming what was
+chosen, then the work that depended on it.
 
 ## References
 
