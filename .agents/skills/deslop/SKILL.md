@@ -9,62 +9,55 @@ Find what a diff adds that the task did not need, and remove only what the user 
 
 ## 1. Walk the reuse-first ladder
 
-For each new dependency, file, wrapper, or export, stop at the first fit:
+For each new dependency, file, wrapper, or export, stop at the first rung that fits:
 
-1. **Does this need to exist?** Skip safeguards for inputs that can't occur and flags for cases
-   nobody asked for.
-2. **Already in this codebase?** Search before writing a new helper or component.
-3. **Stdlib or the language?** A native method beats a utility function.
-4. **A platform or framework feature?**
-5. **An installed dependency?** Reuse before adding a package.
-6. **One line?** Inline it instead of extracting a function or component.
-7. **Otherwise:** write only what the task needs.
+1. Does it need to exist? Skip guards for inputs that cannot occur and flags nobody asked for.
+2. Is it already in this codebase? Search before writing a helper or component.
+3. Does the standard library or language cover it?
+4. Does the platform or framework cover it?
+5. Does an installed dependency cover it?
+6. Does one inline line do it, instead of a new function or component?
+7. Otherwise, write only what the task needs.
 
-Flag dependencies covered by an earlier rung, one-caller wrappers, unrequested flags, and
-generality for inputs never passed. Two real callers means reuse, not a violation.
+Flag a dependency an earlier rung covers, a wrapper with one caller, an unrequested flag,
+generality for inputs nobody passes, a type alias that only renames another type, and a
+compatibility shim nobody asked for. Two real callers justify reuse.
 
-Apply the deletion test to a new module or layer. Imagine it gone. If the complexity vanishes,
+For a new module or layer, run the deletion test: imagine it gone. If the complexity vanishes,
 it was a pass-through. If it reappears across several callers, it earns its place. One
 implementation behind an interface is a hypothetical seam, not a real one.
 
 ## 2. Check the code tells
 
-- Comments that restate code or do not match local comment density.
-- Abnormal defensive checks or `try/catch` on trusted paths. Keep trust-boundary validation.
+- Comments that restate the code or do not match the local comment density.
+- Abnormal defensive checks or `try/catch` on trusted paths. Trust-boundary validation stays.
 - `any` casts that dodge a type error.
-- Deep nesting that early returns would flatten, and any `else` or `else if` (ternaries are the
-  only allowed inline conditional).
-- Naming/import/export style inconsistent with nearby code.
-- Changed docs and comments: the `humanizer` tells. Skip when no prose changed.
+- Nesting that early returns would flatten, and any `else` or `else if`.
+- Naming, import, or export style that differs from nearby code.
+- Tests that restate the implementation or check what TypeScript already guarantees.
+- Changed comments and docs: the `humanizer` tells. Skip when no prose changed.
 
 ## 3. Report, then ask
 
 A request to review, assess, or explain a diff is audit-only: report and stop, unless the user
-also asks for fixes or has already approved them. Otherwise write the findings list (see Output)
-in chat, then use `ask` with one question per finding, or per group that shares one fix. Each
-question names the finding (`Unused enabled flag in Studio?`) and offers its own options, such as
-`Apply`, `Skip`, or an alternative fix, with `(Recommended)` on the one you would pick. Never
-offer bundles such as `All (1-7)`.
+also asked for fixes or already approved them. Otherwise write the findings list in chat (see Output), then, in the same
+reply, follow the `ask` skill with one question per finding, or per group that shares one fix,
+named after the finding (`Unused enabled flag in Studio?`). Every finding gets a question, so
+send a follow-up call when there are more than four.
 
-## 4. Apply only what is confirmed
+## 4. Apply only what was confirmed
 
-- Preserve behavior unless fixing a clear bug. Make surgical edits.
-- Keep trust-boundary checks and real error handling.
-- Fix root causes; never weaken types, rules, or tests.
-- Read and apply the relevant convention rules before editing, including rules for tests you add.
-- Run format, lint, and relevant tests.
-- Re-audit the complete resulting diff against the same rules and code tells. Fix any issues
-  introduced by the edits before reporting completion.
+- Read the matching convention rules first, including the testing rule for any test you add.
+- Make surgical edits that preserve behavior, unless the fix is a clear bug.
+- Keep trust-boundary checks and real error handling. Never weaken a type, rule, or test.
+- Run format, lint, and the relevant tests.
+- Re-audit the whole resulting diff against steps 1 and 2 and the convention rules, and fix what
+  your edits introduced.
+- Leave the fixes in the working tree. Committing, pushing, or opening a PR, including a stacked
+  PR on someone else's branch, is a separate decision to put through `ask`.
 
 ## Output
 
 A bulleted list, one bullet per finding: `path:line`, the rung or tell, the fix, and `Apply` or
-`Skip` as your recommendation. Never fold findings into a prose summary. One bullet for what you
-checked and found fine. After applying: one bullet per change and one per skipped finding.
-
-## Related skills
-
-| Skill | Use for |
-| --- | --- |
-| [humanizer](../humanizer/SKILL.md) | The prose tells the code tells point at, and prose review outside a code diff |
-| [code-style rule](../conventions/rules/code-style.md) | The house style this skill enforces on code, dependencies, and abstractions |
+`Skip` as your recommendation. Never a prose summary. End with one bullet for what you checked
+and found fine. After applying, one bullet per change and one per skipped finding.

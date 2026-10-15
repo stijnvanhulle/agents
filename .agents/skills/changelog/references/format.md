@@ -1,22 +1,18 @@
 # Changelog format
 
-The changelog follows a specific structure in `docs/changelog.md`.
+`docs/changelog.md` uses `##` for each version, `###` for each change type, and `####` for each
+package name, linked to the package.
 
-- Use `##` for version headings, not `#`.
-- Use `###` for change-type sections with emoji prefixes.
-- Use `####` for individual package names with links.
+| Section | Holds |
+| --- | --- |
+| `### ✨ Features` | New behavior and improvements |
+| `### 🐛 Bug Fixes` | Fixes and corrections |
+| `### 🚀 Breaking Changes` | Changes that need code updates |
+| `### 📦 Dependencies` | Package and dependency updates |
 
-Change types:
+A code change the user writes gets a before and after code group:
 
-| Category            | Description                            |
-| ------------------- | -------------------------------------- |
-| ✨ Features         | New functionality and enhancements     |
-| 🐛 Bug Fixes        | Bug fixes and corrections              |
-| 🚀 Breaking Changes | Changes that may require code updates   |
-| 📦 Dependencies     | Package updates and dependency changes |
-
-Example:
-
+````md
 ## 2.5.0
 
 ### ✨ Features
@@ -28,7 +24,6 @@ Added support for generating union types with the new `unionType` option.
 ::code-group
 
 ```typescript [Before]
-// Generated separate types
 export type PetDog = { type: 'dog'; bark: string }
 export type PetCat = { type: 'cat'; meow: string }
 ```
@@ -38,3 +33,4 @@ export type Pet = PetDog | PetCat
 ```
 
 ::
+````

@@ -5,41 +5,29 @@ description: Turns commit history and changesets into user-facing release notes.
 
 # Changelog
 
-Turn technical git commits and changesets into entries a user of the package can act on. Follow
-the repo's own `docs/changelog.md` when it has one; otherwise use the format in the reference.
+Turn commits and changesets into entries a package user can act on. Follow the repo's
+`docs/changelog.md` when it exists, otherwise [references/format.md](references/format.md).
 
 ## 1. Collect
 
-Scan git history for the range, and the changesets released in it. For a release not yet cut,
+Read the git history for the range and the changesets released in it. For a release not yet cut,
 include the pending `.changeset/*.md` files. Fetch remote tags when none exist locally.
 
-## 2. Categorize
+## 2. Group
 
-Group into features, improvements, bug fixes, and breaking changes. Drop refactor, test, and
-chore commits unless a changeset carries them. Dependency bumps go under Dependencies, or are
-dropped when users see no change; say which.
+Sort entries into features and improvements, bug fixes, and breaking changes. Drop refactor,
+test, and chore commits unless a changeset carries them. List dependency bumps under
+Dependencies, or drop them when users see no change, and say which you did.
 
 ## 3. Translate
 
-Write each entry for the user upgrading. Lead with what they get, and name the real option,
-export, or command.
+Write each entry for the person upgrading, in the `documentation` voice. Lead with what they get,
+and name the real option, export, or command. The entries come from changesets, so a weak entry
+is fixed in its changeset with the `changeset` skill.
 
 ## Output
 
-One `## <version>` section, the version being the last tag plus the highest pending bump, with a
-`###` block per change type that has entries and one line per entry, laid out as in
-[references/format.md](references/format.md). Skip the per-package `####` level when the
-packages share one version. End with one line naming what was dropped as noise.
-
-## References
-
-| File | Load when |
-| --- | --- |
-| [references/format.md](references/format.md) | Writing the entries: heading levels, section names, code examples |
-
-## Related skills
-
-| Skill | Use for |
-| --- | --- |
-| [changeset](../changeset/SKILL.md) | Writing the changeset a release note comes from |
-| [documentation](../documentation/SKILL.md) | Documentation style for changelog entries |
+One `## <version>` section, where the version is the last tag plus the highest pending bump, with
+a `###` block per change type that has entries and one line per entry. Skip the per-package
+`####` level when all packages share one version. End with one line naming what you dropped as
+noise.

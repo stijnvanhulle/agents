@@ -1,28 +1,21 @@
-# JSDoc examples and patterns
+# JSDoc examples
 
-Full examples for the `@example` formats and the documentation patterns the `jsdoc` skill
-summarizes.
+## `@example` formats
 
-## Contents
-
-- [`@example` format](#example-format)
-- [Documentation patterns](#documentation-patterns)
-
-## `@example` format
-
-### Short one-liner: label on the `@example` line, code as inline backtick on the next line
+A short example: the label on the `@example` line, the code in inline backticks on the next line.
+Use one `@example` per variant.
 
 ```typescript
 /**
- * @example Required parameter
- * `name: Type`
+ * @example Object mode
+ * `{ id, data, params }: { id: string; data: Data; params?: QueryParams }`
  *
- * @example Optional parameter
- * `name?: Type`
+ * @example Inline mode
+ * `id: string, data: Data, params?: QueryParams`
  */
 ```
 
-### Multi-line: fenced code block immediately after `@example`
+A multi-line example: a fenced block right after `@example`, never bare code lines.
 
 ````typescript
 /**
@@ -35,30 +28,11 @@ summarizes.
  */
 ````
 
-### Multiple variants: use multiple `@example` blocks
+Never put the code on the `@example` line itself, and never fence a one-liner.
 
-```typescript
-/**
- * @example Object mode
- * `{ id, data, params }: { id: string; data: Data; params?: QueryParams }`
- *
- * @example Inline mode
- * `id: string, data: Data, params?: QueryParams`
- */
-```
+## Patterns
 
-### Rules
-
-| Rule                    | Correct                             | Incorrect                                    |
-| ----------------------- | ----------------------------------- | -------------------------------------------- |
-| Label + inline code     | `@example Required\n\`name: Type\`` | `@example \`name: Type\`` (code on tag line) |
-| Multi-line code         | Fenced ` ```ts ``` ` block          | Bare code lines without a fence              |
-| Short examples          | Inline backtick                     | Triple-backtick fence (too heavy)            |
-| One concern per example | Separate `@example` blocks          | One example covering all cases               |
-
-## Documentation patterns
-
-### Simple property: always multi-line
+A simple property, still multi-line:
 
 ```typescript
 /**
@@ -67,7 +41,7 @@ summarizes.
 outDir?: string
 ```
 
-### Property with a non-obvious default
+A non-obvious default:
 
 ```typescript
 /**
@@ -79,10 +53,7 @@ outDir?: string
 concurrency?: number
 ```
 
-Do not add `@default false` or `@default undefined` when the TypeScript type already makes the
-default obvious.
-
-### Enum or union with options
+An enum or union, one bullet per value:
 
 ```typescript
 /**
@@ -94,7 +65,7 @@ default obvious.
 pathParamsType: 'object' | 'inline' | 'inlineSpread'
 ```
 
-### Nested properties: every field gets its own multi-line JSDoc
+Nested properties, each with its own block:
 
 ```typescript
 names?: {
@@ -111,15 +82,12 @@ names?: {
 }
 ```
 
-### Function documentation
-
-Only add JSDoc when it adds value beyond the signature:
+A function, only when the comment adds behavior the signature hides:
 
 ```typescript
-// No JSDoc needed: the signature is self-explanatory
+// No JSDoc: the signature says it all
 function camelCase(str: string): string { ... }
 
-// JSDoc adds value: it explains behavior and non-obvious edge cases
 /**
  * Returns `true` when the schema resolves to a plain string output.
  *

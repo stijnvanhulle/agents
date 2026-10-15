@@ -1,124 +1,107 @@
 ---
 name: pr
-description: Prepares, opens, updates, or assesses a pull request, including branch name, checks, changeset, commits, title, body, and CI. Load it before the first commit when asked to open or ship a PR, and use it to judge whether an open PR is ready.
+description: Prepares, opens, updates, or assesses a pull request, including branch name, checks, changeset, commits, title, body, and CI. Load it before the first commit whenever work will end in a commit, push, or PR, including a request to fix an issue by number or URL and a session told to push to a branch, and use it to judge whether an open PR is ready.
 ---
 
 # PR
 
-Take a branch to merge-ready, in order. Load this skill before the first commit, since steps 1
-and 4 are hard to undo after a push. Step 6 stops the push when an earlier step did not run.
-To assess an open PR, run steps 1 to 7 as checks and report what fails (see Output).
+Take a branch to merge-ready, in order. Load this skill before the first commit, since the branch
+name and the commit split are hard to change after a push. To assess an open PR, run steps 1 to
+7 as checks and report what fails (see Output).
 
 ## 1. Branch
 
-Never commit to `main`. Check `git branch --show-current`, and branch from an up-to-date `main`
-when still on it. Use the `branch` skill's `<category>/<ISSUE-REF>_<slug>` shape. Omit the
-reference when none exists.
+Never commit to `main`. If `git branch --show-current` is `main`, branch from an up-to-date
+`main` with the `branch` skill's `<category>/<ISSUE-REF>_<slug>` shape, leaving out the reference
+when there is none.
 
-A branch that already exists, such as a `claude/…` branch a desktop app made for a worktree,
-follows the same shape. When its name does not match and it has no remote yet, rename it with
-`git branch -m` before the first push. Keep the name of a branch that is already pushed.
+When the session or harness assigns the branch, such as a cloud session told to push to
+`claude/<name>`, keep that name: the assignment wins, and a rename breaks its push. Otherwise a
+branch that does not match the shape, such as a desktop worktree's `claude/…` branch, gets
+renamed with `git branch -m` before its first push. Keep the name of a branch already pushed.
 
 ## 2. Checks
 
-Run the format, lint, typecheck, and test scripts the repo defines in `package.json`, for
-example:
+From the repo root, run every format, lint, typecheck, and test script `package.json` defines,
+and the build after package-source changes:
 
 ```bash
 pnpm format && pnpm lint:fix && pnpm typecheck && pnpm test
 ```
 
-Run them from the repo root so they cover the whole workspace. Tests for one package, or a
-linter over the changed files, do not replace them. Also run the build after package-source
-changes. Skip a script the repo does not define. Fix failures at the source; never weaken a type
-or rule, or skip a test.
+A single package's tests or a lint over changed files do not replace the full run. Skip a script
+the repo does not define. Fix failures at the source.
 
 ## 3. Changeset
 
-Run the `changeset` skill for versioned package changes. Docs, CI, and tests alone need none.
+Run the `changeset` skill for a change to a versioned package. Docs, CI, and tests alone need
+none.
 
-## 4. Commit
+## 4. Commits
 
-Use one imperative Conventional Commit per logical change, under 72 characters, no period.
-Review `git diff --cached`. Never commit secrets or generated output; generate lockfiles with
+One imperative Conventional Commit per logical change, under 72 characters, no period. Review
+`git diff --cached` first. Never commit secrets or generated output, and generate lockfiles with
 pnpm.
 
-When the work is already committed, check that each commit holds one logical change. Before the
-first push, split a commit that mixes changes with `git reset` to the merge base with
-`origin/main`. The changes stay in the working tree. Stage and commit each one on its own. After
-the push, add new commits instead.
+If the work is already committed and a commit mixes changes, split it before the first push:
+`git reset` to the merge base with `origin/main`, then stage and commit each change on its own.
+After a push, add new commits instead.
 
 ## 5. Title and body
 
-Title: imperative Conventional Commit, under 72 characters, no period. Derive the type from the
-change or issue label, not `feature`/`hotfix`. Put `Closes #123` in the body.
+The title is an imperative Conventional Commit under 72 characters with no period. Take the type
+from the change or the issue label, not `feature` or `hotfix`. Put `Closes #123` in the body, and open the
+issue with the `issue` skill when none exists.
 
-When `.github/pull_request_template.md` exists, fill it without deleting sections. Without one,
-use these sections:
+Fill `.github/pull_request_template.md` when it exists, without deleting sections. Otherwise use:
 
-- **Changes:** what changed and why, in 1 to 3 sentences.
-- **How to test:** three clean-checkout steps ending in the expected result. If the diff cannot
-  supply them, use the `ask` skill. Add screenshots for visible changes.
-- **Checklist:** check only what ran; explain unchecked items.
-- **Release impact:** changeset, docs-only, and breaking boxes must match the diff.
-- **Impact:** who is affected and any migration.
+- Changes: what changed and why, in 1 to 3 sentences.
+- How to test: three steps from a clean checkout, ending in the expected result. When the diff
+  cannot supply them, use the `ask` skill. Add screenshots for visible changes.
+- Checklist: tick only what ran, and explain each unticked item.
+- Release impact: the changeset, docs-only, and breaking boxes match the diff.
+- Impact: who is affected, and any migration.
 
-Match the format of recently merged PRs, when any exist. Name each referent, such as a PR
-number or file, and copy every number from its source. Leave out what you tried along the way,
-since the reader wants the current state. Keep every section short; when the body runs long, cut
-background, not sections. Run `humanizer` over user-facing prose.
+Match the format of recently merged PRs in the repo. Keep each section short: when the body runs long, cut
+background, not sections. Run `humanizer` over the prose.
 
-## 6. Push and open
+## 6. Gate, then push
 
-Check steps 1 to 5 before you ask to push:
+Before asking to push, confirm that:
 
-- the branch name matches the shape, or the branch was already pushed
+- the branch name has the shape, or the branch was assigned or already pushed
 - the full check scripts ran and passed
 - the `changeset` skill ran, or the diff needs no changeset
 - each commit holds one logical change
-- `humanizer` ran on the PR body and `deslop` on the code
-- the diff is scoped: no drive-by refactors or force-pushes
+- `deslop` ran on the code and `humanizer` on the PR body
+- the diff stays in scope: no drive-by refactors and no force-push
 
-When one did not run, run it now. When you cannot, stop and name the skipped steps to the user
-instead of pushing.
+Run any step that did not run. When you cannot, stop and name the skipped steps instead of
+pushing.
 
-Pushing publishes commits, so confirm first. Follow the `ask` skill: name the branch and offer
-push and open the PR, push only, or stop. Wait for the answer. A yes covers that branch only.
-Never push to `main`. On stop, leave the commits local and say so.
+Pushing publishes the commits, so follow the `ask` skill first: name the branch and offer push and
+open the PR, push only, or stop. A yes covers that branch only, and `main` is never pushed. On stop, leave the commits local
+and say so.
 
 ```bash
-git fetch origin main
-git pull --ff-only
+git fetch origin main && git pull --ff-only
 git push -u origin <branch>
-
-gh pr create \
-  --base main \
-  --title "<conventional commit title>" \
-  --body-file <body>.md \
-  --assignee @me
+gh pr create --base main --title "<title>" --body-file <body>.md --assignee @me
 ```
 
-Use `gh` or the GitHub MCP `create_pull_request`, open ready for review, and use only existing
-labels. One PR does one thing.
+The GitHub MCP `create_pull_request` works too. Open it ready for review, with existing labels
+only. One PR does one thing.
 
 ## 7. CI and review
 
-Fix red CI before handoff. Re-run only infrastructure failures. A `blocked` merge state with
-green CI means a required review is missing; say so, since a review is not yours to supply. Reply
-to every review comment with what changed and how to verify it; propose before making a large
+Fix red CI before handoff, and re-run only infrastructure failures. A `blocked` merge state with
+green CI means a required review is missing. Say so, since a review is not yours to supply. Reply
+to each review comment with what changed and how to verify it, and propose before making a large
 requested change.
 
 ## Output
 
-After opening: the PR URL and one line per step 6 item that was skipped, or "nothing skipped".
-For an assessment: one row per step, pass or fail with the reason; a miss that cannot change
-after the push is a fail marked "left as is". Then one line with the verdict (ready, or what
-blocks it).
+After opening: the PR URL, then one bullet per gate item that was skipped, or "nothing skipped".
 
-## Related skills
-
-| Skill | Use for |
-| --- | --- |
-| [branch](../branch/SKILL.md) | Naming and cutting the branch this PR comes from |
-| [changeset](../changeset/SKILL.md) | The changeset layout, bump, and wording |
-| [issue](../issue/SKILL.md) | Opening the issue this PR closes |
+For an assessment: one row per step with pass or fail and the reason. A miss that cannot change
+after the push is a fail marked "left as is". End with the verdict: ready, or what blocks it.

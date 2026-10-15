@@ -5,18 +5,13 @@ alwaysApply: true
 
 # Plain language
 
-Everything an agent writes for a person follows
-[ISO 24495-1:2023](https://www.iso.org/standard/78907.html), the plain language standard. That
-covers chat replies, task summaries, commit messages, PR titles and bodies, review comments, and
-any error or CLI text.
+Write everything a person reads to [ISO 24495-1](https://www.iso.org/standard/78907.html): chat
+replies, summaries, commits, PR text, review comments, and error or CLI text. The reader should
+find what they need, understand it on the first read, and be able to act on it.
 
-The standard sets four outcomes. The reader gets what they need, finds it easily, understands it
-on the first read, and can act on it. In practice:
-
-- Answer what was asked. Cut background the reader has, options you ruled out, and restatements
-  of the request.
-- Lead with the answer or the change, then the reason.
-- One idea per sentence. Everyday words, active voice, exact paths and commands.
+- Answer what was asked. Lead with the answer or the change, then the reason.
+- Cut what the reader already has: background, ruled-out options, the request restated, and what
+  you tried along the way. Give the current state.
+- One idea per sentence, in everyday words and the active voice, with exact paths and commands.
+- Name the thing: the PR by number, the file or setting by path, the person by name.
 - Say what changed and how to verify it. When blocked, name the blocker and what you need.
-- Name the thing: the PR by number, the file or setting by path, the person by name. Leave out
-  what you tried along the way and give the current state.
