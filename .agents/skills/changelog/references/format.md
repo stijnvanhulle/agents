@@ -1,7 +1,7 @@
 # Changelog format
 
 `docs/changelog.md` uses `##` for each version, `###` for each change type, and `####` for each
-package.
+package name, linked to the package.
 
 | Section | Holds |
 | --- | --- |

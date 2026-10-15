@@ -1,6 +1,6 @@
 ---
 name: changeset
-description: Writes or reviews a Changesets release note with the correct semver bump. Use when a change reaches a versioned package, when asked to add, write, or check a changeset, or before a PR that needs one.
+description: Writes or reviews a Changesets release note with the correct semver bump. Use whenever a change reaches a versioned package, before its commit, when asked to add, write, or check a changeset, or before a PR that needs one.
 ---
 
 # Changeset
@@ -22,8 +22,11 @@ since private packages can be versioned too.
 | `minor` | New behavior that existing code survives | A new `unionType` option |
 | `major` | A rename, a removal, or a changed default | `enumType` now defaults to `asConst` |
 
-Use the bump the command passed. When none was passed and the table does not settle it, follow
-the `ask` skill with `patch`, `minor`, and `major`, likely answer first. Write no file until the
+Use the bump the command passed when it is `patch`, `minor`, or `major`. When none was passed, or
+the table does not settle it, follow the `ask` skill with `patch`, `minor`, and `major`. Recommend
+the bump the repo's recent changesets or `CHANGELOG.md` give the same kind of change, and name
+the entries you matched. When that history differs from the table, as in a repo that ships new
+options as patches, recommend the history's bump and offer the table's as the alternative. Write no file until the
 bump is known. Do not default to `patch` and report it as a guess. When the question goes
 unanswered, stop and say the bump is missing.
 
@@ -34,7 +37,8 @@ Name it `.changeset/<slug>.md` for whoever reads `git log`: `plugin-resolver-cac
 
 1. One sentence on what the user gets. It becomes the changelog headline, so it stands alone.
 2. One bullet per user-visible change, verb first, naming the real option, export, or command.
-   Say what the user gets, not how it works. Five at most, and none for a one-line change.
+   One line each, saying what the user gets, not how it works. Five at most, and none for a
+   one-line change.
 3. A code example whenever users write something differently: a `diff` fence for a few lines,
    otherwise before and after blocks.
 4. For a `major`, a closing line on what to change to upgrade.
@@ -58,7 +62,7 @@ Add `unionType` so one type covers every variant of a discriminated schema.
 ```
 ````
 
-A patch is usually one sentence: "Resolve nested plugin paths on Windows, which broke on a
+A patch is usually one sentence and no example: "Resolve nested plugin paths on Windows, which broke on a
 backslash separator."
 
 ## Output

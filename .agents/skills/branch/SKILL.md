@@ -1,6 +1,6 @@
 ---
 name: branch
-description: Names and creates a git branch from a GitHub, ClickUp, or Jira issue, or from a plain description. Use before starting work on an issue, or whenever asked to start, cut, or name a branch.
+description: Names and creates a git branch from a GitHub, ClickUp, or Jira issue, or from a plain description. Use before starting work on an issue, including a request to fix an issue by number or URL, or whenever asked to start, cut, or name a branch.
 ---
 
 # Branch
@@ -49,6 +49,8 @@ Examples: `hotfix/501_retry-queue-drops-jobs`, `feature/DEV-2048_add-dark-mode-t
 `feature/add-dark-mode-toggle`.
 
 ## 4. Create it
+
+Branch from `origin/main`:
 
 ```bash
 git status --short

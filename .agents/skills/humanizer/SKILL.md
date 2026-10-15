@@ -1,6 +1,6 @@
 ---
 name: humanizer
-description: Finds AI writing tells and applies only the rewrites the user confirms. Use on docs, comments, PR text, changesets, and any prose before it ships, or when asked whether text sounds generated.
+description: Finds AI writing tells and applies only the rewrites the user confirms, or fixes them in place in text the agent wrote in the same task. Use on docs, comments, PR text, changesets, and any prose before it ships, or when asked whether text sounds generated.
 ---
 
 # Humanizer
@@ -33,6 +33,8 @@ place without asking.
 
 Apply only the confirmed rewrites. Then reread them, ask "what makes this obviously AI
 generated?", and fix what that turns up.
+
+For code and mixed diffs, the `deslop` skill runs the same confirm step.
 
 ## 4. Add voice, for blog and marketing prose only
 

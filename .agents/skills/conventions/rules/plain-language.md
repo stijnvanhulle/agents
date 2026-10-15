@@ -4,9 +4,9 @@ Write everything a person reads to [ISO 24495-1](https://www.iso.org/standard/78
 replies, summaries, commits, PR text, review comments, and error or CLI text. The reader should
 find what they need, understand it on the first read, and be able to act on it.
 
-- Lead with the answer or the change, then the reason.
+- Answer what was asked. Lead with the answer or the change, then the reason.
 - Cut what the reader already has: background, ruled-out options, the request restated, and what
   you tried along the way. Give the current state.
-- One idea per sentence, in everyday words and the active voice.
+- One idea per sentence, in everyday words and the active voice, with exact paths and commands.
 - Name the thing: the PR by number, the file or setting by path, the person by name.
 - Say what changed and how to verify it. When blocked, name the blocker and what you need.

@@ -1,13 +1,13 @@
 ---
 name: pr
-description: Prepares, opens, updates, or assesses a pull request, including branch name, checks, changeset, commits, title, body, and CI. Load it before the first commit when asked to open or ship a PR, and use it to judge whether an open PR is ready.
+description: Prepares, opens, updates, or assesses a pull request, including branch name, checks, changeset, commits, title, body, and CI. Load it before the first commit whenever work will end in a commit, push, or PR, including a request to fix an issue by number or URL and a session told to push to a branch, and use it to judge whether an open PR is ready.
 ---
 
 # PR
 
 Take a branch to merge-ready, in order. Load this skill before the first commit, since the branch
 name and the commit split are hard to change after a push. To assess an open PR, run steps 1 to
-6 as checks and report what fails (see Output).
+7 as checks and report what fails (see Output).
 
 ## 1. Branch
 
@@ -15,8 +15,10 @@ Never commit to `main`. If `git branch --show-current` is `main`, branch from an
 `main` with the `branch` skill's `<category>/<ISSUE-REF>_<slug>` shape, leaving out the reference
 when there is none.
 
-A branch that already exists, such as a `claude/…` worktree branch, follows the same shape. Rename
-it with `git branch -m` before its first push. Keep the name of a branch that is already pushed.
+When the session or harness assigns the branch, such as a cloud session told to push to
+`claude/<name>`, keep that name: the assignment wins, and a rename breaks its push. Otherwise a
+branch that does not match the shape, such as a desktop worktree's `claude/…` branch, gets
+renamed with `git branch -m` before its first push. Keep the name of a branch already pushed.
 
 ## 2. Checks
 
@@ -48,7 +50,8 @@ After a push, add new commits instead.
 ## 5. Title and body
 
 The title is an imperative Conventional Commit under 72 characters with no period. Take the type
-from the change or the issue label, not `feature` or `hotfix`. Put `Closes #123` in the body.
+from the change or the issue label, not `feature` or `hotfix`. Put `Closes #123` in the body, and open the
+issue with the `issue` skill when none exists.
 
 Fill `.github/pull_request_template.md` when it exists, without deleting sections. Otherwise use:
 
@@ -59,14 +62,14 @@ Fill `.github/pull_request_template.md` when it exists, without deleting section
 - Release impact: the changeset, docs-only, and breaking boxes match the diff.
 - Impact: who is affected, and any migration.
 
-Match recently merged PRs in the repo. Keep each section short: when the body runs long, cut
+Match the format of recently merged PRs in the repo. Keep each section short: when the body runs long, cut
 background, not sections. Run `humanizer` over the prose.
 
 ## 6. Gate, then push
 
 Before asking to push, confirm that:
 
-- the branch name has the shape, or the branch was already pushed
+- the branch name has the shape, or the branch was assigned or already pushed
 - the full check scripts ran and passed
 - the `changeset` skill ran, or the diff needs no changeset
 - each commit holds one logical change

@@ -15,14 +15,15 @@ include the pending `.changeset/*.md` files. Fetch remote tags when none exist l
 
 ## 2. Group
 
-Sort entries into features, bug fixes, and breaking changes. Drop refactor, test, and chore
-commits unless a changeset carries them. List dependency bumps under Dependencies, or drop them
-when users see no change.
+Sort entries into features and improvements, bug fixes, and breaking changes. Drop refactor,
+test, and chore commits unless a changeset carries them. List dependency bumps under
+Dependencies, or drop them when users see no change, and say which you did.
 
 ## 3. Translate
 
-Write each entry for the person upgrading: what they get, naming the real option, export, or
-command.
+Write each entry for the person upgrading, in the `documentation` voice. Lead with what they get,
+and name the real option, export, or command. The entries come from changesets, so a weak entry
+is fixed in its changeset with the `changeset` skill.
 
 ## Output
 

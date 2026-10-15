@@ -26,12 +26,12 @@ nested properties, or a function, follow the pattern in
 
 1. Description
 2. A bullet list of variants or behaviors, if any
-3. `@default`, only for a non-obvious default. Never `undefined` or `false`, since `?` already
-   implies them
+3. `@default`, only for a non-obvious default. Never `@default false`, and never
+   `@default undefined`, which `?` already implies
 4. `@example`, one concern per example, for complex or multi-variant APIs
 5. `@note`, for a caveat such as version info or a breaking change
 6. `@deprecated`, with the migration path
-7. `@see`, and sparingly `@internal` or `@beta`
+7. `@see`. Use `@internal` and `@beta` sparingly
 
 Never `@param`, `@returns`, `@type`, or `@typedef`: they repeat the signature. Put that
 information in the type itself.

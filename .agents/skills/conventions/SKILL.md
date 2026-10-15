@@ -19,7 +19,7 @@ the project wins.
 | [code-style](rules/code-style.md) | `.ts`, `.tsx`, `.vue` |
 | [jsdoc](rules/jsdoc.md) | `.ts`, `.tsx`. The `jsdoc` skill has the formats |
 | [testing](rules/testing.md) | Test files |
-| [markdown](rules/markdown.md) | `.md`, `.mdx`. `documentation` and `humanizer` cover voice |
+| [markdown](rules/markdown.md) | `.md`, `.mdx`. `documentation` and `humanizer` cover voice and SEO |
 
 The path-scoped rules load on their own through `paths:` frontmatter. Open one by hand only when
 it has not loaded.

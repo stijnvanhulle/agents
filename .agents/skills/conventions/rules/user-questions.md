@@ -1,5 +1,11 @@
 # Asking the user
 
-When a task needs a choice, a confirmation, or information only the user has, follow the `ask`
-skill instead of asking in a paragraph or guessing and reporting later. Ask for a secret or
-credential in prose, never as an option.
+When a task needs a choice, a confirmation, or information only the user has, use a picker
+through the `ask` skill, not a question in a paragraph:
+
+- In the same reply, write one bullet per decision before the picker opens. The picker covers the
+  chat on mobile, so a decision without its bullet cannot be judged.
+- Ask one question per independent decision, with `(Recommended)` on your pick. Per-item
+  decisions, such as review findings, never get a bundle such as `All`, `None`, or `Apply both`.
+- Without an answer, stop that part and finish only independent work. Never pick for the user.
+- Ask for a secret or credential in prose, never as an option.

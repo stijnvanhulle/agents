@@ -14,7 +14,7 @@ File one issue that does one thing, with every field set from values the tracker
 | GitHub | A GitHub remote, and no project key in the branch | `templates/github-bug.md`, `templates/github-feature.md` |
 | Jira | The branch or `AGENTS.md` carries a key such as `KEY-123` | `templates/jira-*.md`, plus [references/jira.md](references/jira.md) |
 
-When it is unclear, use the `ask` skill: GitHub or Jira.
+When it is unclear, use the `ask` skill: GitHub or Jira. Do not guess.
 
 ## 2. Look for a duplicate
 

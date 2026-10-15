@@ -11,15 +11,15 @@ Phrase lists for each group in `SKILL.md`, with one before and after per group.
 - Rule of three: three items by default. Use the real count.
 - Elegant variation: different words for one thing (app, application) to avoid repetition.
 - False ranges: "everything from small startups to large enterprises".
-- Filler: in order to, has the ability to, is able to, due to the fact that, it should be noted
-  that.
+- Filler: in order to, has the ability to, is able to, due to the fact that, it is important to
+  note that, it should be noted that.
 - Hedging: might potentially, could possibly, may or may not.
 - Generic conclusions: "Overall, the outlook is positive and the future looks promising."
 
 | Replace | With |
 | --- | --- |
 | utilize, leverage | use |
-| implement | add, build |
+| implement | add, build, create |
 | facilitate | help, allow |
 | comprehensive, seamless | omit |
 | powerful, innovative, robust | the specific property |
@@ -73,12 +73,12 @@ message, or an instruction for an agent.
 
 Patterns that inflate or fake substance. Replace each with the specific fact or source.
 
-- Undue significance: stands as, testament to, pivotal, underscores, reflects broader, setting
-  the stage, evolving landscape, key turning point.
+- Undue significance: stands as, testament to, pivotal, underscores, highlights its importance,
+  reflects broader, symbolizing, setting the stage, evolving landscape, key turning point.
 - Credibility without content: independent coverage, major publications, leading expert, widely
-  discussed.
-- Fake depth with -ing words: highlighting, emphasizing, ensuring, reflecting, fostering,
-  showcasing.
+  discussed, active social media presence.
+- Fake depth with -ing words: highlighting, emphasizing, ensuring, reflecting, contributing,
+  fostering, showcasing.
 - Marketing words: vibrant, rich, breathtaking, renowned, nestled, powerful, seamless, intuitive,
   unlock their full potential.
 - Vague attribution: experts argue, some critics, observers believe, industry reports suggest.
@@ -91,7 +91,8 @@ Patterns that inflate or fake substance. Replace each with the specific fact or 
 
 Chat habits that leak into finished writing.
 
-- Chatbot artifacts: Here is a breakdown, Let me know if you need more details!, Certainly!
+- Chatbot artifacts: Here is a breakdown, Let me know if you need more details!, Certainly!,
+  Of course!
 - Sycophantic openers: Great question!, That's a really insightful observation, Absolutely!
 
 > Before: "Great point. Here is a breakdown of the process. Let me know if you need more details!"

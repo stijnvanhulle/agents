@@ -8,9 +8,12 @@ paths:
 
 The `jsdoc` skill has the tag order and `@example` formats. The essentials:
 
-- Comment an export only when it adds what the name and signature do not. Say what it does, not
-  its type, in full sentences.
-- Always a multi-line block, with the description on its own line:
+- Comment an exported type, property, or function only when the comment adds what the name and
+  signature do not. Local helpers that are not exported get none.
+- Say what it does, not its type, in concrete full sentences, never fragments like "Boolean
+  value."
+- Always a multi-line block, with the description on its own line. A one-line `/** text */` is
+  wrong, even for a short comment:
 
   ```ts
   /**

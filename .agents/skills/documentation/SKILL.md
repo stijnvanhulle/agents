@@ -1,6 +1,6 @@
 ---
 name: documentation
-description: Writes or reviews developer documentation in the project style with SEO guidance. Use when adding or changing a docs page, a README, an option or API description, a guide, or a blog post, even when the request only says "document this".
+description: Writes or reviews developer documentation in the project style with SEO guidance. Use when adding, changing, or removing content in a docs page, a README, an option or API description, a guide, a FAQ, or a blog post, even when the request only says "document this".
 ---
 
 # Documentation
@@ -13,6 +13,9 @@ Read the repo's `docs/README.md` and two existing pages near the new one, and fo
 they differ from this skill. Without a docs folder, default to the Nuxt Content reference. Name
 files in descriptive kebab-case (`multipart-form-data.md`, not `form.md`), since the name becomes
 the URL.
+
+When a request removes or rewrites content across pages, list each passage first and use the
+`ask` skill for anything a reader relies on before you delete it.
 
 ## 2. Outline
 

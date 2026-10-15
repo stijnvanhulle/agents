@@ -7,12 +7,12 @@ alwaysApply: false
 # Markdown
 
 Voice comes from the `humanizer` skill: no dashes or semicolons joining clauses, sentence-case
-headings, no emoji, no marketing words, no filler. Docs pages follow the `documentation` skill.
-On top of that:
+headings, no emoji, no marketing words, no filler. The `documentation` skill has the full writing
+guide: voice, content patterns, and SEO. On top of that:
 
 - No inline-header bullets such as `- **Speed**: faster loads`. Write a sentence instead.
 - No bold on product names or ordinary words mid-sentence.
 - Exception: `docs/changelog.md` keeps the `changelog` skill's emoji section headings.
 
-Before you commit user-facing markdown (READMEs, docs, changesets), run the `humanizer` tells
-over it and fix them in the same pass, even when nobody asked.
+Before you commit user-facing markdown you wrote or edited (READMEs, docs, changesets), check it
+against the `humanizer` tells and fix them in the same pass, even when nobody asked.

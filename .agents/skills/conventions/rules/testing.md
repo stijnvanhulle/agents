@@ -13,6 +13,7 @@ you find.
 
 ## Writing
 
+- Add or update focused tests for every behavior change and refactor.
 - One behavior per case, named for the outcome: "returns X when Y".
 - Isolated and repeatable: no shared mutable state, and clean up side effects in `afterEach`.
 - Mock external dependencies (network, filesystem, time), not internal modules.
@@ -28,13 +29,13 @@ you find.
 | Value | Matcher |
 | --- | --- |
 | A primitive | `toBe()` |
-| A whole object or array | `toStrictEqual(literal)` or `toEqual`, which also catches extra keys |
+| A whole object or array | Prefer `toStrictEqual(literal)` (or `toEqual`): it states the result inline, and `toStrictEqual` catches extra or undefined keys |
 | One aspect | `toHaveLength`, `toContain`, a single-field `toEqual`, or `toMatchObject` for a partial shape. No snapshots |
-| Large generated output only | `toMatchInlineSnapshot()` or `toMatchFileSnapshot()` |
+| Large generated output only, where a hand-written literal is impractical | `toMatchInlineSnapshot()` or `toMatchFileSnapshot()` |
 
 ## Running
 
 - `pnpm test`, `pnpm test "<name>"` for one test, `pnpm test:bench` for benchmarks.
-- Before merging, tests pass and `pnpm typecheck` and `pnpm lint` are clean. Run both after
-  moving files or changing imports.
-- For a flaky test, read the CI logs for an environment-specific cause before re-running.
+- Before merging, tests pass and `pnpm typecheck` (across packages) and `pnpm lint` are clean.
+  Run both after moving files or changing imports.
+- For a flaky test, re-run CI and check the logs for an environment-specific failure.

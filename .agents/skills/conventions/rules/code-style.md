@@ -7,7 +7,8 @@ paths:
 
 # Code style
 
-ESM TypeScript built with tsdown and tested with Vitest. Repo setup lives in `AGENTS.md`.
+ESM TypeScript built with tsdown and tested with Vitest. Repo setup lives in `AGENTS.md`, and
+release workflows in the `changelog` and `pr` skills.
 
 ## Style
 
@@ -40,7 +41,7 @@ No comments by default. Add one only when the why is not obvious, in the `humani
 
 ## Naming
 
-`camelCase` for files, directories, variables, and functions. `PascalCase` for types and
+`camelCase` for files, directories, variables, and functions. `PascalCase` for types and React
 components.
 
 ## TypeScript
@@ -53,8 +54,8 @@ components.
 - Import at module level, not through inline type imports.
 - A function with two or more parameters takes one object.
 - Object methods use function syntax, not arrows, so `this` works.
-- `null` is an empty value the code sets on purpose. `undefined` is an unfilled slot: an unset
-  field, a missing key, no return value.
+- Use `null` for a value the code deliberately sets or clears. Leave `undefined` for an absent or
+  machine-provided value: an unset field, a missing key, no return value.
 - Expose the public API through the `"exports"` map and `typesVersions`, and keep it stable.
 
 ## Tests
