@@ -56,7 +56,8 @@ Write the findings list (see Output), then in the same reply follow the `ask` sk
   branch. Send a follow-up call when there are more than four.
 - After those answers, one question for the verdict, since it depends on what stays:
   `Comment`, `Request changes`, `Approve`, or `Close`. Recommend `Request changes` with a
-  blocking finding, `Approve` with none, and `Comment` otherwise.
+  blocking finding, `Approve` with none, and `Comment` otherwise. GitHub refuses `Approve` and
+  `Request changes` on your own request, so offer `Comment`, `No review`, or `Close` there.
 
 A skipped question stops that part: never post, approve, or close on a guess.
 
@@ -66,7 +67,7 @@ A skipped question stops that part: never post, approve, or close on a guess.
 | --- | --- | --- |
 | Comment, Request changes, Approve | `gh pr review 12 --comment`, `--request-changes`, or `--approve` with `--body-file`, or the GitHub MCP `pull_request_review_write` with `add_comment_to_pending_review` for each inline finding | `glab mr note 12 --message` for the body and each finding, then `glab mr approve 12` for an approval. `glab` has no request-changes command, so the note carries it |
 | Close | `gh pr close 12 --comment "<reason>"` | `glab mr note 12 --message "<reason>"`, then `glab mr close 12` |
-| Fix | Follow `deslop` step 4 on the checked-out branch: surgical edits, format, lint, tests, re-audit. The fixes stay in the working tree, and a commit or push is a separate `ask` as Ship step 6 says | Same |
+| Fix | Follow `deslop` step 4 on the checked-out branch: surgical edits, format, lint, tests, re-audit. A merge conflict gets its own merge commit before the fixes. The fixes stay in the working tree, and a commit or push is a separate `ask` as Ship step 6 says | Same |
 
 A posted finding carries its `path:line`, the problem, and the fix, in one or two sentences.
 Run `humanizer` over anything you post, since you wrote it in this task. Never resolve a thread
