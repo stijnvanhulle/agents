@@ -32,8 +32,8 @@ Restart the client or begin a new session after installation.
 
 ## Included
 
-- Skills for issue handling, branches, changesets, changelogs, pull requests, daily notes,
-  documentation, JSDoc, prose cleanup, and code cleanup.
+- Skills for GitHub and GitLab access, issue handling, branches, changesets, changelogs, pull request and merge request review and shipping,
+  daily notes, documentation, JSDoc, prose cleanup, and code cleanup.
 - Shared TypeScript, testing, security, markdown, and language conventions.
 - `/create-brain-note`, `/create-branch`, `/create-changeset`, `/create-issue`, and `/create-pr`
   commands for Claude Code and Cursor. Codex uses the shared skills.

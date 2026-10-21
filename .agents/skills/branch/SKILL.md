@@ -1,6 +1,6 @@
 ---
 name: branch
-description: Names and creates a git branch from a GitHub, ClickUp, or Jira issue, or from a plain description. Use before starting work on an issue, including a request to fix an issue by number or URL, or whenever asked to start, cut, or name a branch.
+description: Names and creates a git branch from a GitHub, GitLab, ClickUp, or Jira issue, or from a plain description. Use before starting work on an issue, including a request to fix an issue by number or URL, or whenever asked to start, cut, or name a branch.
 ---
 
 # Branch
@@ -11,7 +11,7 @@ Cut one local branch per issue, named so the reference and the work are searchab
 
 | Input | Read it with |
 | --- | --- |
-| `#501`, `owner/repo#501`, or an issue URL | `gh issue view 501 --json number,title,labels` or the GitHub MCP `issue_read` |
+| `#501`, `owner/repo#501`, or an issue URL | The `github` or `gitlab` skill's read-one row |
 | A ClickUp `/t/` URL or custom ID such as `DEV-1234` | The ClickUp MCP `clickup_get_task` |
 | A Jira key | The key and the words given, when no connector exists |
 | No reference | The words given |
@@ -64,7 +64,7 @@ git switch -c hotfix/501_retry-queue-drops-jobs origin/main
   `git stash -u`.
 - Reuse an existing branch only when it holds this work. Otherwise pick a clearer slug, not a
   numeric suffix.
-- Leave the branch local, since the `pr` skill pushes it. Never commit to `main`, and never
+- Leave the branch local, since the `review` skill pushes it. Never commit to `main`, and never
   rename or delete a shared branch.
 
 ## Output

@@ -1,6 +1,6 @@
 ---
 name: backlog
-description: Triages recent GitHub, ClickUp, or Jira issues, then implements the confirmed ones in isolated worktrees. Use when asked to work through, triage, or pick up open issues, or which issues are worth doing.
+description: Triages recent GitHub, GitLab, ClickUp, or Jira issues, then implements the confirmed ones in isolated worktrees. Use when asked to work through, triage, or pick up open issues, or which issues are worth doing.
 ---
 
 # Backlog
@@ -10,11 +10,12 @@ Turn a list of open issues into a triage table and, for the confirmed ones, one 
 ## 1. Pick the source
 
 The input is `<source> [count]`, with count defaulting to 10. Without a source, use the `ask`
-skill: GitHub, ClickUp, or Jira.
+skill: GitHub, GitLab, ClickUp, or Jira.
 
 | Source | Latest N issues |
 | --- | --- |
-| `github` | Open issues, newest first |
+| `github` | Open issues, newest first, through the `github` skill |
+| `gitlab` | Open issues, newest first, through the `gitlab` skill |
 | `clickup` | The connected list or folder, newest first |
 | `jira` | Ask for the project key and the keys or JQL when no connector exists |
 | Other | Ask for the tracker and how to reach it |
@@ -43,7 +44,7 @@ work that is later skipped.
 ## 4. Delegate
 
 Run one worktree-isolated subagent per issue, in parallel unless one depends on another. Give it
-the issue data, its branch, and its worktree, and have it follow the `pr` skill with checks and a changeset,
+the issue data, its branch, and its worktree, and have it follow the `review` skill's ship mode with checks and a changeset,
 stopping before the push. When all finish, ask with the `ask` skill which branches to push, one
 question per branch, and push only those.
 
