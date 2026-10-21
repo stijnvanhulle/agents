@@ -43,7 +43,7 @@ work that is later skipped.
 ## 4. Delegate
 
 Run one worktree-isolated subagent per issue, in parallel unless one depends on another. Give it
-the issue data, its branch, and its worktree, and have it follow the `pr` skill with checks and a changeset,
+the issue data, its branch, and its worktree, and have it follow the `review` skill's ship mode with checks and a changeset,
 stopping before the push. When all finish, ask with the `ask` skill which branches to push, one
 question per branch, and push only those.
 

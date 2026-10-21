@@ -8,7 +8,7 @@ paths:
 # Code style
 
 ESM TypeScript built with tsdown and tested with Vitest. Repo setup lives in `AGENTS.md`, and
-release workflows in the `changelog` and `pr` skills.
+release workflows in the `changelog` and `review` skills.
 
 ## Style
 

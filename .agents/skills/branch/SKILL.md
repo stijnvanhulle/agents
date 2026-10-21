@@ -64,7 +64,7 @@ git switch -c hotfix/501_retry-queue-drops-jobs origin/main
   `git stash -u`.
 - Reuse an existing branch only when it holds this work. Otherwise pick a clearer slug, not a
   numeric suffix.
-- Leave the branch local, since the `pr` skill pushes it. Never commit to `main`, and never
+- Leave the branch local, since the `review` skill pushes it. Never commit to `main`, and never
   rename or delete a shared branch.
 
 ## Output
