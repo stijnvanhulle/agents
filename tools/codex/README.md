@@ -14,7 +14,7 @@ Restart Codex or start a new session after installation.
 ## Included
 
 - `$agents:create-brain-note owner/repo [idea]` saves a recap or idea to a chosen GitHub repository.
-- Skills for branches, changesets, issues, and pull request or merge request review and
+- Skills for GitHub and GitLab access, branches, changesets, issues, and pull request or merge request review and
   shipping.
 - Shared conventions.
 

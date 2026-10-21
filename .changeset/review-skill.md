@@ -14,5 +14,8 @@ Rename the `pr` skill to `review` and give it a review mode for a GitHub pull re
   request changes, approve, or close. Nothing is posted, edited, or closed without an answer.
 - The former `pr` steps are unchanged and now sit under a Ship heading. `/create-pr` and the
   `backlog` and `branch` skills point at that mode.
+- New `github` and `gitlab` skills hold the `gh`, `glab`, and GitHub MCP commands. `review`,
+  `issue`, `branch`, and `backlog` point at them instead of carrying the commands, so a tracker
+  such as Linear can be added as one more skill.
 - The `code-reviewer` subagent now takes a diff file and returns its findings to the caller
   instead of trying to ask the user itself.
