@@ -17,7 +17,7 @@ reference.
 | --- | --- | --- |
 | Language | AI vocabulary, "serves as", negative parallelism, rule of three, elegant variation, false ranges, filler, hedging, generic conclusions | All text |
 | Style | dashes or semicolons joining clauses, bold on ordinary words, inline-header lists, title-case headings, emoji | All text |
-| Structure | history in the deliverable, vague referents, remembered numbers, count anchors, unmatched house format, instruction shape | PR text, tickets, runbooks, skill files |
+| Structure | history in the deliverable, internals the reader does not act on, vague referents, remembered numbers, count anchors, unmatched house format, instruction shape | Docs, PR text, tickets, runbooks, skill files |
 | Content | undue significance, empty credibility, -ing filler, marketing words, vague attribution, filler sections | Blog and marketing prose |
 | Communication | chatbot artifacts, sycophantic openers | Chat output |
 
