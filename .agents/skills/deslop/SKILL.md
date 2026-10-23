@@ -36,6 +36,8 @@ implementation behind an interface is a hypothetical seam, not a real one.
 - Naming, import, or export style that differs from nearby code.
 - Tests that restate the implementation or check what TypeScript already guarantees.
 - Changed comments and docs: the `humanizer` tells. Skip when no prose changed.
+- Docs that explain internals the reader does not act on, such as which package bundles a
+  dependency. Delete the sentence rather than reword it.
 
 ## 3. Report, then ask
 

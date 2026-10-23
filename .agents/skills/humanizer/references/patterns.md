@@ -50,6 +50,8 @@ message, or an instruction for an agent.
 
 - History in the deliverable: what you tried, when, and how it compares to before. Give the
   current state.
+- Internals the reader does not act on: which package bundles what, why a step is not needed, or
+  how the tool decides. Delete the sentence and keep only the step.
 - Vague referents: "both", "the config", "they". Name the PR number, the file, the person.
 - Remembered numbers: copy each number and identifier from its source. For a report with many
   figures, generate them with a script and diff them against the prose.
@@ -68,6 +70,10 @@ message, or an instruction for an agent.
 
 > Before: "Both PRs touch the config, so they need to land together."
 > After: "#41 and #44 both edit `vite.config.ts`, so they need to land together."
+
+> Before: "Install it with Kubb. `openapi-import` ships `@kubb/plugin-ts`, so the types work without
+> other packages:"
+> After: "Install it with Kubb:"
 
 ## Content
 
