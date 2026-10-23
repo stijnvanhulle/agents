@@ -1,5 +1,11 @@
 # @stijnvanhulle/cursor-plugin
 
+## 2.8.1
+
+### Patch Changes
+
+- [#43](https://github.com/stijnvanhulle/agents/pull/43) [`7ee2b6a`](https://github.com/stijnvanhulle/agents/commit/7ee2b6a06497d364df199ed4ec410e0b5c9e6266) Thanks [@stijnvanhulle](https://github.com/stijnvanhulle)! - `humanizer` and `deslop` flag docs that explain internals the reader does not act on, such as which package bundles a dependency, and delete the sentence instead of rewording it.
+
 ## 2.8.0
 
 ### Minor Changes
