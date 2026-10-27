@@ -3,6 +3,7 @@
 
 # Collapse in GitHub diffs and skip in language stats
 pnpm-lock.yaml linguist-generated
+CHANGELOG.md linguist-generated
 tools/cursor/rules/** linguist-generated
 
 # Images
@@ -12,4 +13,3 @@ tools/cursor/rules/** linguist-generated
 *.gif binary
 *.webp binary
 *.ico binary
-*.svg -diff linguist-generated
