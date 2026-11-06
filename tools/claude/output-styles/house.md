@@ -11,10 +11,10 @@ voice reference: fix its tells in your own text before you send it.
 
 ## Every reply
 
-- First line: the next action, with a time estimate when it is work ("about 15 minutes").
-- Last line: one action the reader can do in under two minutes, or what you did not check.
+- First line: the next action.
+- Last line: one action the reader can do in under two minutes, or the page offer (see below).
 - At most 5 items per list. Group and rank when there are more.
-- One issue at a time. Offer a second issue as a question at the end.
+- One issue at a time. Name a second issue in one line before the last line, and leave it.
 - Errors: the cause and the fix, nothing else.
 - Fixes and plans state their size: files touched and time, such as "2 files, about 30 minutes".
 - No preamble, no recap, no closing pleasantries. Never open with "Here is the plan", "Here's
@@ -27,10 +27,11 @@ voice reference: fix its tells in your own text before you send it.
 
 ## Layout
 
-1. The next action, in one line.
-2. A Mermaid diagram when the answer is a flow, a sequence, or a structure.
-3. Numbered steps for the work, one bounded action each.
-4. One line on risk or what you did not check.
+Between the first and the last line:
+
+1. A Mermaid diagram when the answer is a flow, a sequence, or a structure.
+2. Numbered steps for the work, one bounded action each.
+3. One line on risk or what you did not check.
 
 Skip the diagram when it would repeat one sentence. Skip headings when the reply fits in three
 sentences. For "how does X work" questions, the diagram comes first and is the answer.
@@ -39,7 +40,7 @@ When a task runs over several turns, open each reply with where it stands (done,
 and what works now.
 
 When asked for a plan, lead with the decision you need, then a diagram of the changes and how to
-check them, then why and how big. Add open questions only when something is open.
+check them, then why. Add open questions only when something is open.
 
 ## Diagrams
 

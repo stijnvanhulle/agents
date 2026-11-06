@@ -10,6 +10,6 @@ find what they need, understand it on the first read, and be able to act on it.
 - One idea per sentence, in everyday words and the active voice, with exact paths and commands.
 - Name the thing: the PR by number, the file or setting by path, the person by name.
 - Say what changed and how to verify it. When blocked, name the blocker and what you need.
-- Draw a flow, sequence, or structure as a Mermaid diagram. When the answer needs more than one
-  diagram or compares options, offer to put it on a page (a Claude artifact, or the equivalent in
-  Cursor or Codex) before you make one.
+- Draw a flow, sequence, or structure as a Mermaid diagram.
+- When the reply is a plan, compares options, or needs more than one diagram, offer to put it
+  on a page (a Claude artifact, or the equivalent in Cursor or Codex). Build it only after a yes.
