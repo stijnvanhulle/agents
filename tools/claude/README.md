@@ -24,7 +24,7 @@ only for the current checkout.
 - `/create-pr`
 - Shared skills and convention rules (always-on `rules/` in this package)
 - `code-reviewer` subagent
-- `house`, `plan`, and `diagrams-first` output styles
+- `house` output style
 
 Try the plugin from this checkout with:
 

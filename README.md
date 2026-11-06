@@ -38,7 +38,7 @@ Restart the client or begin a new session after installation.
 - `/create-brain-note`, `/create-branch`, `/create-changeset`, `/create-issue`, and `/create-pr`
   commands for Claude Code and Cursor. Codex uses the shared skills.
 - A `code-reviewer` subagent for Claude Code and Cursor.
-- Claude Code output styles: `house`, `plan`, and `diagrams-first`.
+- A `house` output style for Claude Code.
 
 See the provider guides for details:
 
