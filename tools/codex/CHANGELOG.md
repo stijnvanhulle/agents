@@ -1,5 +1,11 @@
 # @stijnvanhulle/codex-plugin
 
+## 2.9.0
+
+### Minor Changes
+
+- [#46](https://github.com/stijnvanhulle/agents/pull/46) [`2769c78`](https://github.com/stijnvanhulle/agents/commit/2769c78d1cb752ccb010e36f9ee9d14d5bf3e0ba) Thanks [@stijnvanhulle](https://github.com/stijnvanhulle)! - Merge the `plan` and `diagrams-first` output styles into `house`. Replies now lead with the next action, use a Mermaid diagram when the answer has a shape, and state the size of fixes and plans. Plans, comparisons, and answers with several diagrams end with an offer to make a page (a Claude artifact, or the equivalent in Cursor or Codex). If you selected `plan` or `diagrams-first`, switch to `house`.
+
 ## 2.8.1
 
 ### Patch Changes
