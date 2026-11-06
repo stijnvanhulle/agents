@@ -1,5 +1,13 @@
 # @stijnvanhulle/codex-plugin
 
+## 2.10.0
+
+### Minor Changes
+
+- [#48](https://github.com/stijnvanhulle/agents/pull/48) [`0743ecf`](https://github.com/stijnvanhulle/agents/commit/0743ecf83b64d25a6aef8f083ef5381f7bf96769) Thanks [@stijnvanhulle](https://github.com/stijnvanhulle)! - Cursor now gets the `house` style as an always-on rule, and Codex as the `house` skill. To apply it to every Codex reply, add `Follow the $agents:house skill for every reply.` to `~/.codex/AGENTS.md`.
+
+- [#48](https://github.com/stijnvanhulle/agents/pull/48) [`690e0d1`](https://github.com/stijnvanhulle/agents/commit/690e0d194d05c49253085fddf75ec8a9413c9fc4) Thanks [@stijnvanhulle](https://github.com/stijnvanhulle)! - The `house` style shows more answers as a visual: a flowchart, sequence diagram, table, status strip, or chart whenever a reply has 3 or more steps, parts, states, or numbers. Visuals render inline where the client can, and as Mermaid or a markdown table otherwise.
+
 ## 2.9.0
 
 ### Minor Changes
