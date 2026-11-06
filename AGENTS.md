@@ -9,7 +9,8 @@ This repository distributes shared AI development workflows for Claude Code, Cur
 - `tools/cursor/` packages Cursor commands, rules, a subagent, and shared skills.
 - `tools/codex/` packages Codex prompts and shared skills.
 - Root marketplace manifests expose the provider packages.
-- `scripts/agentFiles.ts` checks command and rule parity.
+- `scripts/agentFiles.ts` checks command and rule parity, and that the three copies of the `house`
+  style (Claude output style, Cursor rule, Codex skill) share one body.
 - `scripts/syncPluginVersion.mjs` copies Changesets versions into plugin manifests.
 - `scripts/tagRelease.mjs` creates one `agents@X.Y.Z` git tag from those versions.
 

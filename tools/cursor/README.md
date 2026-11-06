@@ -21,6 +21,7 @@ Marketplaces in the editor.
 - `/create-pr`
 - Shared skills and file-scoped convention rules
 - `code-reviewer` subagent
+- `house` reply style, an always-on rule (the same text as the Claude output style)
 
 The plugin's `skills` directory links to the canonical `.agents/skills/` directory. If a client
 copies only `tools/cursor/` and leaves that link unresolved, clone the full repository into
