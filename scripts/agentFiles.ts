@@ -16,6 +16,11 @@ const mirrors = 'tools/cursor/rules'
 
 const commandDirs = ['tools/claude/commands', 'tools/cursor/commands']
 
+/**
+ * The house reply style ships as a Claude output style, a Cursor rule, and a skill for Codex.
+ */
+const houseCopies = ['tools/claude/output-styles/house.md', 'tools/cursor/rules/house.mdc', '.agents/skills/house/SKILL.md']
+
 const read = (...parts: Array<string>) => readFileSync(join(root, ...parts), 'utf8')
 
 const namesIn = (dir: string, extension: string) =>
@@ -69,7 +74,7 @@ const checkCommands = () => {
  */
 const checkRules = () => {
   const expected = namesIn(rules, '.md')
-  const actual = namesIn(mirrors, '.mdc')
+  const actual = namesIn(mirrors, '.mdc').filter((name) => name !== 'house')
 
   return [
     ...actual.filter((name) => !expected.includes(name)).map((name) => `${mirrors}/${name}.mdc mirrors no rule`),
@@ -89,7 +94,17 @@ const checkRules = () => {
   ]
 }
 
-const problems = [...checkCommands(), ...checkRules()]
+/**
+ * Every copy of the house style has to carry the same body.
+ */
+const checkHouse = () => {
+  const [canonical, ...rest] = houseCopies
+  const expected = stripFrontmatter(read(canonical))
+
+  return rest.filter((path) => stripFrontmatter(read(path)) !== expected).map((path) => `${path} has drifted from ${canonical}`)
+}
+
+const problems = [...checkCommands(), ...checkRules(), ...checkHouse()]
 
 if (problems.length > 0) {
   console.error(problems.map((problem) => `- ${problem}`).join('\n'))

@@ -29,22 +29,38 @@ voice reference: fix its tells in your own text before you send it.
 
 Between the first and the last line:
 
-1. A Mermaid diagram when the answer is a flow, a sequence, or a structure.
+1. A visual when the answer has 3 or more steps, parts, states, or numbers (see Visuals).
 2. Numbered steps for the work, one bounded action each.
 3. One line on risk or what you did not check.
 
-Skip the diagram when it would repeat one sentence. Skip headings when the reply fits in three
-sentences. For "how does X work" questions, the diagram comes first and is the answer.
+Skip the visual when it would repeat one sentence. Skip headings when the reply fits in three
+sentences. For "how does X work" questions, the visual comes first and is the answer. When there
+is a visual, the prose under it adds only what the picture cannot show.
 
-When a task runs over several turns, open each reply with where it stands (done, current, left)
-and what works now.
+When a task runs over several turns, open each reply with a status strip: done, current, and left,
+then what works now.
 
 When asked for a plan, lead with the decision you need, then a diagram of the changes and how to
 check them, then why. Add open questions only when something is open.
 
-## Diagrams
+## Visuals
 
-Use `flowchart` for flow and structure and `sequenceDiagram` for requests. At most 15 nodes.
+Pick the form from the shape of the answer:
+
+| Shape | Visual |
+| --- | --- |
+| Flow or structure | Flowchart |
+| Requests between parts | Sequence diagram |
+| Options, results, or before and after | Table, one row per item |
+| Status over several turns | Strip: done, current, left |
+| Timings, counts, or sizes | Bar or line chart |
+
+Render it inline when the client can draw visuals in the chat, such as Claude's inline visuals.
+Otherwise use a Mermaid block (`flowchart`, `sequenceDiagram`, or `xychart-beta`) or a markdown
+table. Cursor and most chat clients render both, and a terminal still reads them as text. When
+the conversation already has a visual for the same subject, redraw that one with the change
+instead of starting a different picture. Keep it plain: the client's own colors and type, no
+decoration, at most 15 nodes.
 
 ## Offer a page
 
@@ -52,7 +68,7 @@ Offer a page when any of these is true:
 
 - The reply is a plan.
 - It compares two or more options.
-- It needs more than one diagram, or the reader will share it.
+- It needs more than one visual, or the reader will share it.
 
 Make the offer the last line, in these words: "Want this as a page?" The page is a Claude
 artifact, or the equivalent in Cursor or Codex. Build it only after the reader says yes. When the
