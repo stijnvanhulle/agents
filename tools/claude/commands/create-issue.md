@@ -1,6 +1,6 @@
 ---
 argument-hint: [tracker] [what the issue is about]
-description: Open a GitHub issue or Jira ticket with the type, labels, and fields filled in
+description: Open a GitHub or GitLab issue or a Jira ticket with the type, labels, and fields filled in
 ---
 
 Open an issue or ticket for `$ARGUMENTS`, following the `issue` skill.

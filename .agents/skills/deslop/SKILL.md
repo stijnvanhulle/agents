@@ -1,6 +1,6 @@
 ---
 name: deslop
-description: Audits a diff or file for over-engineering and AI code and prose tells, then applies only the fixes the user confirms. Use before opening a PR, when asked to clean up, simplify, or review a diff, or when code looks generated.
+description: Audits a diff or file for over-engineering and AI code and prose tells, then applies only the fixes the user confirms. Use when asked to clean up or simplify a diff or file, or when code looks generated. For a pull request, the `review` skill runs it.
 ---
 
 # Deslop
@@ -45,7 +45,7 @@ A request to review, assess, or explain a diff is audit-only: report and stop, u
 also asked for fixes or already approved them. Otherwise write the findings list in chat (see Output), then, in the same
 reply, follow the `ask` skill with one question per finding, or per group that shares one fix,
 named after the finding (`Unused enabled flag in Studio?`). Every finding gets a question, so
-send a follow-up call when there are more than four.
+send a follow-up call when the picker takes fewer questions than there are findings.
 
 ## 4. Apply only what was confirmed
 

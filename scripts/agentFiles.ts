@@ -51,7 +51,7 @@ const scopeOf = (source: string) => {
 }
 
 /**
- * Every agent has to expose the same commands, each carrying a real body.
+ * Every agent has to expose the same command names. Bodies differ by client and are not compared.
  */
 const checkCommands = () => {
   const [canonical, ...rest] = commandDirs

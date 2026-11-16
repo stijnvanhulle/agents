@@ -37,7 +37,7 @@ GitLab has no issue types or project fields, so Priority and Effort go in the bo
 | Pipeline | `glab ci status --branch <source>` |
 | Check out | `glab mr checkout 12` |
 | Open | `glab mr create --target-branch main --title "<title>" --description "<body>"` |
-| Comment | `glab mr note 12 --message "<text>"`, once for the body and once per inline finding |
+| Comment | `glab mr note create 12 --message "<text>"` for the body, and `glab mr note create 12 --file <path> --line <n> --message "<text>"` per inline finding |
 | Approve | `glab mr approve 12`, and `glab mr revoke 12` to take it back |
 | Close | `glab mr close 12`, after a note with the reason |
 

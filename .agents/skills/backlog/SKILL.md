@@ -1,6 +1,6 @@
 ---
 name: backlog
-description: Triages recent GitHub, GitLab, ClickUp, or Jira issues, then implements the confirmed ones in isolated worktrees. Use when asked to work through, triage, or pick up open issues, or which issues are worth doing.
+description: Triages recent GitHub, GitLab, ClickUp, or Jira issues, then implements the confirmed ones in isolated worktrees. Use when asked to work through, triage, or pick up a list of open issues, or which issues are worth doing.
 ---
 
 # Backlog
@@ -35,18 +35,20 @@ For each confirmed issue, one worktree on its own branch, named with the `branch
 
 ```bash
 git fetch origin main
-git worktree add ../<repo>-<ISSUE-REF> -b <category>/<ISSUE-REF>_<branch-name> origin/main
+git worktree add --no-track ../<repo>-<ISSUE-REF> -b <category>/<ISSUE-REF>_<branch-name> origin/main
 ```
 
-Never share a branch or worktree between issues, and never touch `main`. Remove the worktree of
+Never share a branch or worktree between issues, and never touch `main`, which stands for the
+default branch as the `branch` skill's step 4 defines it. Remove the worktree of
 work that is later skipped.
 
 ## 4. Delegate
 
-Run one worktree-isolated subagent per issue, in parallel unless one depends on another. Give it
-the issue data, its branch, and its worktree, and have it follow the `review` skill's ship mode with checks and a changeset,
-stopping before the push. When all finish, ask with the `ask` skill which branches to push, one
-question per branch, and push only those.
+In Claude Code and Cursor, run one worktree-isolated subagent per issue, in parallel unless one
+depends on another. Elsewhere, work through the worktrees yourself, one issue at a time. Either
+way, work each issue from its issue data, branch, and worktree, following the `review` skill's
+ship mode with checks and a changeset, and stop before the push. When all finish, ask with the
+`ask` skill which branches to push, one question per branch, and push only those.
 
 ## Output
 
