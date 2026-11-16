@@ -15,7 +15,7 @@ find what they need, understand it on the first read, and be able to act on it.
 - One idea per sentence, in everyday words and the active voice, with exact paths and commands.
 - Name the thing: the PR by number, the file or setting by path, the person by name.
 - Say what changed and how to verify it. When blocked, name the blocker and what you need.
-- Draw a flow, sequence, or structure as a visual: inline where the client can render it,
-  otherwise a Mermaid diagram.
+- Draw a flow, sequence, or structure as a visual. When the session has an inline visual tool,
+  such as Claude's `show_widget`, draw with it. When it has none, write a Mermaid diagram.
 - When the reply is a plan, compares options, or needs more than one visual, offer to put it
   on a page (a Claude artifact, or the equivalent in Cursor or Codex). Build it only after a yes.
