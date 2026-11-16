@@ -21,8 +21,10 @@ the project wins.
 | [testing](rules/testing.md) | Test files |
 | [markdown](rules/markdown.md) | `.md`, `.mdx`. `documentation` and `humanizer` cover voice and SEO |
 
-The path-scoped rules load on their own through `paths:` frontmatter. Open one by hand only when
-it has not loaded.
+Cursor and a project's `.claude/rules` folder load the rules on their own, the path-scoped ones
+through `paths:` or `globs:` frontmatter. The Claude Code plugin loads only the four `Always`
+rules, at session start. Open every rule that has not loaded: the `Always` ones for any task, the
+others when their row matches the files you are working on.
 
 ## 2. Apply or review
 

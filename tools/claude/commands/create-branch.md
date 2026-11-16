@@ -1,6 +1,6 @@
 ---
 argument-hint: [issue reference or what the work is]
-description: Cut a Conventional Commit branch from the issue it belongs to
+description: Cut a named branch from the issue it belongs to
 ---
 
 Create a branch for `$ARGUMENTS`, following the `branch` skill.

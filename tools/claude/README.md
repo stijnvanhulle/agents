@@ -1,7 +1,7 @@
 # Claude Code plugin
 
 The `agents` plugin provides shared skills, rules, commands, the `code-reviewer` subagent, and
-three output styles.
+the `house` output style.
 
 ## Install
 
@@ -22,7 +22,8 @@ only for the current checkout.
 - `/create-changeset`
 - `/create-issue`
 - `/create-pr`
-- Shared skills and convention rules (always-on `rules/` in this package)
+- Shared skills and convention rules. A session-start hook loads the always-on rules, and the
+  `conventions` skill loads the file-scoped ones
 - `code-reviewer` subagent
 - `house` output style
 

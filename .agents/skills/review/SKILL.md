@@ -1,6 +1,6 @@
 ---
 name: review
-description: Reviews or ships a GitHub pull request or GitLab merge request. Review mode reads the request, runs the conventions, deslop, jsdoc, humanizer, and documentation passes, then asks what to do with each finding and with the request: comment, request changes, approve, fix, or close. Ship mode takes your own branch to merge-ready, including branch name, checks, changeset, commits, title, body, push, and CI. Use when asked to review a PR or MR or whether one is ready to merge, and load it before the first commit whenever work will end in a commit, push, or PR, including a session told to push to a branch.
+description: Reviews or ships a GitHub pull request or GitLab merge request. Review mode reads the request, runs the conventions, deslop, jsdoc, humanizer, and documentation passes, then asks what to do with each finding and with the request (comment, request changes, approve, fix, or close). Ship mode takes your own branch to merge-ready, including branch name, checks, changeset, commits, title, body, push, and CI. Use when asked to review a PR or MR or whether one is ready to merge, and load it before the first commit whenever work will end in a commit, push, or PR, including a session told to push to a branch.
 ---
 
 # Review
@@ -27,9 +27,9 @@ Check the claims in the description and commits against the diff.
 
 ### 2. Run the passes
 
-In Claude Code and Cursor, run the `code-reviewer` subagent with the diff file and the checked-out
-branch, and take its findings for passes 1 to 5. Elsewhere, run the passes yourself, substance
-before style before prose, reading each skill for its criteria:
+In Claude Code and Cursor, run the `code-reviewer` subagent with the diff file, tell it whether the
+branch is checked out, and take its findings for passes 1 to 5. Elsewhere, run the passes
+yourself, substance before style before prose, reading each skill for its criteria:
 
 1. `conventions` and correctness: logic errors, edge cases, security at trust boundaries, and a
    test for every code change.
@@ -49,7 +49,7 @@ Write the findings list (see Output), then in the same reply follow the `ask` sk
 
 - One question per finding, named after it (`Unused retry flag in client.ts?`), offering
   `Comment`, `Fix`, or `Skip`. `Comment` posts it on the request, `Fix` edits the checked-out
-  branch. Send a follow-up call when there are more than four.
+  branch. Send a follow-up call when the picker takes fewer questions than there are findings.
 - After those answers, one question for the verdict, since it depends on what stays:
   `Comment`, `Request changes`, `Approve`, or `Close`. Recommend `Request changes` with a
   blocking finding, `Approve` with none, and `Comment` otherwise. GitHub refuses `Approve` and
@@ -74,7 +74,8 @@ Run `humanizer` over anything you post, since you wrote it in this task.
 
 Never commit to `main`. If `git branch --show-current` is `main`, branch from an up-to-date
 `main` with the `branch` skill's `<category>/<ISSUE-REF>_<slug>` shape, leaving out the reference
-when there is none.
+when there is none. `main` stands for the default branch, as the `branch` skill's step 4 defines
+it.
 
 When the session or harness assigns the branch, such as a cloud session told to push to
 `claude/<name>`, keep that name: the assignment wins, and a rename breaks its push. Otherwise a
@@ -145,9 +146,11 @@ open the PR, push only, or stop. A yes covers that branch only, and `main` is ne
 and say so.
 
 ```bash
-git fetch origin main && git pull --ff-only
 git push -u origin <branch>
 ```
+
+When the push is rejected because the remote branch moved, run
+`git pull --rebase origin <branch>`, rerun the checks, and push again.
 
 Then open the request with the host skill, `github` or `gitlab`, ready for review and with
 existing labels only. One PR does one thing.

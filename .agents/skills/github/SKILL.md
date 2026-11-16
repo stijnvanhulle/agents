@@ -20,9 +20,9 @@ number acts on the current branch's pull request.
 | Need | `gh` | MCP |
 | --- | --- | --- |
 | Read one | `gh issue view 12 --json number,title,body,labels,comments` | `issue_read` |
-| Find duplicates | `gh issue list --search "<keywords>" --state all --limit 10` | `search_issues`, or `gh api repos/<owner>/<repo>/issues?state=all` |
-| Valid labels, types, fields | `gh label list` | `list_issue_types`, `list_issue_fields` |
-| Create or triage | `gh issue create --title "<title>" --body-file <body>.md --label <label>` | `issue_write` with `method: "create"` or `"update"`, which also sets `type` and `issue_fields` |
+| Find duplicates | `gh issue list --search "<keywords>" --state all --limit 10` | `search_issues`, or `gh api -X GET search/issues -f q="<keywords> repo:<owner>/<repo> is:issue"` |
+| Valid labels, types, fields | `gh label list`, and `gh api orgs/<owner>/issue-types --jq '.[].name'` for the types (a 404 means none) | `list_issue_types`, `list_issue_fields` |
+| Create or triage | `gh issue create --title "<title>" --body-file <body>.md --label <label>` to create, `gh issue edit 12 --add-label <label>` to triage, each with `--type <type>` when the repo has issue types | `issue_write` with `method: "create"` or `"update"`, which also sets `type` and `issue_fields` |
 | Comment | `gh issue comment 12 --body-file <file>` | `add_issue_comment` |
 
 ```json
@@ -40,12 +40,12 @@ number acts on the current branch's pull request.
 
 | Need | `gh` | MCP |
 | --- | --- | --- |
-| Read one | `gh pr view 12 --json title,body,commits,reviews,comments,mergeable` | `pull_request_read` with `get` and `get_review_comments` |
+| Read one | `gh pr view 12 --json title,body,commits,reviews,comments,mergeable,mergeStateStatus,closingIssuesReferences,statusCheckRollup`, and `gh api repos/<owner>/<repo>/pulls/12/comments` for the review threads | `pull_request_read` with `get` and `get_review_comments` |
 | Diff | `gh pr diff 12` | `pull_request_read` with `get_diff` |
 | Checks | `gh pr checks 12` | `pull_request_read` with `get_check_runs` |
 | Check out | `gh pr checkout 12` | `git fetch origin <branch> && git switch <branch>` |
 | Open | `gh pr create --base main --title "<title>" --body-file <body>.md --assignee @me` | `create_pull_request` |
-| Review | `gh pr review 12 --comment`, `--request-changes`, or `--approve`, with `--body-file <file>` | `pull_request_review_write` with `event`, or a pending review plus `add_comment_to_pending_review` per inline finding |
+| Review | `gh pr review 12 --comment`, `--request-changes`, or `--approve`, with `--body-file <file>`. With inline findings, `gh api --method POST repos/<owner>/<repo>/pulls/12/reviews --input <review>.json`, where the JSON holds `event`, `body`, and one `comments` entry (`path`, `line`, `body`) per finding | `pull_request_review_write` with `event`, or a pending review plus `add_comment_to_pending_review` per inline finding |
 | Comment | `gh pr comment 12 --body-file <file>` | `add_issue_comment` |
 | Close | `gh pr close 12 --comment "<reason>"` | `update_pull_request` with `state: "closed"`, after the comment |
 

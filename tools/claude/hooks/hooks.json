@@ -1,0 +1,16 @@
+{
+  "description": "Loads the always-on convention rules at session start. Uses cat, so Windows needs Git Bash.",
+  "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "startup|clear|compact",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "cat \"${CLAUDE_PLUGIN_ROOT}/rules/plain-language.md\" \"${CLAUDE_PLUGIN_ROOT}/rules/security.md\" \"${CLAUDE_PLUGIN_ROOT}/rules/usa-english.md\" \"${CLAUDE_PLUGIN_ROOT}/rules/user-questions.md\""
+          }
+        ]
+      }
+    ]
+  }
+}

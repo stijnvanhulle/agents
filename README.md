@@ -18,15 +18,18 @@ claude plugin install agents@stijnvanhulle
 
 ```bash
 agent plugin marketplace add https://github.com/stijnvanhulle/agents
-agent plugin install agents@stijnvanhulle
 ```
+
+Then install `agents` with `/plugin` in Cursor CLI, or through Settings, Customize, Marketplaces
+in the editor.
 
 ### Codex
 
 ```bash
 codex plugin marketplace add stijnvanhulle/agents
-codex plugin add agents@stijnvanhulle
 ```
+
+Then run `codex`, enter `/plugins`, and install `agents`.
 
 Restart the client or begin a new session after installation.
 
@@ -38,7 +41,8 @@ Restart the client or begin a new session after installation.
 - `/create-brain-note`, `/create-branch`, `/create-changeset`, `/create-issue`, and `/create-pr`
   commands for Claude Code and Cursor. Codex uses the shared skills.
 - A `code-reviewer` subagent for Claude Code and Cursor.
-- A `house` output style for Claude Code.
+- A `house` reply style: an output style in Claude Code, an always-on rule in Cursor, and a skill
+  in Codex.
 
 See the provider guides for details:
 

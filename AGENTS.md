@@ -5,7 +5,8 @@ This repository distributes shared AI development workflows for Claude Code, Cur
 ## Architecture
 
 - `.agents/skills/` is the canonical source for skills and convention rules.
-- `tools/claude/` packages Claude commands, a subagent, output styles, convention rules, and shared skills.
+- `tools/claude/` packages Claude commands, a subagent, output styles, a session-start hook for the
+  always-on convention rules, and shared skills.
 - `tools/cursor/` packages Cursor commands, rules, a subagent, and shared skills.
 - `tools/codex/` packages Codex prompts and shared skills.
 - Root marketplace manifests expose the provider packages.

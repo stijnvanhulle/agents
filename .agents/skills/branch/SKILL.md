@@ -50,12 +50,15 @@ Examples: `hotfix/501_retry-queue-drops-jobs`, `feature/DEV-2048_add-dark-mode-t
 
 ## 4. Create it
 
-Branch from `origin/main`:
+Branch from the default branch, `main` in the commands here. When
+`git symbolic-ref --short refs/remotes/origin/HEAD` prints another branch, such as `origin/master`,
+use its name without the `origin/` prefix (`master`) wherever this skill, `backlog`, `review`,
+`github`, or `gitlab` says `main`:
 
 ```bash
 git status --short
 git fetch origin main
-git switch -c hotfix/501_retry-queue-drops-jobs origin/main
+git switch --no-track -c hotfix/501_retry-queue-drops-jobs origin/main
 ```
 
 - When an open PR already targets the issue, say so and use `ask`: build on its branch, or start

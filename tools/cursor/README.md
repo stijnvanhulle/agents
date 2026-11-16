@@ -6,11 +6,10 @@ The `agents` plugin provides shared skills, rules, commands, and the `code-revie
 
 ```bash
 agent plugin marketplace add https://github.com/stijnvanhulle/agents
-agent plugin install agents@stijnvanhulle
 ```
 
-The same commands work through `/plugin` in Cursor CLI and through Settings, Customize,
-Marketplaces in the editor.
+Then install `agents` with `/plugin` in Cursor CLI, or through Settings, Customize, Marketplaces
+in the editor.
 
 ## Included
 

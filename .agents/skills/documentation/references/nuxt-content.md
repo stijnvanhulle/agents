@@ -13,7 +13,7 @@ layout: doc
 title: Installation                      # Page header and browser tab
 description: Install Kubb and verify the CLI.   # Search results and link previews
 outline: [2, 3]                          # Heading levels in the table of contents
-order: 1                                 # Position in the sidebar; omit to keep the page out of it
+order: 1                                 # Position in the sidebar. Omit to keep the page out of it
 navigation:
   title: Installation                    # Only when the sidebar label differs from title
   icon: i-iconoir-download
@@ -39,10 +39,10 @@ that opened it, and one more for a nested one.
 | Linked context | `::callout` | Set `to`, `icon`, and `color` |
 | Sequential instructions | `::steps{level="2"}` | One H2 per step, keep anchors with `{#id}` |
 | Related pages | `::card-group` and `:::card` | Set `title` and `to` |
-| Alternative code | `::code-group` | Label every fence; `sync="package-manager"` for package managers |
-| Alternative workflows | `::tabs` and `:::tabs-item` | Give each item a `label`; keep required steps outside |
+| Alternative code | `::code-group` | Label every fence. Use `sync="package-manager"` for package managers |
+| Alternative workflows | `::tabs` and `:::tabs-item` | Give each item a `label`, and keep required steps outside |
 | Long optional code | `::code-collapse` | Set a descriptive `name` |
-| Optional explanation | `::collapsible` | Set a descriptive `name`; keep warnings visible |
+| Optional explanation | `::collapsible` | Set a descriptive `name`, and keep warnings visible |
 | FAQ | `::accordion` and `:::accordion-item` | Give each item a `label` |
 | Many files | `::code-tree` | Label fences with file paths |
 | Directory tree | `::file-tree` | `tree` array with `name`, `type`, `children` |
@@ -89,7 +89,7 @@ npx kubb generate
 ## Option reference
 
 Each option gets a heading with a stable anchor, one sentence on what it does, a two-column
-table, then prose and an example. `Type` and `Required` are always present; `Default` only when
+table, then prose and an example. `Type` and `Required` are always present, and `Default` only when
 one exists.
 
 ````md

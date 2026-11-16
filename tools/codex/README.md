@@ -6,14 +6,15 @@ The `agents` plugin provides shared skills.
 
 ```bash
 codex plugin marketplace add stijnvanhulle/agents
-codex plugin add agents@stijnvanhulle
 ```
+
+Then run `codex`, enter `/plugins`, and install `agents`.
 
 Restart Codex or start a new session after installation.
 
 ## Included
 
-- `$agents:create-brain-note owner/repo [idea]` saves a recap or idea to a chosen GitHub repository.
+- `$agents:brain-note owner/repo [idea]` saves a recap or idea to a chosen GitHub repository.
 - Skills for GitHub and GitLab access, branches, changesets, issues, and pull request or merge request review and
   shipping.
 - Shared conventions.

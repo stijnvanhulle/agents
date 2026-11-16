@@ -1,6 +1,6 @@
 ---
 name: issue
-description: Creates or triages a GitHub, GitLab, or Jira issue with its type, labels, priority, and fields filled from real values. Use when asked to open, file, report, or triage an issue or bug, or to turn a finding into a ticket.
+description: Creates or triages a GitHub, GitLab, or Jira issue with its type, labels, priority, and fields filled from real values. Use when asked to open, file, or report an issue or bug, to triage one named issue, or to turn a finding into a ticket.
 ---
 
 # Issue
@@ -24,10 +24,11 @@ opening a duplicate.
 
 ## 3. Write
 
-Fill every placeholder in the matching template. The title is imperative, under 72 characters,
-with no period. A bug needs the version, steps, expected, and actual result. A feature leads with
-the problem. Split a mixed report into one issue per thing. Keep tokens, `.env` lines, and
-internal hostnames out of the body, and say where the value lives instead.
+Fill every placeholder in the matching template. On GitHub and GitLab, a Task uses the feature
+template. On Jira, a Feature or a Task uses the story template. The title is imperative, under 72
+characters, with no period. A bug needs the version, steps, expected, and actual result. A feature
+leads with the problem. Split a mixed report into one issue per thing. Keep tokens, `.env` lines,
+and internal hostnames out of the body, and say where the value lives instead.
 
 ## 4. Classify from real values
 
@@ -48,8 +49,9 @@ Priority, or Effort stays ambiguous, use the `ask` skill.
 
 ## 5. Create
 
-Create or triage with the host skill's row, which sets body, type, labels, and fields in one
-call on GitHub.
+Create or triage with the host skill's row. On GitHub one call sets body, type, and labels. Issue
+fields need the `issue_write` MCP tool, so use it when the session has it and the repo has project
+fields. With `gh` alone, put Priority and Effort in the body.
 
 ## Output
 
