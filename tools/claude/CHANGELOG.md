@@ -1,5 +1,33 @@
 # @stijnvanhulle/claude-plugin
 
+## 2.11.0
+
+### Minor Changes
+
+- [#52](https://github.com/stijnvanhulle/agents/pull/52) [`0a309d9`](https://github.com/stijnvanhulle/agents/commit/0a309d92467ba0b989d1f631d2d9d99dd9640714) Thanks [@stijnvanhulle](https://github.com/stijnvanhulle)! - Rename the `create-brain-note` skill to `brain-note`, so it no longer collides with the `/create-brain-note` command.
+  
+  ```diff
+  - $agents:create-brain-note owner/repo
+  + $agents:brain-note owner/repo
+  ```
+
+- [#52](https://github.com/stijnvanhulle/agents/pull/52) [`a588122`](https://github.com/stijnvanhulle/agents/commit/a588122c01a5c8c3f43b045faef11de9c4ec438f) Thanks [@stijnvanhulle](https://github.com/stijnvanhulle)! - Claude Code now loads the plain-language, security, USA English, and user-questions rules at session start, through a plugin hook.
+
+### Patch Changes
+
+- [#52](https://github.com/stijnvanhulle/agents/pull/52) [`3bb423f`](https://github.com/stijnvanhulle/agents/commit/3bb423fe2bd43b0e4eb006507ea39f92aa917663) Thanks [@stijnvanhulle](https://github.com/stijnvanhulle)! - Settle which `house` rule owns the first line of a reply, and narrow the `deslop`, `issue`, and `backlog` triggers so one skill answers each request.
+  
+  - Let a skill's Output section override the `house` first-line, last-line, list, and one-issue rules.
+  - Offer the `jsdoc` skill in every session, not only when a TypeScript file is open.
+
+- [#52](https://github.com/stijnvanhulle/agents/pull/52) [`3bb423f`](https://github.com/stijnvanhulle/agents/commit/3bb423fe2bd43b0e4eb006507ea39f92aa917663) Thanks [@stijnvanhulle](https://github.com/stijnvanhulle)! - The `house` style draws visuals with the client's inline visual tool when the session has one, such as Claude's inline visuals, and falls back to Mermaid only in clients without one.
+  
+  - Fix the `review` skill's frontmatter, which strict YAML loaders rejected.
+  - Stop `branch` and `backlog` from tracking `origin/main`, and drop the `git pull --ff-only` in `review` that failed before the first push.
+  - Run the `conventions` rules in the `code-reviewer` subagent instead of a hardcoded subset.
+  - Post inline review findings with `gh api` and `glab mr note create`, and triage with `gh issue edit`.
+  - Read the text after a Cursor command instead of `$1`, which Cursor does not fill in.
+
 ## 2.10.0
 
 ### Minor Changes
