@@ -1,12 +1,12 @@
 ---
 name: tech-debt
-description: Audits a whole codebase for tech debt and writes TECH_DEBT_AUDIT.md with file-cited findings, severity, effort, and the calls that look bad but are fine. Use only when asked for a tech debt audit, a codebase health check, or an architecture or code quality review of an entire repo or module. For a diff or a pull request, use `deslop` or `review`.
+description: Audits a whole codebase for tech debt and publishes the audit as a page, such as a Claude artifact, with file-cited findings, severity, effort, and the calls that look bad but are fine. Use only when asked for a tech debt audit, a codebase health check, or an architecture or code quality review of an entire repo or module. For a diff or a pull request, use `deslop` or `review`.
 ---
 
 # Tech debt
 
-Audit the codebase as it is and write the findings to `TECH_DEBT_AUDIT.md`. The audit changes no
-code. The input is an optional path, such as `src/payments`, that scopes the audit to one module.
+Audit the codebase as it is and publish the findings as a page. The audit changes no code and
+adds no file to the repo. The input is an optional path, such as `src/payments`, that scopes the audit to one module.
 
 Every finding cites `path:line`. A finding without a citation is an impression, so leave it out.
 Read the code before you judge it, since a pattern that looks wrong alone may hold something up.
@@ -72,7 +72,9 @@ audit one module at a time and write its findings down before you read the next.
 
 ## 3. Write the audit
 
-Write `TECH_DEBT_AUDIT.md` in the repo root with these sections, in order:
+Publish the audit as a page: a Claude artifact, or the equivalent in Cursor or Codex. The request
+for an audit is the yes to build it. When the client has no page tool, write
+`TECH_DEBT_AUDIT.md` in the repo root instead and say so. The page has these sections, in order:
 
 1. Executive summary: ten bullets at most, ranked by impact.
 2. Architectural mental model: the system as it is.
@@ -88,12 +90,13 @@ Write `TECH_DEBT_AUDIT.md` in the repo root with these sections, in order:
 
 Recommend specific, scoped changes, never a rewrite.
 
-When `TECH_DEBT_AUDIT.md` already exists, read it first. Mark fixed findings `RESOLVED`, update
-the stale ones, and tag the new ones `NEW`.
+When the user gives an earlier audit, as a page link or a `TECH_DEBT_AUDIT.md` in the repo, read
+it first and update it in place. Mark fixed findings `RESOLVED`, update the stale ones, and tag
+the new ones `NEW`.
 
 ## Output
 
-The file `TECH_DEBT_AUDIT.md`. In chat, give the counts per severity, the top 5, and the tools
+The link to the page, or the file path when there is no page tool. In chat, give the counts per severity, the top 5, and the tools
 that were missing. Fixing a finding is a separate request.
 
 Adapted from [ksimback/tech-debt-skill](https://github.com/ksimback/tech-debt-skill), MIT.
