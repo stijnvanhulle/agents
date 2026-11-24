@@ -1,5 +1,16 @@
 # @stijnvanhulle/claude-plugin
 
+## 2.12.0
+
+### Minor Changes
+
+- [#55](https://github.com/stijnvanhulle/agents/pull/55) [`8b9597b`](https://github.com/stijnvanhulle/agents/commit/8b9597be6e82e04847e41110e791b8507d56eb24) Thanks [@stijnvanhulle](https://github.com/stijnvanhulle)! - Add the `tech-debt` skill, which audits a whole codebase and publishes the findings as a page, such as a Claude artifact.
+  
+  - Cites `path:line` for every finding, with a severity and an effort estimate.
+  - Lists the calls that look bad but are fine, and the open questions for the maintainer.
+  - Writes `TECH_DEBT_AUDIT.md` instead when the client has no page tool.
+  - Updates an earlier audit in place, marking findings `RESOLVED` or `NEW`.
+
 ## 2.11.0
 
 ### Minor Changes
