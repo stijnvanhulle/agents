@@ -96,7 +96,5 @@ the new ones `NEW`.
 
 ## Output
 
-The link to the page, or the file path when there is no page tool. In chat, give the counts per severity, the top 5, and the tools
-that were missing. Fixing a finding is a separate request.
-
-Adapted from [ksimback/tech-debt-skill](https://github.com/ksimback/tech-debt-skill), MIT.
+The link to the page, or the file path when there is no page tool. In chat, give the counts per
+severity, the top 5, and the tools that were missing. Fixing a finding is a separate request.
