@@ -35,15 +35,21 @@ unanswered, stop and say the bump is missing.
 Name it `.changeset/<slug>.md` for whoever reads `git log`: `plugin-resolver-cache.md`, not
 `fix.md`. List only the packages you changed. Then, in order:
 
-1. One sentence on what the user gets. It becomes the changelog headline, so it stands alone.
-2. One bullet per user-visible change, verb first, naming the real option, export, or command.
-   One line each, saying what the user gets, not how it works. Five at most, and none for a
-   one-line change.
-3. A code example whenever users write something differently: a `diff` fence for a few lines,
-   otherwise before and after blocks.
-4. For a `major`, a closing line on what to change to upgrade.
+1. One sentence on what the user gets, 20 words at most. It becomes the changelog headline, so
+   it stands alone.
+2. Everything after the headline is a visual element, never a paragraph: bullets, a `diff` fence,
+   a code block, or a small table.
+3. One bullet per user-visible change the headline does not already cover, verb first, naming the
+   real option, export, or command. One line each, saying what the user gets, not how it works.
+   Three at most, and none for a one-line change.
+4. A `diff` fence whenever users write something differently or the output changes: `-` for what
+   goes, `+` for what comes, five lines at most. Use before and after blocks only when a diff
+   cannot show it.
+5. For a `major`, a closing bullet on what to change to upgrade.
 
-Leave out file paths, PR numbers, reviewer talk, and emoji. Changesets adds the commit link.
+Keep the body under ten lines, fences included. Cut a reason the reader does not act on, such as
+why the bug happened. Leave out file paths, PR numbers, reviewer talk, and emoji. Changesets adds
+the commit link.
 
 ````md
 ---
@@ -53,7 +59,6 @@ Leave out file paths, PR numbers, reviewer talk, and emoji. Changesets adds the 
 Add `unionType` so one type covers every variant of a discriminated schema.
 
 - Accepts `unionType: 'asConst' | 'asLiteral'`, defaulting to `asConst`.
-- Leaves output unchanged when the option is not set.
 
 ```diff
 - export type PetDog = { type: 'dog'; bark: string }
@@ -62,8 +67,22 @@ Add `unionType` so one type covers every variant of a discriminated schema.
 ```
 ````
 
-A patch is usually one sentence and no example: "Resolve nested plugin paths on Windows, which broke on a
-backslash separator."
+A patch is the headline alone, or the headline and one diff when config or output changes:
+
+````md
+---
+'@scope/core': patch
+---
+
+Generate the schemas a `schemaName` include references.
+
+```diff
+  include: [
+    { type: 'schemaName', pattern: '^Pet$' },
+-   { type: 'schemaName', pattern: '^Store$' },
+  ]
+```
+````
 
 ## Output
 
