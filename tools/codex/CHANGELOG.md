@@ -1,5 +1,14 @@
 # @stijnvanhulle/codex-plugin
 
+## 2.12.1
+
+### Patch Changes
+
+- [#57](https://github.com/stijnvanhulle/agents/pull/57) [`f64d7c6`](https://github.com/stijnvanhulle/agents/commit/f64d7c69fe8a7db02cc70477b222aaa1714cd546) Thanks [@stijnvanhulle](https://github.com/stijnvanhulle)! - Make the `changeset` skill write shorter notes built from bullets and `diff` fences.
+  
+  - Caps the headline at 20 words, the bullets at three, and the body at ten lines.
+  - Requires a `diff` fence when config or output changes, and never a paragraph after the headline.
+
 ## 2.12.0
 
 ### Minor Changes
